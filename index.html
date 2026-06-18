@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กังย่งเฮง | ขายส่งอุปกรณ์การประมงทุกชนิด - Kang Yong Heng Wholesale Fishing Equipment</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+        }
+        /* Scrollbar Hidden */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-height-screen">
+
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div onclick="navigateTo('home')" class="flex-shrink-0 flex items-center cursor-pointer group">
+                    <span class="text-2xl font-black text-blue-950 tracking-wider transition group-hover:text-blue-900 data-translate" data-key="logo">กังย่งเฮง</span>
+                    <span class="ml-2 text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded-full font-bold tracking-widest">WHOLESALE</span>
+                </div>
+                
+                <div class="hidden lg:flex space-x-6 xl:space-x-8 font-medium">
+                    <button onclick="navigateTo('home')" id="nav-home" class="text-blue-900 border-b-2 border-blue-900 pb-1 font-semibold transition cursor-pointer data-translate" data-key="nav_home">หน้าแรก</button>
+                    <button onclick="navigateTo('catalog')" id="nav-catalog" class="text-slate-500 hover:text-blue-900 pb-1 transition cursor-pointer data-translate" data-key="nav_catalog">แคตตาล็อกสินค้า</button>
+                    <a href="#about" class="text-slate-500 hover:text-blue-900 transition data-translate" data-key="nav_about">ทำไมต้องเป็นเรา</a>
+                    <a href="#contact" class="text-slate-500 hover:text-blue-900 transition data-translate" data-key="nav_contact">ติดต่อขายส่ง</a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-3 xl:gap-4">
+                    <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200 text-[11px] font-bold">
+                        <button onclick="switchLang('th')" id="lang-btn-th" class="px-2 py-1 rounded-lg bg-blue-950 text-white transition cursor-pointer">TH</button>
+                        <button onclick="switchLang('en')" id="lang-btn-en" class="px-2 py-1 rounded-lg text-slate-600 hover:text-blue-950 transition cursor-pointer">EN</button>
+                        <button onclick="switchLang('ch')" id="lang-btn-ch" class="px-2 py-1 rounded-lg text-slate-600 hover:text-blue-950 transition cursor-pointer">中文</button>
+                        <button onclick="switchLang('jp')" id="lang-btn-jp" class="px-2 py-1 rounded-lg text-slate-600 hover:text-blue-950 transition cursor-pointer">日本語</button>
+                    </div>
+                    
+                    <a href="#contact" class="bg-blue-950 text-white px-4 xl:px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-900 transition shadow-lg shadow-blue-950/15 data-translate" data-key="btn_quote">
+                        ขอใบเสนอราคา
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-2 md:hidden">
+                    <div class="flex bg-slate-100 p-0.5 rounded-lg text-[10px] font-bold">
+                        <button onclick="switchLang('th')" id="lang-btn-mobile-th" class="px-1.5 py-1 rounded-md bg-blue-950 text-white transition">TH</button>
+                        <button onclick="switchLang('en')" id="lang-btn-mobile-en" class="px-1.5 py-1 rounded-md text-slate-600 transition">EN</button>
+                        <button onclick="switchLang('ch')" id="lang-btn-mobile-ch" class="px-1.5 py-1 rounded-md text-slate-600 transition">中</button>
+                        <button onclick="switchLang('jp')" id="lang-btn-mobile-jp" class="px-1.5 py-1 rounded-md text-slate-600 transition">日</button>
+                    </div>
+                    <button onclick="toggleMobileMenu()" class="text-slate-700 hover:text-blue-950 focus:outline-none pl-1">
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 py-4 px-6 space-y-3 shadow-inner">
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left font-medium text-slate-700 hover:text-blue-950 py-2 data-translate" data-key="nav_home">หน้าแรก</button>
+            <button onclick="navigateTo('catalog'); toggleMobileMenu()" class="block w-full text-left font-medium text-slate-700 hover:text-blue-950 py-2 data-translate" data-key="nav_catalog">แคตตาล็อกสินค้า</button>
+            <a href="#about" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-blue-950 py-2 data-translate" data-key="nav_about">ทำไมต้องเป็นเรา</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-blue-950 py-2 data-translate" data-key="nav_contact">ติดต่อขายส่ง</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-center bg-blue-950 text-white py-2.5 rounded-lg font-medium data-translate" data-key="btn_quote">ขอใบเสนอราคา</a>
+        </div>
+    </nav>
+
+    <div id="view-home" class="transition-all duration-300">
+        <section class="relative bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 text-white py-24 md:py-36 overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
+            <div class="absolute -right-40 -top-40 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
+            <div class="absolute -left-40 -bottom-40 w-96 h-96 bg-teal-500 rounded-full blur-3xl opacity-20"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-3xl">
+                    <span class="inline-flex items-center gap-1.5 bg-orange-500/10 text-orange-400 border border-orange-500/20 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
+                        <span class="data-translate" data-key="hero_tag">ศูนย์รวมอุปกรณ์ประมงค้าส่งอันดับหนึ่ง</span>
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                        <span class="data-translate" data-key="hero_title1">กังย่งเฮง</span> <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-cyan-200 data-translate" data-key="hero_title2">ผู้นำอุปกรณ์การประมงทุกประเภท</span>
+                    </h1>
+                    <p class="text-slate-300 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl data-translate" data-key="hero_desc">
+                        เราจำหน่าย ขายส่งอุปกรณ์การประมง และวัสดุอุปกรณ์ที่ใช้ในอุตสาหกรรมประมงครบวงจร คัดเกรดพรีเมียมจากผู้ผลิตชั้นนำทั่วไทย พร้อมราคาส่งที่ดีที่สุดสำหรับพี่น้องชาวประมงทุกท่าน
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="navigateTo('catalog')" class="bg-orange-500 hover:bg-orange-600 text-white text-center px-8 py-4 rounded-xl font-medium transition duration-200 shadow-lg shadow-orange-500/25 cursor-pointer flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-book-open"></i> <span class="data-translate" data-key="btn_view_catalog">ดูแคตตาล็อกสินค้า</span>
+                        </button>
+                        <a href="#contact" class="border border-white/20 hover:border-white text-center text-white px-8 py-4 rounded-xl font-medium transition backdrop-blur-sm bg-white/5 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone"></i> <span class="data-translate" data-key="btn_contact_sales">ติดต่อเจ้าหน้าที่ฝ่ายขาย</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="flex items-start p-2 group">
+                        <div class="p-4 bg-blue-50 text-blue-950 rounded-2xl mr-5 transition duration-300 group-hover:bg-blue-950 group-hover:text-white flex-shrink-0">
+                            <i class="fa-solid fa-award text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1.5 text-blue-950 data-translate" data-key="feat1_title">คุณภาพมาตรฐานอุตสาหกรรม</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed data-translate" data-key="feat1_desc">วัสดุเกรดหนาพิเศษ ทนแดด ทนน้ำเค็มจัด ออกแบบมาสำหรับการประมงสมบุกสมบันโดยเฉพาะ</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-2 group">
+                        <div class="p-4 bg-blue-50 text-blue-950 rounded-2xl mr-5 transition duration-300 group-hover:bg-blue-950 group-hover:text-white flex-shrink-0">
+                            <i class="fa-solid fa-tags text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1.5 text-blue-950 data-translate" data-key="feat2_title">ราคาส่งตรงจากแหล่งผลิต</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed data-translate" data-key="feat2_desc">โครงสร้างราคาที่ยืดหยุ่น ยิ่งสั่งซื้อปริมาณมากยิ่งได้ส่วนลดที่ประหยัดต้นทุนร้านค้าคุณได้สูงสุด</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-2 group">
+                        <div class="p-4 bg-blue-50 text-blue-950 rounded-2xl mr-5 transition duration-300 group-hover:bg-blue-950 group-hover:text-white flex-shrink-0">
+                            <i class="fa-solid fa-truck-fast text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1.5 text-blue-950 data-translate" data-key="feat3_title">บริการจัดส่งไว ทั่วประเทศไทย</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed data-translate" data-key="feat3_desc">ประสานงานกับเครือข่ายขนส่งชั้นนำ มั่นใจได้ว่าสินค้าจะถูกจัดส่งถึงท่านหรือหน้าร้านค้าของคุณอย่างรวดเร็ว</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-orange-500 font-bold uppercase tracking-wider text-xs block mb-2">PRODUCT PREVIEW</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-blue-950 data-translate" data-key="preview_title">หมวดหมู่สินค้าหลัก</h2>
+                    </div>
+                    <button onclick="navigateTo('catalog')" class="text-blue-950 font-bold hover:text-orange-500 transition mt-4 md:mt-0 flex items-center gap-2 cursor-pointer bg-transparent border-none">
+                        <span class="data-translate" data-key="preview_all_link">เข้าสู่แคตตาล็อกทั้งหมด</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div onclick="navigateTo('catalog', 'nets')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_0" alt="Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat1_title">อวนฟ้า อวนขี้ม้า อวนใยยักษ์</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat1_desc">มีทุกขนาดตาและความลึก งานถักเครื่องประณีต ไม่แตกขาดง่าย</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div onclick="navigateTo('catalog', 'ropes')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_2" alt="Ropes" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat2_title">เชือกใยยักษ์ และ เชือกสลิง</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat2_desc">ทนทานต่อแรงดึงมหาศาล สเปกเรืออุตสาหกรรมและประมงพื้นบ้าน</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div onclick="navigateTo('catalog', 'accessories')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_4" alt="Floats" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat3_title">ทุ่นลอย และ อุปกรณ์เสริม</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat3_desc">ทุ่นโฟม ทุ่นเหล็ก ไฟกระพริบระบุตำแหน่งพิกัดอวน และอื่นๆ</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div onclick="navigateTo('catalog', 'lines')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_1" alt="Lines & Hooks" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat4_title">เอ็นเดี่ยวและเบ็ดกล่อง</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat4_desc">เอ็นไนลอนโปร่งใส และเบ็ดสแตนเลสคาร์บอนกันสนิมสำหรับงานทะเล</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div onclick="navigateTo('catalog', 'nets')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_0" alt="Cast Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat5_title">แหฝรั่งถักมือ เกรดพรีเมียม</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat5_desc">แหเอ็นเกลียวคุณภาพสูง จมน้ำไว บานง่าย เหมาะกับงานทอดหาปลาทั่วไป</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div onclick="navigateTo('catalog', 'accessories')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_3" alt="Waders" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat6_title">ชุดลุยน้ำและเสื้อกันฝนประมง</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat6_desc">ชุดเอี๊ยมกันน้ำ PVC เนื้อหนาพิเศษและอุปกรณ์เซฟตี้สำหรับชาวประมง</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="view-catalog" class="hidden transition-all duration-300">
+        <section class="bg-slate-900 text-white py-14 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <span class="text-orange-400 font-bold uppercase tracking-wider text-xs block mb-1">DIGITAL WHOLESALE CATALOG</span>
+                <h1 class="text-3xl md:text-4xl font-extrabold mb-3 data-translate" data-key="catalog_title">แคตตาล็อกสินค้าออนไลน์</h1>
+                <p class="text-slate-400 max-w-2xl text-sm md:text-base data-translate" data-key="catalog_subtitle">เลือกชมรายการอุปกรณ์ประมงคุณภาพสูง คัดสรรพิเศษเพื่อลูกค้าขายส่ง คุณสามารถค้นหาสินค้า และกดปุ่มติดต่อสอบถามราคาเพื่อขอใบเสนอราคาด่วนได้ทันที</p>
+            </div>
+        </section>
+
+        <section class="bg-white border-b border-slate-200 sticky top-20 z-40 shadow-sm py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row gap-4 justify-between items-center">
+                    
+                    <div class="relative w-full lg:max-w-xs">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400 pointer-events-none">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" id="catalog-search" oninput="filterCatalog()" class="w-full bg-slate-50 text-slate-800 text-sm rounded-xl pl-10 pr-4 py-2.5 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:bg-white transition" placeholder="ค้นหาชื่อสินค้า...">
+                    </div>
+
+                    <div class="w-full overflow-x-auto no-scrollbar flex space-x-2 py-1">
+                        <button onclick="setFilter('all')" id="filter-btn-all" class="px-5 py-2 text-xs font-semibold rounded-full border border-blue-900 bg-blue-950 text-white whitespace-nowrap transition cursor-pointer shadow-sm data-translate" data-key="filter_all">ทั้งหมด</button>
+                        <button onclick="setFilter('nets')" id="filter-btn-nets" class="px-5 py-2 text-xs font-semibold rounded-full border border-slate-200 hover:border-blue-950 hover:bg-slate-50 text-slate-600 whitespace-nowrap transition cursor-pointer data-translate" data-key="filter_nets">แหและอวน</button>
+                        <button onclick="setFilter('ropes')" id="filter-btn-ropes" class="px-5 py-2 text-xs font-semibold rounded-full border border-slate-200 hover:border-blue-950 hover:bg-slate-50 text-slate-600 whitespace-nowrap transition cursor-pointer data-translate" data-key="filter_ropes">เชือกประมง</button>
+                        <button onclick="setFilter('accessories')" id="filter-btn-accessories" class="px-5 py-2 text-xs font-semibold rounded-full border border-slate-200 hover:border-blue-950 hover:bg-slate-50 text-slate-600 whitespace-nowrap transition cursor-pointer data-translate" data-key="filter_acc">ทุ่นและอุปกรณ์เสริม</button>
+                        <button onclick="setFilter('lines')" id="filter-btn-lines" class="px-5 py-2 text-xs font-semibold rounded-full border border-slate-200 hover:border-blue-950 hover:bg-slate-50 text-slate-600 whitespace-nowrap transition cursor-pointer data-translate" data-key="filter_lines">เอ็นและเบ็ด</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                
+                <div class="product-card bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full" 
+                     data-category="nets" 
+                     data-name-th="แหเอ็นเกลียว ทอเครื่องเกรด A" 
+                     data-name-en="Machine-Woven Nylon Cast Net (Grade A)"
+                     data-name-ch="机织尼龙投网（A级优质）"
+                     data-name-jp="機械織りナイロン投網（グレードA）">
+                    <div class="h-52 bg-slate-200 overflow-hidden relative">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_0" alt="Product" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-blue-950 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">HOT ITEM</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-orange-500 uppercase tracking-widest mb-1 data-translate" data-key="filter_nets">แหและอวน</span>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2 product-title-node">แหเอ็นเกลียว ทอเครื่องเกรด A</h3>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2 flex-grow product-desc-node" 
+                           data-th="ถักเกลียวเหนียวเป็นพิเศษ ทนน้ำหนักได้เยอะ ตัวแหจมน้ำเร็ว ไม่เกาะขี้เลน เหมาะกับงานจับปลาชายฝั่งและแม่น้ำ" 
+                           data-en="Extra durable twisted mesh. Sinks quickly without mud sticking. Best for coast and river fishing."
+                           data-ch="超耐用加固扭绳网面。下沉速度快且不粘泥沙。非常适合海岸与河流捕捞。"
+                           data-jp="極めて耐久性の高い強撚糸仕様。沈降速度が速く、泥が付きにくい。沿岸や河川での漁に最適。">ถักเกลียวเหนียวเป็นพิเศษ...</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded-xl mb-4 text-xs space-y-1 text-slate-600 border border-slate-100 product-spec-node" 
+                             data-th="<div><strong>ขนาดตาอวน:</strong> 1.5 ซม. - 5.0 ซม.</div><div><strong>ความยาว:</strong> 8 - 12 ศอก</div><div><strong>ขั้นต่ำในการส่ง:</strong> 10 ปาก ขึ้นไป</div>"
+                             data-en="<div><strong>Mesh Size:</strong> 1.5 cm - 5.0 cm</div><div><strong>Length:</strong> 4 - 6 meters</div><div><strong>Wholesale MOQ:</strong> 10 pcs</div>"
+                             data-ch="<div><strong>网眼尺寸:</strong> 1.5 厘米 - 5.0 厘米</div><div><strong>长度规格:</strong> 4 - 6 米</div><div><strong>批发最低起订:</strong> 10 顶</div>"
+                             data-jp="<div><strong>目合いサイズ:</strong> 1.5 cm - 5.0 cm</div><div><strong>長さ寸法:</strong> 4 - 6 メートル</div><div><strong>卸売最低ロット:</strong> 10 張</div>">
+                        </div>
+                        <button onclick="requestQuoteFromCard(this)" class="w-full bg-blue-950 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-orange-500 hover:shadow-lg transition duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-paper-plane text-xs"></i> <span class="data-translate" data-key="btn_ask_price">สอบถามราคาส่งด่วน</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full" 
+                     data-category="nets" 
+                     data-name-th="อวนไนลอนสำเร็จรูป ขอบหนาพิเศษ" 
+                     data-name-en="Ready-Made Nylon Fishing Net (Thick Border)"
+                     data-name-ch="成品尼龙捕鱼网（加厚加固边）"
+                     data-name-jp="仕立て上がりナイロン刺し網（特厚縁）">
+                    <div class="h-52 bg-slate-200 overflow-hidden relative">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_1" alt="Product" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-orange-500 uppercase tracking-widest mb-1 data-translate" data-key="filter_nets">แหและอวน</span>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2 product-title-node">อวนไนลอนสำเร็จรูป ขอบหนา</h3>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2 flex-grow product-desc-node" 
+                           data-th="อวนไนลอนสำเร็จรูปพร้อมร้อยลูกแห พร้อมใช้งานทันที ทนต่อน้ำเค็ม ทนแดดจัด ไม่ผุกร่อนง่าย" 
+                           data-en="Ready-to-use nylon net equipped with weights. Saltwater and UV resistant. Corrosive-proof materials."
+                           data-ch="配备沉子的成品现货尼龙网，即买即用。耐高度盐水与强紫外线，不易腐蚀生锈。"
+                           data-jp="オモリ付きの仕立て上がりナイロン網、すぐに使用可能。耐塩性・耐紫外線に優れ、腐食しにくい材質。">อวนไนลอนสำเร็จรูปพร้อม...</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded-xl mb-4 text-xs space-y-1 text-slate-600 border border-slate-100 product-spec-node"
+                             data-th="<div><strong>ขนาดเส้นด้าย:</strong> 180D/9 - 180D/24</div><div><strong>ความสูงอวน:</strong> 2.0 ม. - 6.0 ม.</div><div><strong>ขั้นต่ำในการส่ง:</strong> 5 ม้วน ขึ้นไป</div>"
+                             data-en="<div><strong>Twine Size:</strong> 180D/9 - 180D/24</div><div><strong>Height:</strong> 2.0 m - 6.0 m</div><div><strong>Wholesale MOQ:</strong> 5 rolls</div>"
+                             data-ch="<div><strong>线径规格:</strong> 180D/9 - 180D/24</div><div><strong>网具高度:</strong> 2.0 米 - 6.0 米</div><div><strong>批发最低起订:</strong> 5 卷</div>"
+                             data-jp="<div><strong>糸の太さ:</strong> 180D/9 - 180D/24</div><div><strong>網の高さ:</strong> 2.0 m - 6.0 m</div><div><strong>卸売最低ロット:</strong> 5 巻</div>">
+                        </div>
+                        <button onclick="requestQuoteFromCard(this)" class="w-full bg-blue-950 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-orange-500 hover:shadow-lg transition duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-paper-plane text-xs"></i> <span class="data-translate" data-key="btn_ask_price">สอบถามราคาส่งด่วน</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full" 
+                     data-category="ropes" 
+                     data-name-th="เชือกใยยักษ์เกรดพรีเมียม สเปกประมง" 
+                     data-name-en="Premium High-Strength PE Rope (Fishery Spec)"
+                     data-name-ch="高级高强度聚乙烯巨型绳索（渔业专用）"
+                     data-name-jp="最高級高強度PEロープ（漁業業務用）">
+                    <div class="h-52 bg-slate-200 overflow-hidden relative">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_2" alt="Product" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-teal-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">POPULAR</span>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-orange-500 uppercase tracking-widest mb-1 data-translate" data-key="filter_ropes">เชือกประมง</span>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2 product-title-node">เชือกใยยักษ์เกรดพรีเมียม</h3>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2 flex-grow product-desc-node" 
+                           data-th="เชือกเหนียวพิเศษ ผสมสารป้องการรังสี UV มีความหนาแน่นสูง ไม่ดูดซับน้ำ แข็งแกร่งทนทานต่อแรงเสียดสี" 
+                           data-en="Ultra-tough rope with UV stabilizers. High density, non-absorbent, and highly resistant to abrasions."
+                           data-ch="含抗UV稳定剂的特强高韧性绳索。高密度不吸水，抗拉强度极高，耐严重摩擦。"
+                           data-jp="UV吸収剤配合の超強力・高靭性ロープ。高密度で吸水せず、摩擦や引っ張りに圧倒的に強い。">เชือกเหนียวพิเศษ...</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded-xl mb-4 text-xs space-y-1 text-slate-600 border border-slate-100 product-spec-node"
+                             data-th="<div><strong>ขนาดเส้นผ่านศูนย์กลาง:</strong> 4 มม. - 24 มม.</div><div><strong>ความยาวม้วน:</strong> 200 เมตร</div><div><strong>ขั้นต่ำในการส่ง:</strong> 3 ม้วนใหญ่</div>"
+                             data-en="<div><strong>Diameter:</strong> 4 mm - 24 mm</div><div><strong>Roll Length:</strong> 200 m</div><div><strong>Wholesale MOQ:</strong> 3 big rolls</div>"
+                             data-ch="<div><strong>绳索直径:</strong> 4 毫米 - 24 毫米</div><div><strong>整卷长度:</strong> 200 米</div><div><strong>批发最低起订:</strong> 3 大卷</div>"
+                             data-jp="<div><strong>ロープ径:</strong> 4 mm - 24 mm</div><div><strong>巻長さ:</strong> 200 m</div><div><strong>卸売最低ロット:</strong> 3 大巻</div>">
+                        </div>
+                        <button onclick="requestQuoteFromCard(this)" class="w-full bg-blue-950 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-orange-500 hover:shadow-lg transition duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-paper-plane text-xs"></i> <span class="data-translate" data-key="btn_ask_price">สอบถามราคาส่งด่วน</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full" 
+                     data-category="accessories" 
+                     data-name-th="ทุ่นไฟกระพริบ LED โซล่าเซลล์ 360 องศา" 
+                     data-name-en="360° Solar LED Warning Beacon Float"
+                     data-name-ch="360度太阳能发光LED网位标标灯浮标"
+                     data-name-jp="360度ソーラーLED網位置シグナル灯浮標">
+                    <div class="h-52 bg-slate-200 overflow-hidden relative">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_3" alt="Product" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-orange-500 uppercase tracking-widest mb-1 data-translate" data-key="filter_acc">ทุ่นและอุปกรณ์เสริม</span>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2 product-title-node">ทุ่นไฟกระพริบ LED โซล่าเซลล์</h3>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2 flex-grow product-desc-node" 
+                           data-th="เปิด-ปิด อัตโนมัติด้วยเซ็นเซอร์แสง ชาร์จพลังงานในตัว กันน้ำลึก ทัศนวิสัยการมองเห็นไกลกว่า 500 เมตร" 
+                           data-en="Auto On/Off with light sensors. Built-in solar charging. Deep waterproof with over 500m visibility."
+                           data-ch="光敏传感器控制自动开启或关闭。内置太阳能充电板，深度防水，夜间能见度超500米。"
+                           data-jp="明暗センサーにより自動点灯・消灯。ソーラー充電式、高防水、夜間視認距離500m以上。">เปิด-ปิด อัตโนมัติ...</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded-xl mb-4 text-xs space-y-1 text-slate-600 border border-slate-100 product-spec-node"
+                             data-th="<div><strong>แหล่งพลังงาน:</strong> แผงโซล่าเซลล์ในตัว</div><div><strong>สีของแสงไฟ:</strong> แดง / เขียว / เหลือง</div><div><strong>ขั้นต่ำในการส่ง:</strong> 20 ตัว ขึ้นไป</div>"
+                             data-en="<div><strong>Power Source:</strong> Built-in Solar</div><div><strong>LED Colors:</strong> Red / Green / Yellow</div><div><strong>Wholesale MOQ:</strong> 20 pcs</div>"
+                             data-ch="<div><strong>能源配置:</strong> 自带太阳能充电</div><div><strong>闪烁灯色:</strong> 红 / 绿 / 黄</div><div><strong>批发最低起订:</strong> 20 个</div>"
+                             data-jp="<div><strong>電源方式:</strong> 内蔵ソーラーパネル</div><div><strong>LEDカラー:</strong> 赤 / 緑 / 黄</div><div><strong>卸売最低ロット:</strong> 20 個</div>">
+                        </div>
+                        <button onclick="requestQuoteFromCard(this)" class="w-full bg-blue-950 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-orange-500 hover:shadow-lg transition duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-paper-plane text-xs"></i> <span class="data-translate" data-key="btn_ask_price">สอบถามราคาส่งด่วน</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full" 
+                     data-category="accessories" 
+                     data-name-th="ทุ่นลอยโฟมเนื้อหนา HD ตราสมอเรือ" 
+                     data-name-en="Anchor Brand Heavy Duty HD Foam Float"
+                     data-name-ch="船锚牌高密度加硬泡沫浮球"
+                     data-name-jp="アンカー印高密度高硬度フォームフロート">
+                    <div class="h-52 bg-slate-200 overflow-hidden relative">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_4" alt="Product" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-orange-500 uppercase tracking-widest mb-1 data-translate" data-key="filter_acc">ทุ่นและอุปกรณ์เสริม</span>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2 product-title-node">ทุ่นโฟมลอยน้ำความหนาสูง HD</h3>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2 flex-grow product-desc-node" 
+                           data-th="ทุ่นโฟมลอยตัวสำหรับกั้นเขต ค้ำอวนลากน้ำตื้นและลึก ตัวโฟมอัดแข็งหนาแน่นพิเศษ ไม่ดูดน้ำ ไม่แตกหักง่าย" 
+                           data-en="High-density foam floats for boundaries or netting support. Non-absorbent and crack resistant."
+                           data-ch="高密度硬质泡沫浮子，用于水域划分或各类拖网、网具支撑。不吸水、耐撞击不易破碎。"
+                           data-jp="境界線のマークや各種ネットの支持用高密度ハードフォームフロート。非吸水性で割れにくい。">ทุ่นโฟมลอยตัว...</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded-xl mb-4 text-xs space-y-1 text-slate-600 border border-slate-100 product-spec-node"
+                             data-th="<div><strong>ขนาด:</strong> รุ่นเล็ก 5 ซม. / รุ่นใหญ่ 15 ซม.</div><div><strong>วัสดุ:</strong> โฟมอัดหนาพิเศษเนื้อหยาบ</div><div><strong>ขั้นต่ำในการส่ง:</strong> 100 ลูก ขึ้นไป</div>"
+                             data-en="<div><strong>Sizes:</strong> Small 5cm / Large 15cm</div><div><strong>Material:</strong> Compressed Premium Foam</div><div><strong>Wholesale MOQ:</strong> 100 pcs</div>"
+                             data-ch="<div><strong>尺寸规格:</strong> 小号 5cm / 大号 15cm</div><div><strong>材质工艺:</strong> 高级加硬特挤压泡沫</div><div><strong>批发最低起订:</strong> 100 个</div>"
+                             data-jp="<div><strong>サイズ展開:</strong> 小 5cm / 大 15cm</div><div><strong>材質構成:</strong> 高硬度圧縮特殊フォーム</div><div><strong>卸売最低ロット:</strong> 100 個</div>">
+                        </div>
+                        <button onclick="requestQuoteFromCard(this)" class="w-full bg-blue-950 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-orange-500 hover:shadow-lg transition duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-paper-plane text-xs"></i> <span class="data-translate" data-key="btn_ask_price">สอบถามราคาส่งด่วน</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col h-full" 
+                     data-category="lines" 
+                     data-name-th="เอ็นตกปลามัดใหญ่ ตราวารีประมง" 
+                     data-name-en="Vari-Pramong Export Quality Monofilament Line"
+                     data-name-ch="瓦里牌高品质出口级尼龙单丝钓线"
+                     data-name-jp="テグス・高級輸出仕様ナイロンモノフィラメントライン">
+                    <div class="h-52 bg-slate-200 overflow-hidden relative">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_1" alt="Product" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-orange-500 uppercase tracking-widest mb-1 data-translate" data-key="filter_lines">เอ็นและเบ็ด</span>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2 product-title-node">เอ็นเดี่ยวตกปลา คุณภาพส่งออก</h3>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-2 flex-grow product-desc-node" 
+                           data-th="เอ็นไนลอนโปร่งใสลื่นพริ้วกลมกลืนกับน้ำ แข็งแกร่งต่อการรับน้ำหนักสูง ยืดหยุ่นดีปลาไม่ตื่นตัวตกง่าย" 
+                           data-en="Transparent nylon line that blends seamlessly in water. High tensile strength and perfect flexibility."
+                           data-ch="高透明度尼龙单丝线，入水隐形。拉力强劲悍，延伸性好，不易惊扰鱼群。"
+                           data-jp="水中でのカモフラージュ性に優れた高透明ナイロンテグス。引張強度が非常に高く適度なヨレにくさ。">เอ็นไนลอนโปร่งใส...</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded-xl mb-4 text-xs space-y-1 text-slate-600 border border-slate-100 product-spec-node"
+                             data-th="<div><strong>ขนาดเส้นเอ็น:</strong> 0.20 มม. - 1.20 มม.</div><div><strong>น้ำหนัก:</strong> ม้วนละ 1 กิโลกรัม</div><div><strong>ขั้นต่ำในการส่ง:</strong> 10 กิโลกรัม ขึ้นไป</div>"
+                             data-en="<div><strong>Line Sizes:</strong> 0.20 mm - 1.20 mm</div><div><strong>Weight:</strong> 1 kg per bundle</div><div><strong>Wholesale MOQ:</strong> 10 kg</div>"
+                             data-ch="<div><strong>线径范围:</strong> 0.20 毫米 - 1.20 毫米</div><div><strong>包装重量:</strong> 每捆 1 公斤</div><div><strong>批发最低起订:</strong> 10 公斤</div>"
+                             data-jp="<div><strong>ライン径:</strong> 0.20 mm - 1.20 mm</div><div><strong>梱包重量:</strong> 1束あたり 1 kg</div><div><strong>卸売最低ロット:</strong> 10 kg</div>">
+                        </div>
+                        <button onclick="requestQuoteFromCard(this)" class="w-full bg-blue-950 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-orange-500 hover:shadow-lg transition duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-paper-plane text-xs"></i> <span class="data-translate" data-key="btn_ask_price">สอบถามราคาส่งด่วน</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div id="no-products-msg" class="hidden text-center py-12">
+                <i class="fa-solid fa-magnifying-glass text-slate-300 text-5xl mb-4"></i>
+                <h3 class="text-lg font-bold text-slate-700 data-translate" data-key="no_prod_title">ไม่พบสินค้า</h3>
+                <p class="text-slate-500 text-sm mt-1 data-translate" data-key="no_prod_desc">ลองค้นหาด้วยคำอื่นหรือเปลี่ยนตัวเลือกหมวดหมู่สินค้า</p>
+            </div>
+        </section>
+    </div>
+
+    <section id="contact" class="py-20 bg-blue-950 text-white relative">
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div>
+                    <span class="text-orange-400 font-bold tracking-widest uppercase text-xs block mb-3">CONTACT DEPT</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 data-translate" data-key="contact_title">ติดต่อฝ่ายขาย / ขอใบเสนอราคา</h2>
+                    <p class="text-slate-300 mb-8 leading-relaxed max-w-lg data-translate" data-key="contact_desc">
+                        สนใจสั่งซื้ออุปกรณ์ประมงจำนวนมาก ราคาส่งพิเศษติดต่อสอบถามเจ้าหน้าที่เพื่อประเมินราคาได้ทันที
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center group">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mr-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition duration-300 flex-shrink-0">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 data-translate" data-key="cont_phone_lbl">สายด่วนโทร</p>
+                                <p class="text-lg font-semibold text-white data-translate" data-key="cont_phone_val">08X-XXX-XXXX (ฝ่ายขายส่ง)</p>
+                            </div>
+                        </div>
+                       
+                        <div class="flex items-center group">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mr-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition duration-300 flex-shrink-0">
+                                <i class="fa-brands fa-line text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 data-translate" data-key="cont_line_lbl">LINE สำหรับส่งไฟล์ PDF</p>
+                                <p class="text-lg font-semibold text-white">@kangyongheng</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center group">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mr-4 text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition duration-300 flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 data-translate" data-key="cont_loc_lbl">ที่ตั้งคลังสินค้า / หน้าร้าน</p>
+                                <p class="text-base font-semibold text-white data-translate" data-key="cont_loc_val">ต.โคกขาม อ.เมืองสมุทรสาคร จ.สมุทรสาคร</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white text-slate-800 p-8 rounded-2xl shadow-2xl relative">
+                    <div class="absolute -top-3 -right-3 bg-orange-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow data-translate" data-key="form_badge">
+                         ตอบกลับภายใน 1 ชม.
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-950 mb-6 flex items-center gap-2">
+                        <i class="fa-regular fa-envelope text-orange-500"></i> <span class="data-translate" data-key="form_heading">ส่งข้อความหาเรา</span>
+                    </h3>
+                    <form onsubmit="handleSubmitForm(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1 data-translate" data-key="lbl_name">ชื่อผู้ติดต่อ / ร้านค้า *</label>
+                            <input type="text" id="form-name" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-950 focus:bg-white transition text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1 data-translate" data-key="lbl_phone">เบอร์โทรศัพท์ *</label>
+                            <input type="tel" id="form-phone" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-950 focus:bg-white transition text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1 data-translate" data-key="lbl_msg">ข้อความหรือสเปกที่ต้องการ *</label>
+                            <textarea id="form-message" rows="3" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-950 focus:bg-white transition text-sm"></textarea>
+                        </div>
+                
+                        <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl transition duration-200 shadow-lg shadow-orange-500/20 cursor-pointer data-translate" data-key="btn_submit_form">
+                            ส่งข้อมูลขอราคา
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-10 mt-auto border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-black text-white data-translate" data-key="logo">กังย่งเฮง</span>
+                    <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">EST. 1998</span>
+                </div>
+                <p class="text-sm data-translate" data-key="footer_copy">&copy; 2026 กังย่งเฮง อุปกรณ์ประมงค้าส่ง. ทุกลิขสิทธิ์ถูกต้อง.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. คลังพจนานุกรม 4 ภาษา
+        const translations = {
+            th: {
+                logo: "กังย่งเฮง", nav_home: "หน้าแรก", nav_catalog: "แคตตาล็อกสินค้า", nav_about: "ทำไมต้องเป็นเรา", nav_contact: "ติดต่อขายส่ง", btn_quote: "ขอใบเสนอราคา",
+                hero_tag: "ศูนย์รวมอุปกรณ์ประมงค้าส่งอันดับหนึ่ง", hero_title1: "กังย่งเฮง", hero_title2: "ผู้นำอุปกรณ์การประมงทุกประเภท",
+                hero_desc: "เราจำหน่าย ขายส่งอุปกรณ์การประมง และวัสดุอุปกรณ์ที่ใช้ในอุตสาหกรรมประมงครบวงจร คัดเกรดพรีเมียมจากผู้ผลิตชั้นนำทั่วไทย พร้อมราคาส่งที่ดีที่สุดสำหรับพี่น้องชาวประมงทุกท่าน",
+                btn_view_catalog: "ดูแคตตาล็อกสินค้า", btn_contact_sales: "ติดต่อเจ้าหน้าที่ฝ่ายขาย",
+                feat1_title: "คุณภาพมาตรฐานอุตสาหกรรม", feat1_desc: "วัสดุเกรดหนาพิเศษ ทนแดด ทนน้ำเค็มจัด ออกแบบมาสำหรับการประมงสมบุกสมบันโดยเฉพาะ",
+                feat2_title: "ราคาส่งตรงจากแหล่งผลิต", feat2_desc: "โครงสร้างราคาที่ยืดหยุ่น ยิ่งสั่งซื้อปริมาณมากยิ่งได้ส่วนลดที่ประหยัดต้นทุนร้านค้าคุณได้สูงสุด",
+                feat3_title: "บริการจัดส่งไว ทั่วประเทศไทย", feat3_desc: "ประสานงานกับเครือข่ายขนส่งชั้นนำ มั่นใจได้ว่าสินค้าจะถูกจัดส่งถึงท่านหรือหน้าร้านค้าของคุณอย่างรวดเร็ว",
+                preview_title: "หมวดหมู่สินค้าหลัก", preview_all_link: "เข้าสู่แคตตาล็อกทั้งหมด", click_to_view: "คลิกดูสินค้า",
+                cat1_title: "อวนฟ้า อวนขี้ม้า อวนใยยักษ์", cat1_desc: "มีทุกขนาดตาและความลึก งานถักเครื่องประณีต ไม่แตกขาดง่าย",
+                cat2_title: "เชือกใยยักษ์ และ เชือกสลิง", cat2_desc: "ทนทานต่อแรงดึงมหาศาล สเปกเรืออุตสาหกรรมและประมงพื้นบ้าน",
+                cat3_title: "ทุ่นลอย และ อุปกรณ์เสริม", cat3_desc: "ทุ่นโฟม ทุ่นเหล็ก ไฟกระพริบระบุตำแหน่งพิกัดอวน และอื่นๆ",
+                cat4_title: "เอ็นเดี่ยวและเบ็ดกล่อง", cat4_desc: "เอ็นไนลอนโปร่งใส และเบ็ดสแตนเลสคาร์บอนกันสนิมสำหรับงานทะเล",
+                cat5_title: "แหฝรั่งถักมือ เกรดพรีเมียม", cat5_desc: "แหเอ็นเกลียวคุณภาพสูง จมน้ำไว บานง่าย เหมาะกับงานทอดหาปลาทั่วไป",
+                cat6_title: "ชุดลุยน้ำและเสื้อกันฝนประมง", cat6_desc: "ชุดเอี๊ยมกันน้ำ PVC เนื้อหนาพิเศษและอุปกรณ์เซฟตี้สำหรับชาวประมง",
+                catalog_title: "แคตตาล็อกสินค้าออนไลน์", catalog_subtitle: "เลือกชมรายการอุปกรณ์ประมงคุณภาพสูง คัดสรรพิเศษเพื่อลูกค้าขายส่ง คุณสามารถค้นหาสินค้า และกดปุ่มติดต่อสอบถามราคาเพื่อขอใบเสนอราคาด่วนได้ทันที",
+                search_placeholder: "ค้นหาชื่อสินค้า...", filter_all: "ทั้งหมด", filter_nets: "แหและอวน", filter_ropes: "เชือกประมง", filter_acc: "ทุ่นและอุปกรณ์เสริม", filter_lines: "เอ็นและเบ็ด",
+                btn_ask_price: "สอบถามราคาส่งด่วน", no_prod_title: "ไม่พบสินค้า", no_prod_desc: "ลองค้นหาด้วยคำอื่นหรือเปลี่ยนตัวเลือกหมวดหมู่สินค้า",
+                contact_title: "ติดต่อฝ่ายขาย / ขอใบเสนอราคา", contact_desc: "สนใจสั่งซื้ออุปกรณ์ประมงจำนวนมาก ราคาส่งพิเศษติดต่อสอบถามเจ้าหน้าที่เพื่อประเมินราคาได้ทันที",
+                cont_phone_lbl: "สายด่วนโทร", cont_phone_val: "08X-XXX-XXXX (ฝ่ายขายส่ง)", cont_line_lbl: "LINE สำหรับส่งไฟล์ PDF", cont_loc_lbl: "ที่ตั้งคลังสินค้า / หน้าร้าน", cont_loc_val: "ต.โคกขาม อ.เมืองสมุทรสาคร จ.สมุทรสาคร",
+                form_badge: "ตอบกลับภายใน 1 ชม.", form_heading: "ส่งข้อความหาเรา", lbl_name: "ชื่อผู้ติดต่อ / ร้านค้า *", lbl_phone: "เบอร์โทรศัพท์ *", lbl_msg: "ข้อความหรือสเปกที่ต้องการ *",
+                ph_name: "กรอกชื่อของคุณ", ph_phone: "0XXXXXXXXX", ph_msg: "ระบุรายการสินค้าที่ต้องการสั่งซื้อ...", btn_submit_form: "ส่งข้อมูลขอราคา",
+                quote_prefilled: 'สนใจสั่งซื้อราคาส่งสินค้า: "{prodName}" โปรดติดต่อกลับพร้อมเสนอราคาให้ด้วยครับ',
+                footer_copy: "&copy; 2026 กังย่งเฮง อุปกรณ์ประมงค้าส่ง. ทุกลิขสิทธิ์ถูกต้อง.",
+                alert_success: "ขอขอบคุณคุณ {name} ที่ส่งข้อมูลขอราคา! ทางร้านกังย่งเฮงจะรีบติดต่อกลับโดยเร็วที่สุดครับ"
+            },
+            en: {
+                logo: "Kang Yong Heng", nav_home: "Home", nav_catalog: "Catalog", nav_about: "Why Choose Us", nav_contact: "Contact Wholesale", btn_quote: "Get Quote",
+                hero_tag: "No.1 Wholesale Fishery Supply Center", hero_title1: "Kang Yong Heng", hero_title2: "The Leader in Fishing Equipment",
+                hero_desc: "We distribute and supply all types of commercial and traditional fishing tools. Premium grade directly sourced from top local manufacturers at competitive wholesale factory pricing.",
+                btn_view_catalog: "Browse Catalog", btn_contact_sales: "Contact Sales Agent",
+                feat1_title: "Industrial Grade Quality", feat1_desc: "Heavy-duty materials, crafted specifically for harsh marine conditions and heavy UV exposure.",
+                feat2_title: "Direct Factory Pricing", feat2_desc: "Flexible tier pricing structure. The larger the volume ordered, the higher cost efficiency your retail business gains.",
+                feat3_title: "Fast Nationwide Logistics", feat3_desc: "Partnered with premier logistics networks to guarantee fast, safe arrival at your store or dock.",
+                preview_title: "Core Product Categories", preview_all_link: "View Full Catalog", click_to_view: "View Products",
+                cat1_title: "PE & Nylon Fishing Nets", cat1_desc: "Available in all mesh sizes and depth. Heavy duty weaves, high tear resistance.",
+                cat2_title: "PE Ropes & Steel Cables", cat2_desc: "Engineered to withstand extreme tension. Ideal for industrial trawlers and local fishers.",
+                cat3_title: "Marine Floats & Accessories", cat3_desc: "Hard foam floats, metal buoys, LED net beacons, and locators.",
+                cat4_title: "Monofilament Lines & Hooks", cat4_desc: "Clear monofilament lines and carbon-coated stainless steel marine hooks.",
+                cat5_title: "Premium US-Style Cast Nets", cat5_desc: "Handcrafted twisted twine cast nets. Fast sinking speed, easy open throw.",
+                cat6_title: "Waterproof Waders & Raincoats", cat6_desc: "Heavy-gauge waterproof PVC bib waders and protective gear for crew members.",
+                catalog_title: "Online Digital Catalog", catalog_subtitle: "Explore our collection of elite fishing equipment refined for wholesalers. Search items and easily request instant pricing quotes.",
+                search_placeholder: "Search product name...", filter_all: "All Products", filter_nets: "Nets & Mesh", filter_ropes: "Fishery Ropes", filter_acc: "Buoys & Accessories", filter_lines: "Lines & Hooks",
+                btn_ask_price: "Get Wholesale Quote", no_prod_title: "No Products Found", no_prod_desc: "Try modifying your keywords or choosing a different category filter.",
+                contact_title: "Contact Sales / Request Quotes", contact_desc: "Inquiring about high-volume bulk orders? Submit the form below for immediate custom pricing evaluations.",
+                cont_phone_lbl: "Sales Hotlines", cont_phone_val: "+668X-XXX-XXXX (Wholesale)", cont_line_lbl: "LINE App (PDF Inquiries)", cont_loc_lbl: "Warehouse Storefront", cont_loc_val: "Khok Kham, Mueang Samut Sakhon, Thailand",
+                form_badge: "Replies within 1 hr.", form_heading: "Inquire Now", lbl_name: "Contact Name / Company *", lbl_phone: "Phone Number *", lbl_msg: "Message / Specifications *",
+                ph_name: "Your name or store name", ph_phone: "e.g., +66XXXXXXXX", ph_msg: "Please state requested items, sizes, and estimated quantity...", btn_submit_form: "Submit Quote Request",
+                quote_prefilled: 'I am interested in wholesale pricing for: "{prodName}". Please get back to me with a quote.',
+                footer_copy: "&copy; 2026 Kang Yong Heng Fishing Wholesale. All Rights Reserved.",
+                alert_success: "Thank you, {name}! Your inquiry has been submitted. Our sales team will contact you shortly."
+            },
+            ch: {
+                logo: "江永兴渔具", nav_home: "网站首页", nav_catalog: "产品大纲", nav_about: "核心优势", nav_contact: "批发业务联系", btn_quote: "索取报价单",
+                hero_tag: "全泰国第一大商业渔具批发中心", hero_title1: "江永兴渔具", hero_title2: "全品类商业捕捞装备领航者",
+                hero_desc: "我们专业批发销售商业捕捞及传统捕鱼全套设备。由泰国顶尖工厂直接供货，提供极具竞争力的出厂批发价格，助力全球渔业发展。",
+                btn_view_catalog: "浏览线上产品目录", btn_contact_sales: "联系大宗批发销售经理",
+                feat1_title: "工业级核心品质保证", feat1_desc: "采用高强度特厚加耐磨材质，专为极端海上恶劣天气及强盐水环境设计。",
+                feat2_title: "源头工厂价格直供", feat2_desc: "提供极具灵活性的阶梯采购价格，订购量越大，您的零售店和商贸公司利润空间越高。",
+                feat3_title: "泰国全境高效物流配发", feat3_desc: "与一线大型骨干物流网深度合作，确保货物完好无损地全速送达您的仓库或码头港口。",
+                preview_title: "核心产品主类别", preview_all_link: "进入完整目录列表", click_to_view: "点击查看商品",
+                cat1_title: "聚乙烯与尼龙捕鱼网", cat1_desc: "网眼尺寸及深度规格齐全。高强机织，高抗撕裂性。",
+                cat2_title: "海洋巨型大绳与钢缆", cat2_desc: "专为承受极端张力而设计。适用于工业远洋拖网及近海捕捞。",
+                cat3_title: "海洋浮球及网具配套辅料", cat3_desc: "硬质发泡浮子、金属浮标、高亮LED网位仪及定位灯具。",
+                cat4_title: "高拉力单丝高强线与专业鱼钩", cat4_desc: "高透明度防老化尼龙单丝线以及深海专用碳素涂层不锈钢钩。",
+                cat5_title: "优质美式手工投网", cat5_desc: "纯手工精编绞线美式撒网。入水速度飞快，抛撒极易完全展开。",
+                cat6_title: "深度防水下水裤与专业雨衣", cat6_desc: "加厚特制PVC双面涂层连体捕鱼下水裤，为全体船员提供安全防护。",
+                catalog_title: "线上数字化批发目录", catalog_subtitle: "阅览专为海内外大宗批发商甄选的高端品质渔具装备。您可快捷搜索货品并一键发送即时报价评估申请。",
+                search_placeholder: "输入产品名称搜索...", filter_all: "全部货品", filter_nets: "网具及网面", filter_ropes: "渔业巨绳", filter_acc: "浮标与配件", filter_lines: "单丝线与钩",
+                btn_ask_price: "索取即时批发价", no_prod_title: "未找到相关产品", no_prod_desc: "请尝试更改搜索关键词或切换上方其他产品主分类。",
+                contact_title: "联络销售部 / 请求定制报价", contact_desc: "计划采购大批量大宗货品？请提交以下表单，我们的专属客户经理将立即为您进行精确的价格评估。",
+                cont_phone_lbl: "大宗批发热线", cont_phone_val: "+668X-XXX-XXXX（批发专用）", cont_line_lbl: "LINE客服（接受PDF订单）", cont_loc_lbl: "实体总仓/商铺地址", cont_loc_val: "泰国龙仔厝府（沙没沙空）龙仔厝县 Khok Kham",
+                form_badge: "1小时内极速回复", form_heading: "在线留言咨询", lbl_name: "联络人姓名 / 商家企业名称 *", lbl_phone: "联络电话 *", lbl_msg: "定制需求描述 / 规格数量 *",
+                ph_name: "请输入您的名字或店铺公司名称", ph_phone: "例如：+66XXXXXXXX", ph_msg: "请注明您所需的货品类别、具体尺寸以及预计采购量...", btn_submit_form: "提交报价申请单",
+                quote_prefilled: '您好，我对贵司以下货品的批发价格非常感兴趣："{prodName}"。请尽快向我提供一份详细的批发报价单，谢谢。',
+                footer_copy: "&copy; 2026 江永兴商业渔具批发中心. 版权所有，翻录必究.",
+                alert_success: "尊敬的 {name}，您的询价申请已成功提交给总部销售部！我们的销售经理将尽快与您取得联系。"
+            },
+            jp: {
+                logo: "カンヨンヘン漁具", nav_home: "ホーム", nav_catalog: "カタログ", nav_about: "当社の強み", nav_contact: "卸売窓口", btn_quote: "見積依頼",
+                hero_tag: "タイ国内最大級・商業用漁具卸売センター", hero_title1: "カンヨンヘン漁具", hero_title2: "総合商業捕獲設備メーカーのリーダー",
+                hero_desc: "商業用および伝統的なあらゆる種類の漁具・資材を専門的に卸売販売。タイの一流メーカーから直接仕入れ、卸売工場価格でご提供します。",
+                btn_view_catalog: "オンラインカタログを見る", btn_contact_sales: "卸売販売担当者に連絡",
+                feat1_title: "産業用グレードの確かな品質", feat1_desc: "特厚・耐摩耗性に優れた高級素材を採用。過酷な気象条件や強塩水の海域向けに特別設計。",
+                feat2_title: "製造元直接仕入れの卸売価格", feat2_desc: "柔軟なボリュームディスカウント構造。発注量が多いほど、販売店様の利益を最大化できます。",
+                feat3_title: "タイ全土へ迅速なロジスティクス", feat3_desc: "大手物流ネットワークと連携し、お客様の倉庫やドックへ安全かつ最速で確実にお届けします。",
+                preview_title: "主要製品カテゴリ", preview_all_link: "全カタログ一覧を見る", click_to_view: "商品を見る",
+                cat1_title: "PE＆ナイロン製漁網各種", cat1_desc: "各種網目のサイズ、深さを網羅。高強度機械織りで破れにくい。",
+                cat2_title: "漁業用超強力ロープ・ワイヤー", cat2_desc: "極限の張力に耐える設計。大型トロール船から沿岸漁業まで対応。",
+                cat3_title: "浮標（フロート）および周辺資材", cat3_desc: "高硬度フォームフロート、金属製ブイ、高輝度LED網位置シグナル灯。",
+                cat4_title: "高級テグスおよび各種魚鉤", cat4_desc: "水中透過性の高いナイロンモノフィラメントライン、炭素コーティング防錆ステンレスフック。",
+                cat5_title: "最高級手編みアメリカ式投網", cat5_desc: "職人手編みの強撚糸サビキ撒き網。沈降速度が非常に速く、簡単に満開展開します。",
+                cat6_title: "高防水ウェーダー・プロ用カッパ", cat6_desc: "高強度PVC両面コーティングの胴付長靴。全クルーの作業安全を確保。",
+                catalog_title: "オンライン製品カタログ", catalog_subtitle: "卸売業者様向けに厳選された高品質な漁業用機器のコレクション。アイテムを素早く検索し、即時見積もりを依頼できます。",
+                search_placeholder: "製品名で検索...", filter_all: "全製品", filter_nets: "網・ネット", filter_ropes: "漁業用ロープ", filter_acc: "ブイ・付属品", filter_lines: "テグス・針",
+                btn_ask_price: "卸売価格の相談", no_prod_title: "該当製品が見つかりません", no_prod_desc: "キーワードを変更するか、他のカテゴリフィルターを選択してください。",
+                contact_title: "販売部への連絡 / 見積依頼", contact_desc: "大口・大量発注をご検討ですか？以下のフォームからお問い合わせください。担当者が迅速に価格算出いたします。",
+                cont_phone_lbl: "大口卸売直通ダイヤル", cont_phone_val: "+668X-XXX-XXXX (卸売専任)", cont_line_lbl: "LINE窓口 (PDF注文対応)", cont_loc_lbl: "倉庫・店舗所在地", cont_loc_val: "タイ国 コークカーム、ムアンサムットサーコーン、サムットサーコーン",
+                form_badge: "1時間以内にスピード回答", form_heading: "お問い合わせフォーム", lbl_name: "ご担当者名 / 店舗・企業名 *", lbl_phone: "お電話番号 *", lbl_msg: "ご希望の仕様・数量 *",
+                ph_name: "お名前または店舗名をご入力ください", ph_phone: "例：+66XXXXXXXX", ph_msg: "ご希望の商品名、サイズ、予定発注数量などを明記してください...", btn_submit_form: "見積もりを依頼する",
+                quote_prefilled: 'お世話になります。こちらの商品の卸売価格について詳細を希望します："{prodName}"。お見積もり書をご送付いただけますようお願いいたします。',
+                footer_copy: "&copy; 2026 Kang Yong Heng Fishing Wholesale. All Rights Reserved.",
+                alert_success: "【送信完了】{name} 様、お問い合わせありがとうございます。内容を確認の上、販売部より迅速にご連絡いたします。"
+            }
+        };
+
+        let currentLang = 'th';
+        let currentFilter = 'all';
+
+        // 2. ฟังก์ชันสลับภาษาระดับตัวแปลงหลัก (4 ภาษา)
+        function switchLang(lang) {
+            currentLang = lang;
+            const langs = ['th', 'en', 'ch', 'jp'];
+            
+            // อัปเดต Active Style ของปุ่มสลับภาษาเวอร์ชันเดสก์ท็อป
+            langs.forEach(l => {
+                const btn = document.getElementById(`lang-btn-${l}`);
+                if(btn) {
+                    if(l === lang) {
+                        btn.className = "px-2 py-1 rounded-lg bg-blue-950 text-white transition cursor-pointer";
+                    } else {
+                        btn.className = "px-2 py-1 rounded-lg text-slate-600 hover:text-blue-950 transition cursor-pointer";
+                    }
+                }
+                
+                // อัปเดตปุ่มเวอร์ชันมือถือ
+                const btnMob = document.getElementById(`lang-btn-mobile-${l}`);
+                if(btnMob) {
+                    if(l === lang) {
+                        btnMob.className = "px-1.5 py-1 rounded-md bg-blue-950 text-white transition";
+                    } else {
+                        btnMob.className = "px-1.5 py-1 rounded-md text-slate-600 transition";
+                    }
+                }
+            });
+
+            // แปลภาษาเนื้อหาเว็บทั้งหมดที่มี Attribute "data-translate"
+            document.querySelectorAll('.data-translate').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // ปรับเปลี่ยนค่า Placeholders ของช่องรับข้อมูลตามภาษาที่เลือก
+            document.getElementById('catalog-search').placeholder = translations[lang].search_placeholder;
+            document.getElementById('form-name').placeholder = translations[lang].ph_name;
+            document.getElementById('form-phone').placeholder = translations[lang].ph_phone;
+            document.getElementById('form-message').placeholder = translations[lang].ph_msg;
+
+            // สั่งประมวลผลการ์ดข้อมูลสินค้าในแคตตาล็อกให้สลับข้อความเป็นภาษาล่าสุด
+            updateProductCardsLanguage();
+        }
+
+        // 3. ฟังก์ชันอัปเดตการแสดงผลบนตัวการ์ดสินค้า (เปลี่ยนข้อความ/สเปกตามอาเรย์ภาษา)
+        function updateProductCardsLanguage() {
+            document.querySelectorAll('.product-card').forEach(card => {
+                const titleNode = card.querySelector('.product-title-node');
+                const descNode = card.querySelector('.product-desc-node');
+                const specNode = card.querySelector('.product-spec-node');
+
+                // ดึงข้อมูลชื่อตามชุดภาษาที่ระบุบน Node ข้อมูลตัวการ์ดสินค้า
+                if (currentLang === 'th') {
+                    titleNode.textContent = card.getAttribute('data-name-th');
+                    descNode.textContent = descNode.getAttribute('data-th');
+                    specNode.innerHTML = specNode.getAttribute('data-th');
+                } else if (currentLang === 'en') {
+                    titleNode.textContent = card.getAttribute('data-name-en');
+                    descNode.textContent = descNode.getAttribute('data-en');
+                    specNode.innerHTML = specNode.getAttribute('data-en');
+                } else if (currentLang === 'ch') {
+                    titleNode.textContent = card.getAttribute('data-name-ch');
+                    descNode.textContent = descNode.getAttribute('data-ch');
+                    specNode.innerHTML = specNode.getAttribute('data-ch');
+                } else if (currentLang === 'jp') {
+                    titleNode.textContent = card.getAttribute('data-name-jp');
+                    descNode.textContent = descNode.getAttribute('data-jp');
+                    specNode.innerHTML = specNode.getAttribute('data-jp');
+                }
+            });
+            // เรียกตัวกรองทำงานเพื่อความต่อเนื่องของคำค้นหา
+            filterCatalog();
+        }
+
+        // 4. ระบบสลับมุมมองหน้าเว็บเดี่ยว (Single Page Application Router)
+        function navigateTo(targetView, filterCategory = 'all') {
+            const homeView = document.getElementById('view-home');
+            const catalogView = document.getElementById('view-catalog');
+            const navHome = document.getElementById('nav-home');
+            const navCatalog = document.getElementById('nav-catalog');
+
+            if (targetView === 'home') {
+                homeView.classList.remove('hidden');
+                catalogView.classList.add('hidden');
+                if(navHome && navCatalog) {
+                    navHome.className = "text-blue-900 border-b-2 border-blue-900 pb-1 font-semibold transition cursor-pointer";
+                    navCatalog.className = "text-slate-500 hover:text-blue-900 pb-1 transition cursor-pointer";
+                }
+            } else if (targetView === 'catalog') {
+                homeView.classList.add('hidden');
+                catalogView.classList.remove('hidden');
+                if(navHome && navCatalog) {
+                    navHome.className = "text-slate-500 hover:text-blue-900 pb-1 transition cursor-pointer";
+                    navCatalog.className = "text-blue-900 border-b-2 border-blue-900 pb-1 font-semibold transition cursor-pointer";
+                }
+                if (filterCategory !== 'all') {
+                    setFilter(filterCategory);
+                }
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 5. จัดการสถานะและจัดแต่งปุ่มหมวดหมู่ตัวกรองหน้าสินค้า
+        function setFilter(category) {
+            currentFilter = category;
+            const filterButtons = ['all', 'nets', 'ropes', 'accessories', 'lines'];
+            
+            filterButtons.forEach(btn => {
+                const element = document.getElementById(`filter-btn-${btn}`);
+                if (element) {
+                    element.className = "px-5 py-2 text-xs font-semibold rounded-full border border-slate-200 hover:border-blue-950 hover:bg-slate-50 text-slate-600 whitespace-nowrap transition cursor-pointer";
+                }
+            });
+
+            const activeElement = document.getElementById(`filter-btn-${category}`);
+            if (activeElement) {
+                activeElement.className = "px-5 py-2 text-xs font-semibold rounded-full border border-blue-900 bg-blue-950 text-white whitespace-nowrap transition cursor-pointer shadow-sm";
+            }
+            filterCatalog();
+        }
+
+        // 6. ระบบสืบค้นและคัดกรองข้อมูลอัจฉริยะ (Hybrid Search Engine ค้นหาเจอได้ทุกภาษาพร้อมกัน)
+        function filterCatalog() {
+            const searchValue = document.getElementById('catalog-search').value.toLowerCase().trim();
+            const productCards = document.querySelectorAll('.product-card');
+            let visibleProductsCount = 0;
+
+            productCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                // ดึงฐานคำแปลชื่อสินค้าครบทั้ง 4 ภาษามาทำดัชนีสืบค้น
+                const nameTh = card.getAttribute('data-name-th').toLowerCase();
+                const nameEn = card.getAttribute('data-name-en').toLowerCase();
+                const nameCh = card.getAttribute('data-name-ch').toLowerCase();
+                const nameJp = card.getAttribute('data-name-jp').toLowerCase();
+
+                const matchCategory = (currentFilter === 'all' || category === currentFilter);
+                
+                // ไม่ว่าผู้ใช้งานจะพิมพ์ภาษาไทย จีน อังกฤษ หรือญี่ปุ่น ตัวระบบจะตรวจหาพบทั้งหมด
+                const matchSearch = (
+                    nameTh.includes(searchValue) || 
+                    nameEn.includes(searchValue) || 
+                    nameCh.includes(searchValue) || 
+                    nameJp.includes(searchValue)
+                );
+
+                if (matchCategory && matchSearch) {
+                    card.style.display = 'flex';
+                    visibleProductsCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const noProductsMsg = document.getElementById('no-products-msg');
+            if (visibleProductsCount === 0) {
+                noProductsMsg.classList.remove('hidden');
+            } else {
+                noProductsMsg.classList.add('hidden');
+            }
+        }
+
+        // 7. กลไกกดขอราคาจากตัวการ์ดเพื่อไปกรอกคำในฟอร์มอัตโนมัติ (Context Prefilled Form)
+        function requestQuoteFromCard(buttonElement) {
+            const card = buttonElement.closest('.product-card');
+            
+            // ตรวจสอบและดึงชื่อสินค้าอิงตามรหัสภาษาปัจจุบัน เพื่อให้ข้อความ Template สมบูรณ์แบบ
+            let prodName = card.getAttribute('data-name-th');
+            if (currentLang === 'en') prodName = card.getAttribute('data-name-en');
+            else if (currentLang === 'ch') prodName = card.getAttribute('data-name-ch');
+            else if (currentLang === 'jp') prodName = card.getAttribute('data-name-jp');
+            
+            const formMessage = document.getElementById('form-message');
+            const formNameInput = document.getElementById('form-name');
+            const contactSection = document.getElementById('contact');
+
+            // สลับการเติมข้อความตัวแทนตามภาษาเพื่อความราบรื่นของประสบการณ์ผู้ใช้
+            let template = translations[currentLang].quote_prefilled;
+            formMessage.value = template.replace('{prodName}', prodName);
+            
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                formNameInput.focus();
+            }, 800);
+        }
+
+        // 8. เปิด-ปิด เมนูสำหรับการแสดงผลบนสมาร์ตโฟน
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.className = "fa-solid fa-xmark text-xl";
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = "fa-solid fa-bars text-xl";
+            }
+        }
+
+        // 9. ฟังก์ชันยืนยันการส่งแบบฟอร์มขอใบเสนอราคา
+        function handleSubmitForm(event) {
+            event.preventDefault();
+            const clientName = document.getElementById('form-name').value;
+            
+            let alertTemplate = translations[currentLang].alert_success;
+            alert(alertTemplate.replace('{name}', clientName));
+            
+            event.target.reset();
+        }
+
+        // ค่าเริ่มต้นเมื่อเอกสารโครงสร้างเว็บถูกโหลดเสร็จสิ้น (รันหน้าภาษาไทยเป็นหลัก)
+        window.onload = function() {
+            switchLang('th');
+        };
+    </script>
+</body>
+</html>
