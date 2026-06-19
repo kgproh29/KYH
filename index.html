@@ -78,33 +78,65 @@
     </nav>
 
     <div id="view-home" class="transition-all duration-300">
-        <section class="relative bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 text-white py-24 md:py-36 overflow-hidden">
-            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:24px_24px]"></div>
-            <div class="absolute -right-40 -top-40 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
-            <div class="absolute -left-40 -bottom-40 w-96 h-96 bg-teal-500 rounded-full blur-3xl opacity-20"></div>
+        <section class="relative h-[550px] md:h-[650px] bg-slate-950 overflow-hidden">
+            <div id="hero-slider" class="absolute inset-0 w-full h-full">
+                
+                <div class="hero-slide absolute inset-0 w-full h-full opacity-100 transition-opacity duration-1000 ease-in-out">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_0" alt="Premium Fishing Nets" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-950/70 to-transparent"></div>
+                </div>
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="max-w-3xl">
-                    <span class="inline-flex items-center gap-1.5 bg-orange-500/10 text-orange-400 border border-orange-500/20 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase mb-6">
-                        <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
-                        <span class="data-translate" data-key="hero_tag">ศูนย์รวมอุปกรณ์ประมงค้าส่งอันดับหนึ่ง</span>
-                    </span>
-                    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                        <span class="data-translate" data-key="hero_title1">กังย่งเฮง</span> <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-cyan-200 data-translate" data-key="hero_title2">ผู้นำอุปกรณ์การประมงทุกประเภท</span>
-                    </h1>
-                    <p class="text-slate-300 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl data-translate" data-key="hero_desc">
-                        เราจำหน่าย ขายส่งอุปกรณ์การประมง และวัสดุอุปกรณ์ที่ใช้ในอุตสาหกรรมประมงครบวงจร คัดเกรดพรีเมียมจากผู้ผลิตชั้นนำทั่วไทย พร้อมราคาส่งที่ดีที่สุดสำหรับพี่น้องชาวประมงทุกท่าน
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button onclick="navigateTo('catalog')" class="bg-orange-500 hover:bg-orange-600 text-white text-center px-8 py-4 rounded-xl font-medium transition duration-200 shadow-lg shadow-orange-500/25 cursor-pointer flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-book-open"></i> <span class="data-translate" data-key="btn_view_catalog">ดูแคตตาล็อกสินค้า</span>
-                        </button>
-                        <a href="#contact" class="border border-white/20 hover:border-white text-center text-white px-8 py-4 rounded-xl font-medium transition backdrop-blur-sm bg-white/5 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-phone"></i> <span class="data-translate" data-key="btn_contact_sales">ติดต่อเจ้าหน้าที่ฝ่ายขาย</span>
-                        </a>
+                <div class="hero-slide absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_2" alt="Heavy Duty Ropes" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-950/70 to-transparent"></div>
+                </div>
+
+                <div class="hero-slide absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_4" alt="Professional Fishing Accessories" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-950/70 to-transparent"></div>
+                </div>
+
+            </div>
+
+            <div class="absolute inset-0 z-10 flex items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div class="max-w-3xl">
+                        <span class="inline-flex items-center gap-1.5 bg-orange-500/20 text-orange-400 border border-orange-500/30 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 animate-fade-in">
+                            <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
+                            <span class="data-translate" data-key="hero_tag">ศูนย์รวมอุปกรณ์ประมงค้าส่งอันดับหนึ่ง</span>
+                        </span>
+                        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 drop-shadow-sm">
+                            <span class="data-translate" data-key="hero_title1">กังย่งเฮง</span> <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-cyan-200 data-translate" data-key="hero_title2">ผู้นำอุปกรณ์การประมงทุกประเภท</span>
+                        </h1>
+                        <p class="text-slate-200 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl drop-shadow-md data-translate" data-key="hero_desc">
+                            เราจำหน่าย ขายส่งอุปกรณ์การประมง และวัสดุอุปกรณ์ที่ใช้ในอุตสาหกรรมประมงครบวงจร คัดเกรดพรีเมียมจากผู้ผลิตชั้นนำทั่วไทย พร้อมราคาส่งที่ดีที่สุดสำหรับพี่น้องชาวประมงทุกท่าน
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button onclick="navigateTo('catalog')" class="bg-orange-500 hover:bg-orange-600 text-white text-center px-8 py-4 rounded-xl font-medium transition duration-200 shadow-lg shadow-orange-500/25 cursor-pointer flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                                <i class="fa-solid fa-book-open"></i> <span class="data-translate" data-key="btn_view_catalog">ดูแคตตาล็อกสินค้า</span>
+                            </button>
+                            <a href="#contact" class="border border-white/30 hover:border-white text-center text-white px-8 py-4 rounded-xl font-medium transition backdrop-blur-md bg-white/10 hover:bg-white/20 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                                <i class="fa-solid fa-phone"></i> <span class="data-translate" data-key="btn_contact_sales">ติดต่อเจ้าหน้าที่ฝ่ายขาย</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="absolute bottom-8 right-4 sm:right-6 lg:right-8 z-20 flex gap-3">
+                <button onclick="prevSlide()" class="w-12 h-12 rounded-xl border border-white/20 bg-slate-900/40 text-white backdrop-blur-md hover:bg-blue-950 hover:border-blue-950 flex items-center justify-center transition duration-300 shadow-lg cursor-pointer">
+                    <i class="fa-solid fa-chevron-left text-sm"></i>
+                </button>
+                <button onclick="nextSlide()" class="w-12 h-12 rounded-xl border border-white/20 bg-slate-900/40 text-white backdrop-blur-md hover:bg-blue-950 hover:border-blue-950 flex items-center justify-center transition duration-300 shadow-lg cursor-pointer">
+                    <i class="fa-solid fa-chevron-right text-sm"></i>
+                </button>
+            </div>
+
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+                <button onclick="goToSlide(0)" class="slide-dot w-8 h-1.5 rounded-full bg-white transition-all duration-300" aria-label="Slide 1"></button>
+                <button onclick="goToSlide(1)" class="slide-dot w-3 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300" aria-label="Slide 2"></button>
+                <button onclick="goToSlide(2)" class="slide-dot w-3 h-1.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300" aria-label="Slide 3"></button>
             </div>
         </section>
         <section class="py-16 bg-slate-50 border-b border-slate-100">
@@ -1043,6 +1075,67 @@
         // ค่าเริ่มต้นเมื่อเอกสารโครงสร้างเว็บถูกโหลดเสร็จสิ้น (รันหน้าภาษาไทยเป็นหลัก)
         window.onload = function() {
             switchLang('th');
+        };
+
+        // =================================================================
+        // PREMIUM IMAGE SLIDER LOGIC
+        // =================================================================
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slide-dot');
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function updateSliderDisplay() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlideIndex) {
+                    slide.classList.remove('opacity-0');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
+                }
+            });
+
+            dots.forEach((dot, index) => {
+                if (index === currentSlideIndex) {
+                    dot.classList.remove('w-3', 'bg-white/40');
+                    dot.classList.add('w-8', 'bg-white');
+                } else {
+                    dot.classList.remove('w-8', 'bg-white');
+                    dot.classList.add('w-3', 'bg-white/40');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            updateSliderDisplay();
+            resetSlideTimer();
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            updateSliderDisplay();
+            resetSlideTimer();
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateSliderDisplay();
+            resetSlideTimer();
+        }
+
+        function resetSlideTimer() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000); // ตั้งเวลาเปลี่ยนภาพอัตโนมัติทุก 5 วินาที
+        }
+
+        // สั่งให้สไลด์เริ่มทำงานหลังจากโครงสร้างเว็บโหลดเสร็จ
+        // อัปเดตฟังก์ชัน window.onload เดิมของคุณให้เป็นดังนี้:
+        window.onload = function() {
+            switchLang('th'); // ฟังก์ชันเดิมของคุณ
+            resetSlideTimer(); // เริ่มจับเวลาการเลื่อนสไลด์รูปภาพ
         };
     </script>
 </body>
