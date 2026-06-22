@@ -180,6 +180,95 @@
                 <button onclick="setHeroSlide(2)" class="hero-dot w-3 h-2.5 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300" aria-label="Slide 3"></button>
             </div>
         </section>
+         <section class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-orange-500 font-bold uppercase tracking-wider text-xs block mb-2">PRODUCT PREVIEW</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-blue-950 data-translate" data-key="preview_title">หมวดหมู่สินค้าหลัก</h2>
+                    </div>
+                    <button onclick="navigateTo('catalog')" class="text-blue-950 font-bold hover:text-orange-500 transition mt-4 md:mt-0 flex items-center gap-2 cursor-pointer bg-transparent border-none">
+                        <span class="data-translate" data-key="preview_all_link">เข้าสู่แคตตาล็อกทั้งหมด</span> <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div onclick="navigateTo('catalog', 'nets')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_0" alt="Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat1_title">อวนฟ้า อวนขี้ม้า อวนใยยักษ์</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat1_desc">มีทุกขนาดตาและความลึก งานถักเครื่องประณีต ไม่แตกขาดง่าย</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div onclick="navigateTo('catalog', 'ropes')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_2" alt="Ropes" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat2_title">เชือกใยยักษ์ และ เชือกสลิง</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat2_desc">ทนทานต่อแรงดึงมหาศาล สเปกเรืออุตสาหกรรมและประมงพื้นบ้าน</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div onclick="navigateTo('catalog', 'accessories')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_4" alt="Floats" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat3_title">ทุ่นลอย และ อุปกรณ์เสริม</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat3_desc">ทุ่นโฟม ทุ่นเหล็ก ไฟกระพริบระบุตำแหน่งพิกัดอวน และอื่นๆ</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div onclick="navigateTo('catalog', 'lines')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_1" alt="Lines & Hooks" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat4_title">เอ็นเดี่ยวและเบ็ดกล่อง</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat4_desc">เอ็นไนลอนโปร่งใส และเบ็ดสแตนเลสคาร์บอนกันสนิมสำหรับงานทะเล</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div onclick="navigateTo('catalog', 'nets')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_0" alt="Cast Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat5_title">แหฝรั่งถักมือ เกรดพรีเมียม</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat5_desc">แหเอ็นเกลียวคุณภาพสูง จมน้ำไว บานง่าย เหมาะกับงานทอดหาปลาทั่วไป</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div onclick="navigateTo('catalog', 'accessories')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
+                        <div class="h-64 overflow-hidden bg-slate-200">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_3" alt="Waders" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat6_title">ชุดลุยน้ำและเสื้อกันฝนประมง</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat6_desc">ชุดเอี๊ยมกันน้ำ PVC เนื้อหนาพิเศษและอุปกรณ์เซฟตี้สำหรับชาวประมง</p>
+                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
+                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
         <section id="about" class="py-24 bg-slate-50/50">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -512,96 +601,6 @@
                 </div>
             </div>
         </section>
-
-        <section class="py-20 bg-slate-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                    <div>
-                        <span class="text-orange-500 font-bold uppercase tracking-wider text-xs block mb-2">PRODUCT PREVIEW</span>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-blue-950 data-translate" data-key="preview_title">หมวดหมู่สินค้าหลัก</h2>
-                    </div>
-                    <button onclick="navigateTo('catalog')" class="text-blue-950 font-bold hover:text-orange-500 transition mt-4 md:mt-0 flex items-center gap-2 cursor-pointer bg-transparent border-none">
-                        <span class="data-translate" data-key="preview_all_link">เข้าสู่แคตตาล็อกทั้งหมด</span> <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div onclick="navigateTo('catalog', 'nets')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
-                        <div class="h-64 overflow-hidden bg-slate-200">
-                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_0" alt="Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat1_title">อวนฟ้า อวนขี้ม้า อวนใยยักษ์</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat1_desc">มีทุกขนาดตาและความลึก งานถักเครื่องประณีต ไม่แตกขาดง่าย</p>
-                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
-                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div onclick="navigateTo('catalog', 'ropes')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
-                        <div class="h-64 overflow-hidden bg-slate-200">
-                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_2" alt="Ropes" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat2_title">เชือกใยยักษ์ และ เชือกสลิง</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat2_desc">ทนทานต่อแรงดึงมหาศาล สเปกเรืออุตสาหกรรมและประมงพื้นบ้าน</p>
-                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
-                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div onclick="navigateTo('catalog', 'accessories')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
-                        <div class="h-64 overflow-hidden bg-slate-200">
-                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_4" alt="Floats" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat3_title">ทุ่นลอย และ อุปกรณ์เสริม</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat3_desc">ทุ่นโฟม ทุ่นเหล็ก ไฟกระพริบระบุตำแหน่งพิกัดอวน และอื่นๆ</p>
-                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
-                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div onclick="navigateTo('catalog', 'lines')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
-                        <div class="h-64 overflow-hidden bg-slate-200">
-                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_1" alt="Lines & Hooks" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat4_title">เอ็นเดี่ยวและเบ็ดกล่อง</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat4_desc">เอ็นไนลอนโปร่งใส และเบ็ดสแตนเลสคาร์บอนกันสนิมสำหรับงานทะเล</p>
-                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
-                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div onclick="navigateTo('catalog', 'nets')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
-                        <div class="h-64 overflow-hidden bg-slate-200">
-                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_0" alt="Cast Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat5_title">แหฝรั่งถักมือ เกรดพรีเมียม</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat5_desc">แหเอ็นเกลียวคุณภาพสูง จมน้ำไว บานง่าย เหมาะกับงานทอดหาปลาทั่วไป</p>
-                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
-                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div onclick="navigateTo('catalog', 'accessories')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition cursor-pointer group">
-                        <div class="h-64 overflow-hidden bg-slate-200">
-                            <img src="http://googleusercontent.com/image_collection/image_retrieval/7273625704244782846_3" alt="Waders" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat6_title">ชุดลุยน้ำและเสื้อกันฝนประมง</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat6_desc">ชุดเอี๊ยมกันน้ำ PVC เนื้อหนาพิเศษและอุปกรณ์เซฟตี้สำหรับชาวประมง</p>
-                            <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
-                                <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
 
     <div id="view-catalog" class="hidden transition-all duration-300">
         <section class="bg-slate-900 text-white py-14 relative overflow-hidden">
