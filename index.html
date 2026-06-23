@@ -27,14 +27,20 @@
         transform: translateX(0);
     }
     100% {
-        /* เลื่อนไปทางซ้ายครึ่งหนึ่งของความกว้างทั้งหมดพอดี (รอยต่อจะเนียนสนิท) */
-        transform: translateX(calc(-50% - 12px)); /* 12px คือครึ่งหนึ่งของ gap-6 */
+        /* เปลี่ยนจากเปอร์เซ็นต์มาเป็นสไลด์ขยับทีละชุดการ์ดให้สัมพันธ์กับการ Clone 3 ชุด */
+        transform: translateX(-33.3333%);
     }
 }
 
 .animate-marquee {
-    /* สั่งให้วิ่งเป็นเส้นตรง (linear) ตลอดเวลา ความเร็ว 35 วินาทีต่อรอบ (ปรับเลขให้ช้า-เร็วได้ตามใจชอบ) */
-    animation: marquee 35s linear infinite;
+    display: flex !important;
+    flex-wrap: nowrap !important; /* บังคับให้การ์ดเรียงหน้ากระดานห้ามตกบรรทัด */
+    animation: marquee 40s linear infinite; /* เพิ่มเวลาเป็น 40 วินาที เพื่อให้ความเร็วพอดีนุ่มนวล */
+}
+
+#reviews-container:hover {
+    animation-play-state: paused;
+    cursor: pointer;
 }
 
 /* แถม: เมื่อเอาเมาส์ไปชี้ที่รีวิว ให้หยุดไหลชั่วคราวเพื่อให้ลูกค้าอ่านง่ายขึ้น */
@@ -357,7 +363,7 @@
     <div id="reviews-container" class="flex gap-6 w-max animate-marquee">
         
         <!-- การ์ดที่ 1: เปลี่ยนมาใช้ความกว้างคงที่ w-[320px] md:w-[380px] และคง shrink-0 ไว้ -->
-        <div class="w-[320px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
+        <div class="w-[300px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
             <div>
                 <div class="flex text-amber-400 gap-1 mb-4">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -376,7 +382,7 @@
         </div>
 
         <!-- การ์ดที่ 2 -->
-        <div class="w-[320px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
+        <div class="w-[300px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
             <div>
                 <div class="flex text-amber-400 gap-1 mb-4">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -395,7 +401,7 @@
         </div>
 
         <!-- การ์ดที่ 3 -->
-        <div class="w-[320px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
+        <div class="w-[300px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
             <div>
                 <div class="flex text-amber-400 gap-1 mb-4">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
@@ -414,7 +420,7 @@
         </div>
 
         <!-- การ์ดที่ 4 -->
-        <div class="w-[320px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
+        <div class="w-[300px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
             <div>
                 <div class="flex text-amber-400 gap-1 mb-4">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -433,7 +439,7 @@
         </div>
 
         <!-- การ์ดที่ 5 -->
-        <div class="w-[320px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
+        <div class="w-[300px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
             <div>
                 <div class="flex text-amber-400 gap-1 mb-4">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -452,7 +458,7 @@
         </div>
 
         <!-- การ์ดที่ 6 -->
-        <div class="w-[320px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
+        <div class="w-[300px] md:w-[380px] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl flex flex-col justify-between shadow-sm">
             <div>
                 <div class="flex text-amber-400 gap-1 mb-4">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
@@ -1379,9 +1385,10 @@
         document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById("reviews-container");
     if (container) {
-        // คัดลอกการ์ดรีวิวทั้งหมดเบิ้ลขึ้นมาอีก 1 ชุดต่อท้ายทันทีเพื่อให้ไหลได้ต่อเนื่อง
+        // ในมือถือหน้าจอแคบ การเบิ้ล 1 ชุดอาจจะไม่พอ ให้เบิ้ลเป็น 3 ชุด (เพิ่มเข้าไปอีก 2 รอบ) 
+        // เพื่อให้แถวยาวพอที่จะไหลได้ต่อเนื่องแบบไม่ขาดตอนทั้งในคอมและมือถือครับ
         const innerContent = container.innerHTML;
-        container.innerHTML = innerContent + innerContent;
+        container.innerHTML = innerContent + innerContent + innerContent;
     }
 });
         
