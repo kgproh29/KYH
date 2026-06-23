@@ -22,6 +22,26 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        @keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* เลื่อนไปทางซ้ายครึ่งหนึ่งของความกว้างทั้งหมดพอดี (รอยต่อจะเนียนสนิท) */
+        transform: translateX(calc(-50% - 12px)); /* 12px คือครึ่งหนึ่งของ gap-6 */
+    }
+}
+
+.animate-marquee {
+    /* สั่งให้วิ่งเป็นเส้นตรง (linear) ตลอดเวลา ความเร็ว 35 วินาทีต่อรอบ (ปรับเลขให้ช้า-เร็วได้ตามใจชอบ) */
+    animation: marquee 35s linear infinite;
+}
+
+/* แถม: เมื่อเอาเมาส์ไปชี้ที่รีวิว ให้หยุดไหลชั่วคราวเพื่อให้ลูกค้าอ่านง่ายขึ้น */
+#reviews-container:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-height-screen">
@@ -330,9 +350,9 @@
                     </div>
                 </div>
 
-                <div id="reviews-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-6 scroll-smooth">
+                <div id="reviews-container" class="flex gap-6 no-scrollbar w-max animate-marquee">
                     
-                    <div class="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl snap-start flex flex-col justify-between shadow-sm">
+                    <div class="w-[320px] md:w-[380px] lg:w-[calc(33.333%-16px)] shrink-0 bg-slate-50 border border-slate-100 p-8 rounded-2xl snap-start flex flex-col justify-between shadow-sm">
                         <div>
                             <div class="flex text-amber-400 gap-1 mb-4">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -1394,42 +1414,11 @@
 }
         document.addEventListener("DOMContentLoaded", function () {
     const container = document.getElementById("reviews-container");
-    let scrollInterval;
-    const scrollSpeed = 4000; // เวลาในการเลื่อน (4000 มิลลิวินาที = 4 วินาที)
-
-    // ฟังก์ชันสั่งเลื่อนไปทางขวาอัตโนมัติ
-    function startAutoScroll() {
-        scrollInterval = setInterval(() => {
-            // คำนวณความกว้างของการเลื่อนอิงตามขนาดของคาร์ดใบแรก
-            const cardWidth = container.querySelector('div').offsetWidth + 24; // บวก gap 24px
-            
-            // ตรวจสอบว่าเลื่อนจนสุดขวาหรือยัง ถ้าสุดแล้วให้กลับไปเริ่มซ้ายสุด
-            if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
-                container.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                container.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            }
-        }, scrollSpeed);
+    if (container) {
+        // คัดลอกการ์ดรีวิวทั้งหมดเบิ้ลขึ้นมาอีก 1 ชุดต่อท้ายทันทีเพื่อให้ไหลได้ต่อเนื่อง
+        const innerContent = container.innerHTML;
+        container.innerHTML = innerContent + innerContent;
     }
-
-    // ฟังก์ชันหยุดเลื่อนชั่วคราว
-    function stopAutoScroll() {
-        clearInterval(scrollInterval);
-    }
-
-    // เริ่มทำงานตอนโหลดหน้าเว็บ
-    startAutoScroll();
-
-    // หยุดเลื่อนเมื่อเมาส์ชี้ และกลับมาเลื่อนต่อเมื่อเมาส์ออก (ช่วยให้ลูกค้าอ่านรีวิวง่ายขึ้น)
-    container.addEventListener("mouseenter", stopAutoScroll);
-    container.addEventListener("mouseleave", startAutoScroll);
-    
-    // สำหรับมือถือ: หยุดเลื่อนเมื่อมีการแตะสัมผัส
-    container.addEventListener("touchstart", stopAutoScroll);
-    container.addEventListener("touchend", () => {
-        // รอแป๊บนึงแล้วค่อยเริ่มใหม่ป้องกันการชนกับการเลื่อนมือ
-        setTimeout(startAutoScroll, 1000); 
-    });
 });
         
     </script>
