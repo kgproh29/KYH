@@ -1374,6 +1374,46 @@
         }
     }, 100);
 }
+        document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("reviews-container");
+    let scrollInterval;
+    const scrollSpeed = 4000; // เวลาในการเลื่อน (4000 มิลลิวินาที = 4 วินาที)
+
+    // ฟังก์ชันสั่งเลื่อนไปทางขวาอัตโนมัติ
+    function startAutoScroll() {
+        scrollInterval = setInterval(() => {
+            // คำนวณความกว้างของการเลื่อนอิงตามขนาดของคาร์ดใบแรก
+            const cardWidth = container.querySelector('div').offsetWidth + 24; // บวก gap 24px
+            
+            // ตรวจสอบว่าเลื่อนจนสุดขวาหรือยัง ถ้าสุดแล้วให้กลับไปเริ่มซ้ายสุด
+            if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            }
+        }, scrollSpeed);
+    }
+
+    // ฟังก์ชันหยุดเลื่อนชั่วคราว
+    function stopAutoScroll() {
+        clearInterval(scrollInterval);
+    }
+
+    // เริ่มทำงานตอนโหลดหน้าเว็บ
+    startAutoScroll();
+
+    // หยุดเลื่อนเมื่อเมาส์ชี้ และกลับมาเลื่อนต่อเมื่อเมาส์ออก (ช่วยให้ลูกค้าอ่านรีวิวง่ายขึ้น)
+    container.addEventListener("mouseenter", stopAutoScroll);
+    container.addEventListener("mouseleave", startAutoScroll);
+    
+    // สำหรับมือถือ: หยุดเลื่อนเมื่อมีการแตะสัมผัส
+    container.addEventListener("touchstart", stopAutoScroll);
+    container.addEventListener("touchend", () => {
+        // รอแป๊บนึงแล้วค่อยเริ่มใหม่ป้องกันการชนกับการเลื่อนมือ
+        setTimeout(startAutoScroll, 1000); 
+    });
+});
+        
     </script>
 </body>
 </html>
