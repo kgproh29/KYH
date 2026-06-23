@@ -338,400 +338,123 @@
             </div>
         </section>
 
-        <section id="our-products-section" class="py-20 bg-white border-t border-b border-slate-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="our-products-section" class="py-16 md:py-24 bg-slate-50 border-t border-b border-slate-100">
+    <div class="max-w-7xl mx-auto">
         
-        <div class="text-center mb-12">
-            <span class="text-orange-500 font-bold uppercase tracking-wider text-xs block mb-2">OUR PRODUCTS</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-blue-950">สินค้าทั้งหมดของเรา</h2>
-            <p class="text-slate-500 text-sm mt-2 max-w-2xl mx-auto">เลือกดูสินค้าคุณภาพเยี่ยมนานาชนิดตามหมวดหมู่หลักที่คุณต้องการ พร้อมราคาส่งที่ดีที่สุดสำหรับผู้ประกอบการ</p>
+        <div class="text-center mb-8 md:mb-12 px-4">
+            <span class="text-orange-500 font-bold uppercase tracking-widest text-[11px] bg-orange-50 px-2.5 py-1 rounded-full inline-block mb-3">OUR PRODUCTS</span>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-blue-950 tracking-tight">สินค้าทั้งหมดของเรา</h2>
+            <p class="text-slate-500 text-xs md:text-sm mt-2 max-w-xl mx-auto leading-relaxed">เลือกดูสินค้าอุปกรณ์การประมงราคาส่งคุณภาพเยี่ยม แยกตามหมวดหมู่การใช้งาน</p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-2 mb-12 border-b border-slate-100 pb-6">
-            <button onclick="filterProducts('all')" id="btn-cat-all" class="product-filter-btn px-5 py-2.5 rounded-xl text-sm font-semibold bg-blue-950 text-white shadow-md transition cursor-pointer">ทั้งหมด</button>
-            <button onclick="filterProducts('cat1')" id="btn-cat-cat1" class="product-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">1. สลิงลาก ตราสิงห์โต</button>
-            <button onclick="filterProducts('cat2')" id="btn-cat-cat2" class="product-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">2. อวนฟ้า/อวนขี้ม้า/อวนใยยักษ์</button>
-            <button onclick="filterProducts('cat3')" id="btn-cat-cat3" class="product-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">3. ด้ายปะอวน/เชือกโปลี</button>
-            <button onclick="filterProducts('cat4')" id="btn-cat-cat4" class="product-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">4. เชือกใยยักษ์</button>
-            <button onclick="filterProducts('cat5')" id="btn-cat-cat5" class="product-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">5. เชือกขี้ม้า/เชือกทิ้งซั้ง</button>
-            <button onclick="filterProducts('cat6')" id="btn-cat-cat6" class="product-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">6. เชือกสายมาน/เชือกลากสาย</button>
-            <button onclick="filterProducts('cat7')" id="btn-cat-cat7" class="product-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">7. ลูกลอย/ทุ่น/ลูกยาง</button>
-            <button onclick="filterProducts('cat8')" id="btn-cat-cat8" class="product-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">8. เครื่องเหล็ก/โซ่/สเกน</button>
-            <button onclick="filterProducts('cat9')" id="btn-cat-cat9" class="product-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition cursor-pointer">9. ตะกร้า/ลังปลา/ถังเหลี่ยม</button>
+        <div class="px-4 mb-8">
+            <div class="flex lg:flex-wrap items-center gap-2 overflow-x-auto no-scrollbar whitespace-nowrap pb-3 lg:pb-0 lg:justify-center -mx-4 px-4 lg:mx-0 lg:px-0 snap-x">
+                <button onclick="filterProducts('all')" id="btn-cat-all" class="product-filter-btn snap-銘 px-4 py-2 rounded-xl text-xs md:text-sm font-semibold bg-blue-950 text-white shadow-sm transition-all duration-200 cursor-pointer">ทั้งหมด</button>
+                <button onclick="filterProducts('cat1')" id="btn-cat-cat1" class="product-filter-btn snap-銘 px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50 transition-all duration-200 cursor-pointer">1. สลิงลาก ตราสิงห์โต</button>
+                <button onclick="filterProducts('cat2')" id="btn-cat-cat2" class="product-filter-btn snap-銘 px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50 transition-all duration-200 cursor-pointer">2. อวนฟ้า/อวนขี้ม้า</button>
+                <button onclick="filterProducts('cat3')" id="btn-cat-cat3" class="product-filter-btn snap-銘 px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50 transition-all duration-200 cursor-pointer">3. ด้ายปะอวน/เชือกโปลี</button>
+                <button onclick="filterProducts('cat4')" id="btn-cat-cat4" class="product-filter-btn snap-銘 px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50 transition-all duration-200 cursor-pointer">4. เชือกใยยักษ์</button>
+                <button onclick="filterProducts('cat5')" id="btn-cat-cat5" class="product-filter-btn snap-銘 px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50 transition-all duration-200 cursor-pointer">5. เชือกขี้ม้า/เชือกทิ้งซั้ง</button>
+                <button onclick="filterProducts('cat6')" id="btn-cat-cat6" class="product-filter-btn snap-銘 px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50 transition-all duration-200 cursor-pointer">6. เชือกสายมาน/ลากสาย</button>
+                <button onclick="filterProducts('cat7')" id="btn-cat-cat7" class="product-filter-btn snap-銘 px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50 transition-all duration-200 cursor-pointer">7. ลูกลอย/ทุ่น/ลูกยาง</button>
+                <button onclick="filterProducts('cat8')" id="btn-cat-cat8" class="product-filter-btn snap-銘 px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50 transition-all duration-200 cursor-pointer">8. เครื่องเหล็ก/โซ่/สเกน</button>
+                <button onclick="filterProducts('cat9')" id="btn-cat-cat9" class="product-filter-btn snap-銘 px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50 transition-all duration-200 cursor-pointer">9. ตะกร้า/ลังปลา/ถังเหลี่ยม</button>
+            </div>
         </div>
 
-        <div id="product-grid-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        <div id="product-grid-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-4">
             
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat1">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_1.png" class="w-full h-full object-cover" alt="สลิงลาก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">ตราสิงห์โต</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">สลิงลากกัลวาไนซ์ 12mm</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ชุบกัลวาไนซ์หนาพิเศษ ทนสนิมน้ำเค็มดีเยี่ยมสำหรับเรือลากคู่</p>
+            <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat1">
+                <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group">
+                    <img src="image/totalproduct_1.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="สลิงลาก">
+                </div>
+                <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] md:text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md">ตราสิงห์โต</span>
+                        <h3 class="font-bold text-xs md:text-sm text-blue-950 mt-1 md:mt-1.5 line-clamp-1">สลิงลากกัลวาไนซ์ 12mm</h3>
+                        <p class="text-slate-400 text-[11px] md:text-xs mt-0.5 line-clamp-2 leading-normal">ชุบกัลวาไนซ์หนาพิเศษ ทนสนิมน้ำเค็มดีเยี่ยมสำหรับเรือลากคู่</p>
+                    </div>
                 </div>
             </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat1">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_1.png" class="w-full h-full object-cover" alt="สลิงลาก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">ตราสิงห์โต</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">สลิงลากกัลวาไนซ์ 14mm</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">สลิงเกรดพรีเมียมไม่ตีเกลียวย้อน รับแรงดึงสูงสุดหน้างานประมง</p>
+            <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat1">
+                <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group"><img src="image/totalproduct_1.png" class="w-full h-full object-cover group-hover:scale-105 transition-all" alt="สลิงลาก"></div>
+                <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div><span class="text-[9px] md:text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md">ตราสิงห์โต</span>
+                    <h3 class="font-bold text-xs md:text-sm text-blue-950 mt-1 line-clamp-1">สลิงลากกัลวาไนซ์ 14mm</h3>
+                    <p class="text-slate-400 text-[11px] mt-0.5 line-clamp-2 leading-normal">สลิงเกรดพรีเมียมไม่ตีเกลียวย้อน รับแรงดึงสูงสุดหน้างานประมง</p></div>
                 </div>
             </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat1">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_1.png" class="w-full h-full object-cover" alt="สลิงลาก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">ตราสิงห์โต</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">สลิงลากกัลวาไนซ์ 16mm</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">โครงสร้างสลิงหนาพิเศษเพื่อเรือลากอุตสาหกรรมขนาดใหญ่</p>
+            <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat1">
+                <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group"><img src="image/totalproduct_1.png" class="w-full h-full object-cover group-hover:scale-105 transition-all" alt="สลิงลาก"></div>
+                <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div><span class="text-[9px] md:text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md">ตราสิงห์โต</span>
+                    <h3 class="font-bold text-xs md:text-sm text-blue-950 mt-1 line-clamp-1">สลิงลากกัลวาไนซ์ 16mm</h3>
+                    <p class="text-slate-400 text-[11px] mt-0.5 line-clamp-2 leading-normal">โครงสร้างสลิงหนาพิเศษเพื่อเรือลากอุตสาหกรรมขนาดใหญ่</p></div>
                 </div>
             </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat1">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_1.png" class="w-full h-full object-cover" alt="สลิงลาก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">ตราสิงห์โต</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">สลิงไส้เชือกเรือลาก</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เพิ่มความยืดหยุ่น ซับแรงกระแทกจากคลื่นลมได้เป็นอย่างดี</p>
+            <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat1">
+                <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group"><img src="image/totalproduct_1.png" class="w-full h-full object-cover group-hover:scale-105 transition-all" alt="สลิงลาก"></div>
+                <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div><span class="text-[9px] md:text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md">ตราสิงห์โต</span>
+                    <h3 class="font-bold text-xs md:text-sm text-blue-950 mt-1 line-clamp-1">สลิงไส้เชือกเรือลาก</h3>
+                    <p class="text-slate-400 text-[11px] mt-0.5 line-clamp-2 leading-normal">เพิ่มความยืดหยุ่น ซับแรงกระแทกจากคลื่นลมได้เป็นอย่างดี</p></div>
                 </div>
             </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat1">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_1.png" class="w-full h-full object-cover" alt="สลิงลาก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">ตราสิงห์โต</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ชุดสลิงลากประกอบอวน</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">สลิงชุดสำเร็จพร้อมติดตั้งใช้งานร่วมกับห่วงและสเกนถ่วงอวน</p>
-                </div>
-            </div>
-
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat2">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_2.jpg" class="w-full h-full object-cover" alt="อวน"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full">เกรดพรีเมียม</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">อวนฟ้า ตาคมแน่นพิเศษ</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ผสมสารป้องกันรังสียูวี ปมล็อคแข็งแรงไม่หลุดลื่นง่าย</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat2">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_2.jpg" class="w-full h-full object-cover" alt="อวน"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full">เกรดพรีเมียม</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">อวนขี้ม้า เนื้อหนา</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เหนียวทนทานเป็นพิเศษ เหมาะกับงานประมงทะเลลึก</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat2">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_2.jpg" class="w-full h-full object-cover" alt="อวน"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full">เกรดพรีเมียม</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">อวนใยยักษ์เหลือง</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ผืนอวนใยยักษ์ทนแรงฉีกขาดสูงสำหรับดักจับฝูงปลาใหญ่</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat2">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_2.jpg" class="w-full h-full object-cover" alt="อวน"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full">เกรดพรีเมียม</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">อวนล้อมจับปลากะตัก</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ขนาดตาอวนถี่พิเศษ ทอละเอียดได้มาตรฐานไม่หลุดรอด</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat2">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_2.jpg" class="w-full h-full object-cover" alt="อวน"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full">เกรดพรีเมียม</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">อวนลากแผ่นตะเฆ่สำเร็จรูป</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ออกแบบรูปทรงตามหลักวิชาการประมง ลากลื่นประหยัดน้ำมัน</p>
+            <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat1">
+                <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group"><img src="image/totalproduct_1.png" class="w-full h-full object-cover group-hover:scale-105 transition-all" alt="สลิงลาก"></div>
+                <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div><span class="text-[9px] md:text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md">ตราสิงห์โต</span>
+                    <h3 class="font-bold text-xs md:text-sm text-blue-950 mt-1 line-clamp-1">ชุดสลิงลากประกอบอวน</h3>
+                    <p class="text-slate-400 text-[11px] mt-0.5 line-clamp-2 leading-normal">สลิงชุดสำเร็จพร้อมติดตั้งใช้งานร่วมกับห่วงและสเกนถ่วงอวน</p></div>
                 </div>
             </div>
 
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat3">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_3.png" class="w-full h-full object-cover" alt="ด้ายเชือก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-orange-100 text-orange-800 px-2 py-0.5 rounded-full">เหนียวพิเศษ</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ด้ายปะอวน แบบหลอด</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เส้นด้ายเหนียวแน่นพิเศษ ใช้ซ่อมแซมผืนอวนได้สะดวกรวดเร็ว</p>
+            <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat2">
+                <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group">
+                    <img src="image/totalproduct_2.jpg" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="อวน">
+                </div>
+                <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-[9px] md:text-[10px] font-bold uppercase tracking-wider bg-teal-50 text-teal-700 px-2 py-0.5 rounded-md">เกรดพรีเมียม</span>
+                        <h3 class="font-bold text-xs md:text-sm text-blue-950 mt-1 md:mt-1.5 line-clamp-1">อวนฟ้า ตาคมแน่นพิเศษ</h3>
+                        <p class="text-slate-400 text-[11px] md:text-xs mt-0.5 line-clamp-2 leading-normal">ผสมสารป้องกันรังสียูวี ปมล็อคแข็งแรงไม่หลุดลื่นง่าย</p>
+                    </div>
                 </div>
             </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat3">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_3.png" class="w-full h-full object-cover" alt="ด้ายเชือก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-orange-100 text-orange-800 px-2 py-0.5 rounded-full">เหนียวพิเศษ</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ด้ายปะอวน แบบใจ</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ด้ายในรูปแบบใจดั้งเดิม ทนทานน้ำเค็มและการขูดขีดสูง</p>
+            <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat2">
+                <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group"><img src="image/totalproduct_2.jpg" class="w-full h-full object-cover" alt="อวน"></div>
+                <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div><span class="text-[9px] bg-teal-50 text-teal-700 px-2 py-0.5 rounded-md font-bold">เกรดพรีเมียม</span>
+                    <h3 class="font-bold text-xs md:text-sm text-blue-950 mt-1 line-clamp-1">อวนขี้ม้า เนื้อหนา</h3>
+                    <p class="text-slate-400 text-[11px] mt-0.5 line-clamp-2 leading-normal">เหนียวทนทานเป็นพิเศษ เหมาะกับงานประมงทะเลลึก</p></div>
                 </div>
             </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat3">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_3.png" class="w-full h-full object-cover" alt="ด้ายเชือก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-orange-100 text-orange-800 px-2 py-0.5 rounded-full">เหนียวพิเศษ</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกโปลี ทอแน่น</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เชือกเอนกประสงค์สำหรับผูกมัดยึดของในตัวเรือประมง</p>
+            <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat2">
+                <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group"><img src="image/totalproduct_2.jpg" class="w-full h-full object-cover" alt="อวน"></div>
+                <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div><span class="text-[9px] bg-teal-50 text-teal-700 px-2 py-0.5 rounded-md font-bold">เกรดพรีเมียม</span>
+                    <h3 class="font-bold text-xs md:text-sm text-blue-950 mt-1 line-clamp-1">อวนใยยักษ์เหลือง</h3>
+                    <p class="text-slate-400 text-[11px] mt-0.5 line-clamp-2 leading-normal">ผืนอวนใยยักษ์ทนแรงฉีกขาดสูงสำหรับดักจับฝูงปลาใหญ่</p></div>
                 </div>
             </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat3">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_3.png" class="w-full h-full object-cover" alt="ด้ายเชือก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-orange-100 text-orange-800 px-2 py-0.5 rounded-full">เหนียวพิเศษ</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกใยยักษ์เหลืองเล็ก</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เชือกขนาดเล็กสำหรับงานเย็บขอบและร้อยทุ่นประกอบอวน</p>
+            <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat2">
+                <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group"><img src="image/totalproduct_2.jpg" class="w-full h-full object-cover" alt="อวน"></div>
+                <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div><span class="text-[9px] bg-teal-50 text-teal-700 px-2 py-0.5 rounded-md font-bold">เกรดพรีเมียม</span>
+                    <h3 class="font-bold text-xs md:text-sm text-blue-950 mt-1 line-clamp-1">อวนล้อมจับปลากะตัก</h3>
+                    <p class="text-slate-400 text-[11px] mt-0.5 line-clamp-2 leading-normal">ขนาดตาอวนถี่พิเศษ ทอละเอียดได้มาตรฐานไม่หลุดรอด</p></div>
                 </div>
             </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat3">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_3.png" class="w-full h-full object-cover" alt="ด้ายเชือก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-orange-100 text-orange-800 px-2 py-0.5 rounded-full">เหนียวพิเศษ</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ด้ายไนลอนถักเบอร์พิเศษ</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ทนการเสียดสีกับกระบอกกว้านอวน ทนทานยาวนานคุ้มค่า</p>
-                </div>
-            </div>
-
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat4">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_4.png" class="w-full h-full object-cover" alt="เชือกใยยักษ์"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">ทนแรงดึงมหาศาล</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกใยยักษ์ 18mm</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">สเปกสำหรับเรือประมงพาณิชย์ขนาดใหญ่ รับน้ำหนักสูง</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat4">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_4.png" class="w-full h-full object-cover" alt="เชือกใยยักษ์"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">ทนแรงดึงมหาศาล</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกใยยักษ์ 24mm</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เชือกถักเกรดท็อป สำหรับผูกเรือทอดสมอและลากจูงเรือ</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat4">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_4.png" class="w-full h-full object-cover" alt="เชือกใยยักษ์"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">ทนแรงดึงมหาศาล</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกใยยักษ์ 12mm</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ขนาดปานกลาง เหมาะสำหรับเรือประมงพื้นบ้านทั่วไป</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat4">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_4.png" class="w-full h-full object-cover" alt="เชือกใยยักษ์"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">ทนแรงดึงมหาศาล</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกใยยักษ์ผสมลวด</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ผสานความเหนียวของเส้นใยและความแข็งแกร่งของเส้นลวด</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat4">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_4.png" class="w-full h-full object-cover" alt="เชือกใยยักษ์"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">ทนแรงดึงมหาศาล</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกใยยักษ์ถัก 8 เส้น</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">โครงสร้างถักพิเศษ กลมแน่น ไม่เป็นขุยง่าย อายุงานยาวนาน</p>
+            <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat2">
+                <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group"><img src="image/totalproduct_2.jpg" class="w-full h-full object-cover" alt="อวน"></div>
+                <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
+                    <div><span class="text-[9px] bg-teal-50 text-teal-700 px-2 py-0.5 rounded-md font-bold">เกรดพรีเมียม</span>
+                    <h3 class="font-bold text-xs md:text-sm text-blue-950 mt-1 line-clamp-1">อวนลากแผ่นตะเฆ่สำเร็จรูป</h3>
+                    <p class="text-slate-400 text-[11px] mt-0.5 line-clamp-2 leading-normal">ออกแบบรูปทรงตามหลักวิชาการประมง ลากลื่นประหยัดน้ำมัน</p></div>
                 </div>
             </div>
 
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat5">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_5.png" class="w-full h-full object-cover" alt="เชือกขี้ม้า"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">จมตัวเร็ว</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกขี้ม้า เกรดเอ 6mm</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">น้ำหนักดี ทนทาน จมน้ำได้รวดเร็ว เหมาะแก่การทำแนวอวน</p>
-                </div>
             </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat5">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_5.png" class="w-full h-full object-cover" alt="เชือกขี้ม้า"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">จมตัวเร็ว</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกขี้ม้า เกรดเอ 8mm</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เนื้อเหนียว ทนทานต่อน้ำเค็มได้ยาวนาน ไม่เปื่อยเปื่อยง่าย</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat5">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_5.png" class="w-full h-full object-cover" alt="เชือกขี้ม้า"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">จมตัวเร็ว</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกทิ้งซั้ง ถ่วงน้ำหนัก</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เชือกเฉพาะทางสำหรับงานทำซั้งกอ สร้างแหล่งอาศัยสัตว์น้ำ</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat5">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_5.png" class="w-full h-full object-cover" alt="เชือกขี้ม้า"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">จมตัวเร็ว</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกขี้ม้าลายจุด 10mm</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เชือกหนาขึ้นรูปสวยงาม แข็งแรงทนทานทุกสภาพภูมิอากาศ</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat5">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_5.png" class="w-full h-full object-cover" alt="เชือกขี้ม้า"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-green-100 text-green-800 px-2 py-0.5 rounded-full">จมตัวเร็ว</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกทิ้งปะการังเทียม</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ความยาวต่อเนื่อง ทนทานต่อแรงขูดขีดของโขดหินใต้น้ำ</p>
-                </div>
-            </div>
-
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat6">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_6.png" class="w-full h-full object-cover" alt="เชือกสายมาน"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-full">งานพาณิชย์หนัก</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกสายมาน ถักแน่นพิเศษ</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ทนการขูดขีดและการเสียดสีกับกระบอกกว้านอวนขนาดใหญ่</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat6">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_6.png" class="w-full h-full object-cover" alt="เชือกสายมาน"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-full">งานพาณิชย์หนัก</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกลากสายเรือประมง</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ผลิตจากเส้นใยสังเคราะห์หนาหลายชั้น ทนแรงดึงกระชากคลื่น</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat6">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_6.png" class="w-full h-full object-cover" alt="เชือกสายมาน"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-full">งานพาณิชย์หนัก</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกสายมานคอร์ดโครงสร้างแข็ง</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">รักษารูปทรงเชือกได้ดี ไม่บิดเบี้ยวเมื่อรับโหลดน้ำหนักจัด</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat6">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_6.png" class="w-full h-full object-cover" alt="เชือกสายมาน"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-full">งานพาณิชย์หนัก</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกลากสายแบบเคลือบสาร</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เคลือบสารพิเศษกันการซึมน้ำ ช่วยให้เชือกน้ำหนักคงที่เบาแรง</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat6">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_6.png" class="w-full h-full object-cover" alt="เชือกสายมาน"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-full">งานพาณิชย์หนัก</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เชือกมานหัวเรือพ่วง</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เชือกสเปกใหญ่พิเศษความปลอดภัยสูงสำหรับพ่วงลากจูงในทะเล</p>
-                </div>
-            </div>
-
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat7">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_7.png" class="w-full h-full object-cover" alt="ทุ่นลูกลอย"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">ลอยตัวดีเยี่ยม</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ทุ่น NYE คุณภาพสูง</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">พลาสติกเกรดอุตสาหกรรม ไม่กรอบแตกง่าย ทนต่อแรงอัดใต้น้ำ</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat7">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_7.png" class="w-full h-full object-cover" alt="ทุ่นลูกลอย"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">ลอยตัวดีเยี่ยม</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ทุ่น SHE ทนแรงกระแทก</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">รักษาแนวอวนได้อย่างมีประสิทธิภาพ ทนทานต่อแสงแดดจัด</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat7">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_7.png" class="w-full h-full object-cover" alt="ทุ่นลูกลอย"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">ลอยตัวดีเยี่ยม</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ทุ่นตอปิโด วิ่งน้ำดี</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ลดแรงต้านน้ำ ช่วยให้กางอวนออกได้กว้างและลากอวนได้ง่าย</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat7">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_7.png" class="w-full h-full object-cover" alt="ทุ่นลูกลอย"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">ลอยตัวดีเยี่ยม</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ทุ่นตลับ / ลูกยางกันกระแทก</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ลูกยางและลูกพลาสติกถ่วงขอบอวน ปกป้องเนื้ออวนจากการขูดขีด</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat7">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_7.png" class="w-full h-full object-cover" alt="ทุ่นลูกลอย"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">ลอยตัวดีเยี่ยม</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ลูกลอยพลาสติกกลมผสม UV</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เนื้อเหนียวพิเศษสำหรับประมงชายฝั่งและระบบกระชังเลี้ยงปลา</p>
-                </div>
-            </div>
-
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat8">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_8.png" class="w-full h-full object-cover" alt="เครื่องเหล็ก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-gray-200 text-gray-800 px-2 py-0.5 rounded-full">เหล็กกล้าแกร่ง</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">โซ่ชุบซิงค์ขาวกันสนิม</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">โซ่ถ่วงน้ำหนักแนวล่างของอวน ทนทานต่อการเสียดสีท้องทะเล</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat8">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_8.png" class="w-full h-full object-cover" alt="เครื่องเหล็ก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-gray-200 text-gray-800 px-2 py-0.5 rounded-full">เหล็กกล้าแกร่ง</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">สเกนเหล็กเหนียวเกรดหนา</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ข้อต่อและห่วงสเกนสำหรับล็อคสายสลิง ล็อคแน่นปลอดภัย</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat8">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_8.png" class="w-full h-full object-cover" alt="เครื่องเหล็ก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-gray-200 text-gray-800 px-2 py-0.5 rounded-full">เหล็กกล้าแกร่ง</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ลูกเหล็กถ่วงอวนกลม</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ลูกเหล็กน้ำหนักมาตรฐาน ช่วยถ่วงอวนให้จมตัวและกางได้สมดุล</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat8">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_8.png" class="w-full h-full object-cover" alt="เครื่องเหล็ก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-gray-200 text-gray-800 px-2 py-0.5 rounded-full">เหล็กกล้าแกร่ง</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ลวดเหล็กสปริงชุบซิงค์</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ลวดสำหรับขึ้นรูปโครงสร้างลอบปู ลอบปลา ดัดง่ายสปริงตัวดี</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat8">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_8.png" class="w-full h-full object-cover" alt="เครื่องเหล็ก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-gray-200 text-gray-800 px-2 py-0.5 rounded-full">เหล็กกล้าแกร่ง</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ห่วงเหล็กเชื่อมตายหนา</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ห่วงกลมเชื่อมปิดเนื้อเนียน ไร้รอยคมที่จะบาดเส้นเชือกอวน</p>
-                </div>
-            </div>
-
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat9">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_9.png" class="w-full h-full object-cover" alt="พลาสติก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-red-100 text-red-800 px-2 py-0.5 rounded-full">พลาสติกหนาถึก</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ลังปลาพลาสติกเกรดเอ</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">หนา ถึก ทน รองรับงานแช่แข็งในห้องเย็นและแรงกระแทกสูง</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat9">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_9.png" class="w-full h-full object-cover" alt="พลาสติก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-red-100 text-red-800 px-2 py-0.5 rounded-full">พลาสติกหนาถึก</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ตะกร้าแพปลาตาข่ายถี่</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">หูจับเหล็กหนาแข็งแรง ยกสาดปลาได้สะดวก ไม่แตกหักง่าย</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat9">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_9.png" class="w-full h-full object-cover" alt="พลาสติก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-red-100 text-red-800 px-2 py-0.5 rounded-full">พลาสติกหนาถึก</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">กล่องปลาทูพลาสติก</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">กล่องพลาสติกขนาดเล็กสำหรับเรียงปลาส่งโรงงานหรืองานตลาดสด</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat9">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_9.png" class="w-full h-full object-cover" alt="พลาสติก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-red-100 text-red-800 px-2 py-0.5 rounded-full">พลาสติกหนาถึก</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">ถังพลาสติกสี่เหลี่ยมแช่อาหาร</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">ถังแช่น้ำแข็งและอาหารทะเลความจุสูง เก็บความเย็นยาวนาน</p>
-                </div>
-            </div>
-            <div class="product-item-card bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cat9">
-                <div class="h-48 bg-slate-200 relative"><img src="image/totalproduct_9.png" class="w-full h-full object-cover" alt="พลาสติก"></div>
-                <div class="p-4">
-                    <span class="text-[10px] font-bold bg-red-100 text-red-800 px-2 py-0.5 rounded-full">พลาสติกหนาถึก</span>
-                    <h3 class="font-bold text-base text-blue-950 mt-1.5 line-clamp-1">เก้าอี้พลาสติกแพปลาทรงเตี้ย</h3>
-                    <p class="text-slate-500 text-xs mt-1 line-clamp-2">เก้าอี้พลาสติกเหนียวพิเศษรับน้ำหนักได้เยอะ สำหรับนั่งคัดปลา</p>
-                </div>
-            </div>
-
-        </div>
     </div>
 </section>
 
@@ -1441,7 +1164,46 @@ function filterProducts(categoryCode) {
         }
     });
 }
-        
+    // ฟังก์ชันสกรอลล์ลงมาที่หน้าแคตตาล็อกสินค้า และสั่งฟิลเตอร์หมวดหมู่ทันที
+function navigateTo(page, category = 'all') {
+    if (page === 'catalog') {
+        const targetSection = document.getElementById('our-products-section');
+        if (targetSection) {
+            // เลื่อนลงมาแบบสมูท
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        // สั่งเปิด Filter ตามหมวดหมู่ที่คลิกเลือกมา
+        filterProducts(category);
+    } else {
+        // ส่วนควบคุมหน้าอื่นๆ ของเดิม (ถ้ามี)
+        const viewHome = document.getElementById('view-home');
+        if (viewHome) viewHome.classList.remove('hidden');
+    }
+}
+
+// ฟังก์ชันคัดกรองสินค้า (Filter) พร้อมสลับคลาสปุ่มให้สวยงามเป็นมืออาชีพ
+function filterProducts(categoryCode) {
+    const cards = document.querySelectorAll('.product-item-card');
+    cards.forEach(card => {
+        if (categoryCode === 'all' || card.getAttribute('data-category') === categoryCode) {
+            card.style.display = 'flex'; // ใช้ flex เพื่อให้ความสูงการ์ดเท่ากันสวยงาม
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    // เปลี่ยนสีปุ่มที่กำลังเลือก (Active) ให้เด่นชัด
+    const buttons = document.querySelectorAll('.product-filter-btn');
+    buttons.forEach(btn => {
+        if (btn.id === `btn-cat-${categoryCode}`) {
+            btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200/60');
+            btn.classList.add('bg-blue-950', 'text-white', 'shadow-sm');
+        } else {
+            btn.classList.remove('bg-blue-950', 'text-white', 'shadow-sm');
+            btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200/60');
+        }
+    });
+}
     </script>
 </body>
 </html>
