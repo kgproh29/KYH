@@ -56,24 +56,37 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div onclick="navigateTo('home')" class="flex-shrink-0 flex items-center cursor-pointer group">
-                    <span class="text-2xl font-black text-blue-950 tracking-wider transition group-hover:text-blue-900">กังย่งเฮง</span>
+                    <span class="text-2xl font-black text-blue-950 tracking-wider transition group-hover:text-blue-900 data-translate" data-key="logo">กังย่งเฮง</span>
                     <span class="ml-2 text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded-full font-bold tracking-widest">ผู้นำร้านค้าส่งอันดับ 1 ของประเทศไทย</span>
                 </div>
                 
                 <div class="hidden lg:flex space-x-6 xl:space-x-8 font-medium">
-                    <button onclick="navigateTo('home')" id="nav-home" class="text-blue-900 border-b-2 border-blue-900 pb-1 font-semibold transition cursor-pointer">หน้าแรก</button>
-                    <button onclick="navigateTo('catalog')" id="nav-catalog" class="text-slate-500 hover:text-blue-900 pb-1 transition cursor-pointer">แคตตาล็อกสินค้า</button>
-                    <a href="javascript:void(0)" onclick="scrollToSection('about')" class="text-slate-500 hover:text-blue-900 transition">ทำไมต้องเป็นเรา</a>
-                    <a href="#contact" class="text-slate-500 hover:text-blue-900 transition">ติดต่อขายส่ง</a>
+                    <button onclick="navigateTo('home')" id="nav-home" class="text-blue-900 border-b-2 border-blue-900 pb-1 font-semibold transition cursor-pointer data-translate" data-key="nav_home">หน้าแรก</button>
+                    <button onclick="navigateTo('catalog')" id="nav-catalog" class="text-slate-500 hover:text-blue-900 pb-1 transition cursor-pointer data-translate" data-key="nav_catalog">แคตตาล็อกสินค้า</button>
+                    <a href="javascript:void(0)" onclick="scrollToSection('about')" class="text-slate-500 hover:text-blue-900 transition data-translate" data-key="nav_about">ทำไมต้องเป็นเรา</a>
+                    <a href="#contact" class="text-slate-500 hover:text-blue-900 transition data-translate" data-key="nav_contact">ติดต่อขายส่ง</a>
                 </div>
 
                 <div class="hidden md:flex items-center gap-3 xl:gap-4">
-                    <a href="#contact" class="bg-blue-950 text-white px-4 xl:px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-900 transition shadow-lg shadow-blue-950/15">
+                    <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200 text-[11px] font-bold">
+                        <button onclick="switchLang('th')" id="lang-btn-th" class="px-2 py-1 rounded-lg bg-blue-950 text-white transition cursor-pointer">TH</button>
+                        <button onclick="switchLang('en')" id="lang-btn-en" class="px-2 py-1 rounded-lg text-slate-600 hover:text-blue-950 transition cursor-pointer">EN</button>
+                        <button onclick="switchLang('ch')" id="lang-btn-ch" class="px-2 py-1 rounded-lg text-slate-600 hover:text-blue-950 transition cursor-pointer">中文</button>
+                        <button onclick="switchLang('jp')" id="lang-btn-jp" class="px-2 py-1 rounded-lg text-slate-600 hover:text-blue-950 transition cursor-pointer">日本語</button>
+                    </div>
+                    
+                    <a href="#contact" class="bg-blue-950 text-white px-4 xl:px-6 py-2.5 rounded-xl text-sm font-medium hover:bg-blue-900 transition shadow-lg shadow-blue-950/15 data-translate" data-key="btn_quote">
                         ขอใบเสนอราคา
                     </a>
                 </div>
 
                 <div class="flex items-center gap-2 md:hidden">
+                    <div class="flex bg-slate-100 p-0.5 rounded-lg text-[10px] font-bold">
+                        <button onclick="switchLang('th')" id="lang-btn-mobile-th" class="px-1.5 py-1 rounded-md bg-blue-950 text-white transition">TH</button>
+                        <button onclick="switchLang('en')" id="lang-btn-mobile-en" class="px-1.5 py-1 rounded-md text-slate-600 transition">EN</button>
+                        <button onclick="switchLang('ch')" id="lang-btn-mobile-ch" class="px-1.5 py-1 rounded-md text-slate-600 transition">中</button>
+                        <button onclick="switchLang('jp')" id="lang-btn-mobile-jp" class="px-1.5 py-1 rounded-md text-slate-600 transition">日</button>
+                    </div>
                     <button onclick="toggleMobileMenu()" class="text-slate-700 hover:text-blue-950 focus:outline-none pl-1">
                         <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
                     </button>
@@ -82,11 +95,11 @@
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 py-4 px-6 space-y-3 shadow-inner">
-            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left font-medium text-slate-700 hover:text-blue-950 py-2">หน้าแรก</button>
-            <button onclick="navigateTo('catalog'); toggleMobileMenu()" class="block w-full text-left font-medium text-slate-700 hover:text-blue-950 py-2">แคตตาล็อกสินค้า</button>
-            <a href="#about" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-blue-950 py-2">ทำไมต้องเป็นเรา</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-blue-950 py-2">ติดต่อขายส่ง</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block text-center bg-blue-950 text-white py-2.5 rounded-lg font-medium">ขอใบเสนอราคา</a>
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left font-medium text-slate-700 hover:text-blue-950 py-2 data-translate" data-key="nav_home">หน้าแรก</button>
+            <button onclick="navigateTo('catalog'); toggleMobileMenu()" class="block w-full text-left font-medium text-slate-700 hover:text-blue-950 py-2 data-translate" data-key="nav_catalog">แคตตาล็อกสินค้า</button>
+            <a href="#about" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-blue-950 py-2 data-translate" data-key="nav_about">ทำไมต้องเป็นเรา</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block font-medium text-slate-700 hover:text-blue-950 py-2 data-translate" data-key="nav_contact">ติดต่อขายส่ง</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-center bg-blue-950 text-white py-2.5 rounded-lg font-medium data-translate" data-key="btn_quote">ขอใบเสนอราคา</a>
         </div>
     </nav>
 
@@ -102,21 +115,21 @@
                             <div class="max-w-3xl">
                                 <span class="inline-flex items-center gap-1.5 bg-orange-500/20 text-orange-400 border border-orange-500/30 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase mb-6">
                                     <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
-                                    <span>ศูนย์รวมอุปกรณ์ประมงค้าส่งอันดับหนึ่ง</span>
+                                    <span class="data-translate" data-key="hero_tag">ศูนย์รวมอุปกรณ์ประมงค้าส่งอันดับหนึ่ง</span>
                                 </span>
                                 <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                                    <span>กังย่งเฮง</span> <br>
-                                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-cyan-200">ผู้นำร้านขายส่งอุปกรณ์การประมง</span>
+                                    <span class="data-translate" data-key="hero_title1">กังย่งเฮง</span> <br>
+                                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-cyan-200 data-translate" data-key="hero_title2">ผู้นำร้านขายส่งอุปกรณ์การประมง</span>
                                 </h1>
-                                <p class="text-slate-200 text-base md:text-lg mb-10 leading-relaxed max-w-2xl">
+                                <p class="text-slate-200 text-base md:text-lg mb-10 leading-relaxed max-w-2xl data-translate" data-key="hero_desc">
                                     เราจำหน่าย ขายส่งอุปกรณ์การประมง และวัสดุอุปกรณ์ที่ใช้ในอุตสาหกรรมประมงครบวงจร คัดเกรดพรีเมียมจากผู้ผลิตชั้นนำทั่วไทย พร้อมราคาส่งที่ดีที่สุดสำหรับพี่น้องชาวประมงทุกท่าน
                                 </p>
                                 <div class="flex flex-col sm:flex-row gap-4">
                                     <button onclick="navigateTo('catalog')" class="bg-orange-500 hover:bg-orange-600 text-white text-center px-8 py-3.5 rounded-xl font-medium transition duration-200 shadow-lg shadow-orange-500/25 cursor-pointer flex items-center justify-center gap-2">
-                                        <i class="fa-solid fa-book-open"></i> <span class=">ดูแคตตาล็อกสินค้า</span>
+                                        <i class="fa-solid fa-book-open"></i> <span class="data-translate" data-key="btn_view_catalog">ดูแคตตาล็อกสินค้า</span>
                                     </button>
                                     <a href="#contact" class="border border-white/30 hover:border-white text-center text-white px-8 py-3.5 rounded-xl font-medium transition backdrop-blur-sm bg-white/10 flex items-center justify-center gap-2">
-                                        <i class="fa-solid fa-phone"></i> <span class=">ติดต่อเจ้าหน้าที่ฝ่ายขาย</span>
+                                        <i class="fa-solid fa-phone"></i> <span class="data-translate" data-key="btn_contact_sales">ติดต่อเจ้าหน้าที่ฝ่ายขาย</span>
                                     </a>
                                 </div>
                             </div>
@@ -143,10 +156,10 @@
                                 </p>
                                 <div class="flex flex-col sm:flex-row gap-4">
                                     <button onclick="navigateTo('catalog')" class="bg-orange-500 hover:bg-orange-600 text-white text-center px-8 py-3.5 rounded-xl font-medium transition duration-200 shadow-lg shadow-orange-500/25 cursor-pointer flex items-center justify-center gap-2">
-                                        <i class="fa-solid fa-book-open"></i> <span class=">ดูแคตตาล็อกสินค้า</span>
+                                        <i class="fa-solid fa-book-open"></i> <span class="data-translate" data-key="btn_view_catalog">ดูแคตตาล็อกสินค้า</span>
                                     </button>
                                     <a href="#contact" class="border border-white/30 hover:border-white text-center text-white px-8 py-3.5 rounded-xl font-medium transition backdrop-blur-sm bg-white/10 flex items-center justify-center gap-2">
-                                        <i class="fa-solid fa-phone"></i> <span class=">ติดต่อเจ้าหน้าที่ฝ่ายขาย</span>
+                                        <i class="fa-solid fa-phone"></i> <span class="data-translate" data-key="btn_contact_sales">ติดต่อเจ้าหน้าที่ฝ่ายขาย</span>
                                     </a>
                                 </div>
                             </div>
@@ -173,10 +186,10 @@
                                 </p>
                                 <div class="flex flex-col sm:flex-row gap-4">
                                    <button onclick="navigateTo('catalog')" class="bg-orange-500 hover:bg-orange-600 text-white text-center px-8 py-3.5 rounded-xl font-medium transition duration-200 shadow-lg shadow-orange-500/25 cursor-pointer flex items-center justify-center gap-2">
-                                        <i class="fa-solid fa-book-open"></i> <span class=">ดูแคตตาล็อกสินค้า</span>
+                                        <i class="fa-solid fa-book-open"></i> <span class="data-translate" data-key="btn_view_catalog">ดูแคตตาล็อกสินค้า</span>
                                     </button>
                                     <a href="#contact" class="border border-white/30 hover:border-white text-center text-white px-8 py-3.5 rounded-xl font-medium transition backdrop-blur-sm bg-white/10 flex items-center justify-center gap-2">
-                                        <i class="fa-solid fa-phone"></i> <span class=">ติดต่อเจ้าหน้าที่ฝ่ายขาย</span>
+                                        <i class="fa-solid fa-phone"></i> <span class="data-translate" data-key="btn_contact_sales">ติดต่อเจ้าหน้าที่ฝ่ายขาย</span>
                                     </a>
                                 </div>
                             </div>
@@ -218,8 +231,8 @@
                             <img src="image/totalproduct_1.png" alt="Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat1_title">อวนฟ้า อวนขี้ม้า อวนใยยักษ์เหลือง</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat1_desc">มีทุกขนาดตาและความลึก งานถักเครื่องประณีต ไม่แตกขาดง่าย</p>
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat1_title">สลิงลาก ตราสิงห์โต</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat1_desc">สลิงเรือลากคู่เกรดพรีเมียม ตราสิงห์โต ชุบกัลวาไนซ์หนาพิเศษ ทนแรงดึงสูง ไม่ตีเกลียวย้อน สำหรับทุกงานประมง</p>
                             <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
                                 <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
                             </span>
@@ -230,8 +243,8 @@
                             <img src="image/totalproduct_2.jpg" alt="Ropes" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat2_title">เชือกใยยักษ์</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat2_desc">ทนทานต่อแรงดึงมหาศาล สเปกเรืออุตสาหกรรมและประมงพื้นบ้าน</p>
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat2_title">อวนฟ้า อวนขี้ม้า อวนใยยักษ์เหลือง</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat2_desc">อวนคุณภาพเกรดเอสำหรับมืออาชีพ ตาอวนคมแน่น ปมล็อคแข็งแรงไม่หลุดลื่นง่าย ผสมสารป้องกันรังสียูวีเพื่อให้ตัวอวนทนทานต่อแสงแดดจัด ลมฝน และการกัดกร่อนของน้ำทะเลได้อย่างดีเยี่ยม</p>
                             <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
                                 <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
                             </span>
@@ -242,8 +255,8 @@
                             <img src="image/totalproduct_3.png" alt="Fishing Rope" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat3_title">สลิงลาก</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat3_desc">สลิงลากเรืออวนลาก ทนทานต่อแรงดึง</p>
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat3_title">ด้ายปะอวน แบบหลอด แบบใจ เชือกโปลี เชือกใยยักษ์เหลือง</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat3_desc">เส้นด้ายเหนียวพิเศษ ทนทานต่อการกัดกร่อนของน้ำเค็มและการเสียดสี ช่วยยืดอายุการใช้งานของผืนอวน ลดค่าใช้จ่ายในการซ่อมบำรุงได้อย่างคุ้มค่า</p>
                             <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
                                 <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
                             </span>
@@ -254,8 +267,8 @@
                             <img src="image/totalproduct_4.png" alt="Lines & Hooks" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat4_title">เอ็นเดี่ยวและเบ็ดกล่อง</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat4_desc">เอ็นไนลอนโปร่งใส และเบ็ดสแตนเลสคาร์บอนกันสนิมสำหรับงานทะเล</p>
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat4_title">เชือกใยยักษ์</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat4_desc">ทนทานต่อแรงดึงมหาศาล สเปกเรืออุตสาหกรรมและประมงพื้นบ้าน</p>
                             <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
                                 <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
                             </span>
@@ -266,8 +279,8 @@
                             <img src="image/totalproduct_5.png" alt="Cast Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat5_title">แหฝรั่งถักมือ เกรดพรีเมียม</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat5_desc">แหเอ็นเกลียวคุณภาพสูง จมน้ำไว บานง่าย เหมาะกับงานทอดหาปลาทั่วไป</p>
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat5_title">เชือกขี้ม้า เชือกทิ้งซั้ง</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat5_desc">เหนียว ทน คุ้มค่าทุกการใช้งาน เชือกขี้ม้าและเชือกทิ้งซั้ง น้ำหนักดี จมตัวเร็ว ทนน้ำเค็มยาวนาน</p>
                             <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
                                 <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
                             </span>
@@ -278,8 +291,8 @@
                             <img src="image/totalproduct_6.png" alt="Waders" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat6_title">ชุดลุยน้ำและเสื้อกันฝนประมง</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat6_desc">ชุดเอี๊ยมกันน้ำ PVC เนื้อหนาพิเศษและอุปกรณ์เซฟตี้สำหรับชาวประมง</p>
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat6_title">เชือกสายมาน เชือกลากสาย</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat6_desc">เชือกเพื่องานประมงพาณิชย์ขนาดใหญ่ ผลิตจากเส้นใยสังเคราะห์คุณภาพสูง ที่ผ่านกระบวนการถักทอแบบพิเศษหนาหลายชั้น โครงสร้างเชือกออกแบบมาให้ทนทานต่อการขูดขีด การเสียดสีกับกระบอกกว้านและขอบเรือ</p>
                             <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
                                 <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
                             </span>
@@ -290,8 +303,8 @@
                             <img src="image/totalproduct_7.png" alt="Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat7_title">อวนฟ้า อวนขี้ม้า อวนใยยักษ์เหลือง</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat7_desc">มีทุกขนาดตาและความลึก งานถักเครื่องประณีต ไม่แตกขาดง่าย</p>
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat7_title">ลูกลอย ทุ่น NYE ทุ่น SHE ทุ่นตอปิโด ทุ่นตลับ ลูกยาง ลูกพลาสติก</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat7_desc">อุปกรณ์ทุ่น ลูกลอย และลูกยางคุณภาพสูงสำหรับระบบอวนประมงครบวงจร ทนทานต่อรังสียูวีและการเสียดสีกับท้องทะเลได้อย่างดีเยี่ยม เนื้อพลาสติกและยางเกรดอุตสาหกรรม ไม่กรอบแตกง่าย ช่วยรักษาแนวอวนและกระจายแรงลอยตัวได้อย่างมีประสิทธิภาพ มั่นใจได้ในความคุ้มค่าและตอบโจทย์ทุกการใช้งานหน้างานจริง</p>
                             <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
                                 <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
                             </span>
@@ -302,8 +315,8 @@
                             <img src="image/totalproduct_8.png" alt="Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat8_title">อวนฟ้า อวนขี้ม้า อวนใยยักษ์เหลือง</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat8_desc">มีทุกขนาดตาและความลึก งานถักเครื่องประณีต ไม่แตกขาดง่าย</p>
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat8_title">เครื่องเหล็ก ลวด โซ่ชุบซิงค์ สเกน ลูกเหล็กถ่วง</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat8_desc">แข็งแกร่ง ทนทานต่อสนิมน้ำเค็มและการเสียดสีใต้น้ำลึกได้อย่างดีเยี่ยม ออกแบบมาเพื่อการยึดเหนี่ยว ลากจูง และถ่วงน้ำหนักผืนอวนอย่างสมดุล ได้มาตรฐาน ปลอดภัย มั่นใจได้ในความคุ้มค่าตลอดอายุการใช้งาน</p>
                             <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
                                 <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
                             </span>
@@ -314,8 +327,8 @@
                             <img src="image/totalproduct_9.png" alt="Nets" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                         </div>
                         <div class="p-6">
-                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat9_title">อวนฟ้า อวนขี้ม้า อวนใยยักษ์เหลือง</h3>
-                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat9_desc">มีทุกขนาดตาและความลึก งานถักเครื่องประณีต ไม่แตกขาดง่าย</p>
+                            <h3 class="font-bold text-xl text-blue-950 group-hover:text-orange-500 transition mb-1 data-translate" data-key="cat9_title">ตระกร้า ลังปลา กล่องปลาทู ถังเหลี่ยม เก้าอี้พลาสติก</h3>
+                            <p class="text-slate-500 text-sm mb-4 data-translate" data-key="cat9_desc">พลาสติกเกรดเอ หนา ถึก ทน รองรับแรงกระแทกและการแช่แข็ง ออกแบบเพื่อวิถีแพปลา โรงงาน และงานเกษตรกรรมหนักโดยเฉพาะ</p>
                             <span class="text-xs font-semibold text-blue-950 inline-flex items-center gap-1.5">
                                 <span class="data-translate" data-key="click_to_view">คลิกดูสินค้า</span> <i class="fa-solid fa-circle-chevron-right text-orange-500"></i>
                             </span>
