@@ -1167,31 +1167,31 @@
 
         // 4. ระบบสลับมุมมองหน้าเว็บเดี่ยว (Single Page Application Router)
         function navigateTo(targetView, filterCategory = 'all') {
-            const homeView = document.getElementById('view-home');
-            const catalogView = document.getElementById('view-catalog');
-            const navHome = document.getElementById('nav-home');
-            const navCatalog = document.getElementById('nav-catalog');
+    const homeView = document.getElementById('view-home');
+    const catalogView = document.getElementById('view-catalog');
+    const navHome = document.getElementById('nav-home');
+    const navCatalog = document.getElementById('nav-catalog');
 
-            if (targetView === 'home') {
-                homeView.classList.remove('hidden');
-                catalogView.classList.add('hidden');
-                if(navHome && navCatalog) {
-                    navHome.className = "text-blue-900 border-b-2 border-blue-900 pb-1 font-semibold transition cursor-pointer";
-                    navCatalog.className = "text-slate-500 hover:text-blue-900 pb-1 transition cursor-pointer";
-                }
-            } else if (targetView === 'catalog') {
-                homeView.classList.add('hidden');
-                catalogView.classList.remove('hidden');
-                if(navHome && navCatalog) {
-                    navHome.className = "text-slate-500 hover:text-blue-900 pb-1 transition cursor-pointer";
-                    navCatalog.className = "text-blue-900 border-b-2 border-blue-900 pb-1 font-semibold transition cursor-pointer";
-                }
-                if (filterCategory !== 'all') {
-                    setFilter(filterCategory);
-                }
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (targetView === 'home') {
+        homeView.classList.remove('hidden');
+        catalogView.classList.add('hidden');
+        if(navHome && navCatalog) {
+            navHome.className = "text-blue-900 border-b-2 border-blue-900 pb-1 font-semibold transition cursor-pointer";
+            navCatalog.className = "text-slate-500 hover:text-blue-900 pb-1 transition cursor-pointer";
         }
+    } else if (targetView === 'catalog') {
+        homeView.classList.add('hidden');
+        catalogView.classList.remove('hidden');
+        if(navHome && navCatalog) {
+            navHome.className = "text-slate-500 hover:text-blue-900 pb-1 transition cursor-pointer";
+            navCatalog.className = "text-blue-900 border-b-2 border-blue-900 pb-1 font-semibold transition cursor-pointer";
+        }
+        
+        // 🔥 แก้ไขตรงจุดนี้: เอา if ออก เพื่อให้ทำงานทุกครั้งไม่ว่าจะกดดูแบบไหน
+        setFilter(filterCategory); 
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
         // 5. จัดการสถานะและจัดแต่งปุ่มหมวดหมู่ตัวกรองหน้าสินค้า
         function setFilter(category) {
