@@ -1187,6 +1187,8 @@ function navigateTo(page, category = 'all') {
         // สั่งเปิด Filter ตามหมวดหมู่ที่คลิกเลือกมา
         filterProducts(category);
     } else {
+        // ⭐ เพิ่มบรรทัดนี้ เด้งไปบนสุด
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         // ส่วนควบคุมหน้าอื่นๆ ของเดิม (ถ้ามี)
         const viewHome = document.getElementById('view-home');
         if (viewHome) viewHome.classList.remove('hidden');
