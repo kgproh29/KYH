@@ -382,7 +382,7 @@
             ขายดี
         </span>
         
-        <img src="image/fishingrope_1.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="สลิงลาก">
+        <img src="image/fishingrope_1.png" onclick="openZoomModal(this)" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" cursor-zoom-in alt="สลิงลาก">
     </div>
     
     <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
@@ -1239,6 +1239,53 @@ const scrollObserver = new IntersectionObserver((entries, observer) => {
 }, observerOptions);
 
 fadeElements.forEach(el => scrollObserver.observe(el));
-    </script>
+    </script><!-- 🍏 Premium Image Zoom Modal -->
+<div id="image-zoom-modal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center bg-black/60 backdrop-blur-md px-4 py-8" onclick="closeZoomModal()">
+    <!-- ปุ่มปิดมุมขวาบนแบบ Minimal -->
+    <button class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl transition duration-200 cursor-pointer" onclick="closeZoomModal()">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    
+    <!-- ตัวคอนเทนเนอร์รูปภาพ -->
+    <div class="relative max-w-4xl max-h-[85vh] transform scale-95 transition-transform duration-300 bg-white p-2 rounded-2xl shadow-2xl" onclick="event.stopPropagation()">
+        <img id="modal-zoomed-img" src="" alt="Zoomed Product" class="max-w-full max-h-[80vh] object-contain rounded-xl">
+    </div>
+</div>
+    // ฟังก์ชันเปิดโมดอลขยายรูปภาพพร้อมอนิเมชันนุ่มนวล
+function openZoomModal(imgElement) {
+    const modal = document.getElementById('image-zoom-modal');
+    const modalImg = document.getElementById('modal-zoomed-img');
+    const innerContainer = modal.querySelector('div');
+
+    // นำรูปต้นฉบับไปใส่ในกล่อง Zoom
+    modalImg.src = imgElement.src;
+
+    // แสดงโมดอลและทำ Fade-in / Scale-up สไตล์ Apple
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        innerContainer.classList.remove('scale-95');
+        innerContainer.classList.add('scale-100');
+    }, 20); // ดีเลย์เล็กน้อยเพื่อให้ CSS Transition ทำงานได้สมบูรณ์
+
+    // ล็อกหน้าจอหลักไม่ให้สกรอลล์ไปมาขณะเปิดดูรูป
+    document.body.classList.add('overflow-hidden');
+}
+
+// ฟังก์ชันปิดโมดอล
+function closeZoomModal() {
+    const modal = document.getElementById('image-zoom-modal');
+    const innerContainer = modal.querySelector('div');
+
+    modal.classList.add('opacity-0');
+    innerContainer.classList.remove('scale-100');
+    innerContainer.classList.add('scale-95');
+
+    // รออนิเมชัน Fade-out ทำงานเสร็จ (300ms) แล้วค่อยซ่อน Element
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }, 300);
+}
 </body>
 </html>
