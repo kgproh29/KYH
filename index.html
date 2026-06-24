@@ -889,7 +889,18 @@
         </div>
     </section>
 </div>
+    <!-- 🍏 Premium Image Zoom Modal -->
+<div id="image-zoom-modal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center bg-black/60 backdrop-blur-md px-4 py-8" onclick="closeZoomModal()">
+    <!-- ปุ่มปิดมุมขวาบนแบบ Minimal -->
+    <button class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl transition duration-200 cursor-pointer" onclick="closeZoomModal()">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
     
+    <!-- ตัวคอนเทนเนอร์รูปภาพ -->
+    <div class="relative max-w-4xl max-h-[85vh] transform scale-95 transition-transform duration-300 bg-white p-2 rounded-2xl shadow-2xl" onclick="event.stopPropagation()">
+        <img id="modal-zoomed-img" src="" alt="Zoomed Product" class="max-w-full max-h-[80vh] object-contain rounded-xl">
+    </div>
+</div>
     <script>
         // 1. คลังพจนานุกรม 4 ภาษา
         const translations = {
@@ -1239,18 +1250,7 @@ const scrollObserver = new IntersectionObserver((entries, observer) => {
 }, observerOptions);
 
 fadeElements.forEach(el => scrollObserver.observe(el));
-    </script><!-- 🍏 Premium Image Zoom Modal -->
-<div id="image-zoom-modal" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center bg-black/60 backdrop-blur-md px-4 py-8" onclick="closeZoomModal()">
-    <!-- ปุ่มปิดมุมขวาบนแบบ Minimal -->
-    <button class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl transition duration-200 cursor-pointer" onclick="closeZoomModal()">
-        <i class="fa-solid fa-xmark"></i>
-    </button>
     
-    <!-- ตัวคอนเทนเนอร์รูปภาพ -->
-    <div class="relative max-w-4xl max-h-[85vh] transform scale-95 transition-transform duration-300 bg-white p-2 rounded-2xl shadow-2xl" onclick="event.stopPropagation()">
-        <img id="modal-zoomed-img" src="" alt="Zoomed Product" class="max-w-full max-h-[80vh] object-contain rounded-xl">
-    </div>
-</div>
     // ฟังก์ชันเปิดโมดอลขยายรูปภาพพร้อมอนิเมชันนุ่มนวล
 function openZoomModal(imgElement) {
     const modal = document.getElementById('image-zoom-modal');
@@ -1287,5 +1287,6 @@ function closeZoomModal() {
         document.body.classList.remove('overflow-hidden');
     }, 300);
 }
+    </script>
 </body>
 </html>
