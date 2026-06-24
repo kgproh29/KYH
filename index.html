@@ -48,6 +48,18 @@
     animation-play-state: paused;
     cursor: pointer;
 }
+        /* 🍏 โค้ดควบคุมแอนิเมชันสไตล์ Apple */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, opacity;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-height-screen">
@@ -213,7 +225,7 @@
             </div>
         </section>
 
-        <section class="py-20 bg-slate-50">
+        <section class="py-20 bg-slate-50 fade-in-up">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                     <div>
@@ -338,7 +350,7 @@
             </div>
         </section>
 
-        <section id="our-products-section" class="py-16 md:py-24 bg-slate-50 border-t border-b border-slate-100">
+        <section id="our-products-section" class="py-16 md:py-24 bg-slate-50 border-t border-b border-slate-100 fade-in-up">
     <div class="max-w-7xl mx-auto">
         
         <div class="text-center mb-8 md:mb-12 px-4">
@@ -458,7 +470,7 @@
     </div>
 </section>
 
- <section class="py-20 bg-white overflow-hidden border-b border-slate-100">
+ <section class="py-20 bg-white overflow-hidden border-b border-slate-100 fade-in-up">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -687,7 +699,7 @@
             </div>
         </section>
         
-        <section class="py-24 bg-gradient-to-b from-white to-slate-50 border-b border-slate-100 overflow-hidden">
+        <section class="py-24 bg-gradient-to-b from-white to-slate-50 border-b border-slate-100 overflow-hidden fade-in-up">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-20">
@@ -778,7 +790,7 @@
  </div>
     
 
-    <section id="contact" class="py-20 bg-blue-950 text-white relative">
+    <section id="contact" class="py-20 bg-blue-950 text-white relative fade-in-up">
         <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1204,6 +1216,24 @@ function filterProducts(categoryCode) {
         }
     });
 }
+        // 🍏 ตัวตรวจจับการสกรอลล์เพื่อเปิดใช้งานอนิเมชัน
+const fadeElements = document.querySelectorAll('.fade-in-up');
+const observerOptions = {
+    root: null,
+    threshold: 0.12, // ทำงานเมื่อเซกชันโผล่มาบนจอแล้ว 12%
+    rootMargin: "0px 0px -40px 0px"
+};
+
+const scrollObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // เติมคลาสให้แสดงอนิเมชัน
+            observer.unobserve(entry.target);     // ทำงานครั้งเดียวต่อการโหลดหน้าเว็บ
+        }
+    });
+}, observerOptions);
+
+fadeElements.forEach(el => scrollObserver.observe(el));
     </script>
 </body>
 </html>
