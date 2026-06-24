@@ -1058,6 +1058,8 @@ function navigateTo(page, category = 'all') {
 
         // ค่าเริ่มต้นเมื่อเอกสารโครงสร้างเว็บถูกโหลดเสร็จสิ้น
         window.onload = function() {
+            // ⭐ เด้งไปหน้าแรกเมื่อ refresh
+    window.scrollTo(0, 0);
             // Set form placeholders
             document.getElementById('catalog-search').placeholder = translations['th'].search_placeholder;
             document.getElementById('form-name').placeholder = translations['th'].ph_name;
