@@ -1232,6 +1232,38 @@
         <img id="modal-zoomed-img" src="" alt="Zoomed Product" class="max-w-full max-h-[80vh] object-contain rounded-xl">
     </div>
 </div>
+
+<div id="cta-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md opacity-0 transition-opacity duration-1000 ease-out hidden">
+    <div class="relative w-full max-w-2xl px-6 py-12 md:px-10 md:py-16 bg-white/95 rounded-3xl shadow-2xl scale-95 transition-transform duration-1000 ease-out">
+        
+        <div class="w-20 h-20 mx-auto rounded-full bg-blue-950 flex items-center justify-center text-5xl mb-8">
+            🎁
+        </div>
+
+        <div class="text-center">
+            <h3 class="text-3xl md:text-4xl font-extrabold text-blue-950 mb-4 data-translate" data-key="popup_title">
+                เริ่มต้นการเดินทางของคุณ
+            </h3>
+            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-lg mx-auto data-translate" data-key="popup_text">
+                เรารู้ว่าการตัดสินใจครั้งแรกสำคัญที่สุด สั่งซื้อวันนี้ รับส่วนลดพิเศษสำหรับคำสั่งซื้อครั้งแรก!
+            </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button class="bg-blue-950 text-white font-semibold text-lg px-8 py-3 rounded-full hover:bg-blue-900 transition-colors w-full sm:w-auto">
+                รับโค้ดส่วนลดตอนนี้
+            </button>
+            <button onclick="closeCtaPopup()" class="text-slate-500 font-medium px-8 py-3 rounded-full hover:text-slate-800 transition-colors w-full sm:w-auto">
+                ยังไม่สนใจ
+            </button>
+        </div>
+
+        <button onclick="closeCtaPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 text-xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+</div>
+    
     <script>
         // 1. คลังพจนานุกรม 4 ภาษา
         const translations = {
@@ -1645,6 +1677,43 @@ function closeZoomModal() {
 
     // รันฟังก์ชัน
     updateCounter();
+
+function closeCtaPopup() {
+        const popup = document.getElementById('cta-popup');
+        popup.classList.add('opacity-0'); // ค่อยๆ เฟดออก
+        setTimeout(() => {
+            popup.classList.add('hidden'); // ซ่อนจาก DOM หลังจากเฟดเสร็จ
+            popup.querySelector('.relative').classList.remove('scale-100'); // รีเซ็ต scale
+            popup.querySelector('.relative').classList.add('scale-95');
+        }, 1000); // ต้องสัมพันธ์กับระยะเวลาของ transition-opacity ใน HTML
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+            threshold: 0.3 // ทำงานเมื่อเห็น section นี้ 30% ของหน้าจอ
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const popup = document.getElementById('cta-popup');
+                const popupContent = popup.querySelector('.relative'); // อ้างอิงถึงกล่องข้อความ
+                if (entry.isIntersecting) {
+                    popup.classList.remove('hidden'); // แสดงจาก DOM
+                    setTimeout(() => { // ให้เวลาเล็กน้อยเพื่อให้ `hidden` หายไปก่อนจะ fade in
+                        popup.classList.add('opacity-100');
+                        popupContent.classList.add('scale-100'); // Scale ขึ้นอย่างนุ่มนวล
+                        popupContent.classList.remove('scale-95'); // เอา scale เริ่มต้นออก
+                    }, 50); // ดีเลย์เล็กน้อยเพื่อให้ transition ทำงานได้ดีที่สุด
+                }
+            });
+        }, observerOptions);
+
+        const target = document.querySelector('#reviews');
+        if (target) observer.observe(target);
+    });
+        
     </script>
+
+    
 </body>
 </html>
