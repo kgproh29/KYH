@@ -1233,33 +1233,20 @@
     </div>
 </div>
 
-<div id="cta-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md opacity-0 transition-opacity duration-1000 ease-out hidden">
-    <div class="relative w-full max-w-2xl px-6 py-12 md:px-10 md:py-16 bg-white/95 rounded-3xl shadow-2xl scale-95 transition-transform duration-1000 ease-out">
-        
-        <div class="w-20 h-20 mx-auto rounded-full bg-blue-950 flex items-center justify-center text-5xl mb-8">
-            🎁
+<div id="cta-popup" class="fixed bottom-6 right-6 z-[60] translate-y-20 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
+    <div class="bg-white/90 backdrop-blur-xl border border-slate-200 shadow-2xl rounded-2xl p-5 flex items-center gap-4 max-w-sm">
+        <div class="text-blue-950">
+            <i class="fa-solid fa-gift text-2xl text-orange-500"></i>
         </div>
-
-        <div class="text-center">
-            <h3 class="text-3xl md:text-4xl font-extrabold text-blue-950 mb-4 data-translate" data-key="popup_title">
-                เริ่มต้นการเดินทางของคุณ
-            </h3>
-            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-lg mx-auto data-translate" data-key="popup_text">
-                เรารู้ว่าการตัดสินใจครั้งแรกสำคัญที่สุด สั่งซื้อวันนี้ รับส่วนลดพิเศษสำหรับคำสั่งซื้อครั้งแรก!
-            </p>
+        <div>
+            <h4 class="font-bold text-blue-950 text-sm">รับส่วนลดพิเศษ!</h4>
+            <p class="text-slate-500 text-xs mt-0.5">ลูกค้าใหม่ รับข้อเสนอสุดพิเศษทันทีเมื่อสั่งซื้อครั้งแรก</p>
         </div>
-
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button class="bg-blue-950 text-white font-semibold text-lg px-8 py-3 rounded-full hover:bg-blue-900 transition-colors w-full sm:w-auto">
-                รับโค้ดส่วนลดตอนนี้
-            </button>
-            <button onclick="closeCtaPopup()" class="text-slate-500 font-medium px-8 py-3 rounded-full hover:text-slate-800 transition-colors w-full sm:w-auto">
-                ยังไม่สนใจ
-            </button>
-        </div>
-
-        <button onclick="closeCtaPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 text-xl">
-            <i class="fa-solid fa-xmark"></i>
+        <a href="#contact" class="bg-blue-950 text-white text-xs font-semibold px-4 py-2 rounded-full hover:bg-blue-900 transition-colors">
+            รับสิทธิ์
+        </a>
+        <button onclick="document.getElementById('cta-popup').classList.add('hidden')" class="absolute -top-2 -right-2 bg-slate-200 text-slate-500 rounded-full w-5 h-5 flex items-center justify-center text-[10px] hover:bg-slate-300">
+            <i class="fa-solid fa-times"></i>
         </button>
     </div>
 </div>
@@ -1678,39 +1665,27 @@ function closeZoomModal() {
     // รันฟังก์ชัน
     updateCounter();
 
-function closeCtaPopup() {
-        const popup = document.getElementById('cta-popup');
-        popup.classList.add('opacity-0'); // ค่อยๆ เฟดออก
-        setTimeout(() => {
-            popup.classList.add('hidden'); // ซ่อนจาก DOM หลังจากเฟดเสร็จ
-            popup.querySelector('.relative').classList.remove('scale-100'); // รีเซ็ต scale
-            popup.querySelector('.relative').classList.add('scale-95');
-        }, 1000); // ต้องสัมพันธ์กับระยะเวลาของ transition-opacity ใน HTML
+    // ตรวจสอบการเลื่อนหน้าจอ
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const popup = document.getElementById('cta-popup');
+            if (entry.isIntersecting) {
+                // เมื่อเลื่อนถึง section reviews
+                popup.classList.remove('translate-y-20', 'opacity-0');
+                popup.classList.add('translate-y-0', 'opacity-100');
+            } else {
+                // เมื่อเลื่อนออกจาก section reviews
+                popup.classList.add('translate-y-20', 'opacity-0');
+                popup.classList.remove('translate-y-0', 'opacity-100');
+            }
+        });
+    }, { threshold: 0.3 }); // แสดงเมื่อเห็น 30% ของ section
+
+    // เริ่มสังเกต section ที่มี id="reviews"
+    const reviewsSection = document.getElementById('reviews');
+    if (reviewsSection) {
+        observer.observe(reviewsSection);
     }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const observerOptions = {
-            threshold: 0.3 // ทำงานเมื่อเห็น section นี้ 30% ของหน้าจอ
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const popup = document.getElementById('cta-popup');
-                const popupContent = popup.querySelector('.relative'); // อ้างอิงถึงกล่องข้อความ
-                if (entry.isIntersecting) {
-                    popup.classList.remove('hidden'); // แสดงจาก DOM
-                    setTimeout(() => { // ให้เวลาเล็กน้อยเพื่อให้ `hidden` หายไปก่อนจะ fade in
-                        popup.classList.add('opacity-100');
-                        popupContent.classList.add('scale-100'); // Scale ขึ้นอย่างนุ่มนวล
-                        popupContent.classList.remove('scale-95'); // เอา scale เริ่มต้นออก
-                    }, 50); // ดีเลย์เล็กน้อยเพื่อให้ transition ทำงานได้ดีที่สุด
-                }
-            });
-        }, observerOptions);
-
-        const target = document.querySelector('#reviews');
-        if (target) observer.observe(target);
-    });
         
     </script>
 
