@@ -70,16 +70,19 @@
                 <div onclick="navigateTo('home')" class="flex-shrink-0 flex items-center cursor-pointer group">
                     <span class="text-2xl font-black text-blue-950 tracking-wider transition group-hover:text-blue-900 data-translate" data-key="logo">กังย่งเฮง</span>
                 </div>
-                
-               <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-slate-100 shadow-sm w-fit">
-    <span class="relative flex h-2 w-2">
+
+               <div class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-100 shadow-sm w-fit text-[10px] md:text-xs">
+    <!-- จุดสถานะ -->
+    <span class="relative flex h-1.5 w-1.5 shrink-0">
       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
     </span>
-    <span class="text-xs font-medium text-slate-600">
-        ยอดผู้เข้าชมรวม: <span id="visitor-count" class="font-bold text-slate-900">4,360</span>+
+    
+    <!-- ข้อความ -->
+    <span class="text-slate-600 whitespace-nowrap">
+        เข้าชมรวม: <span id="visitor-count" class="font-bold text-slate-900">4,416</span>+
     </span>
-</div>
+</div> 
                 
                 <div class="hidden lg:flex space-x-6 xl:space-x-8 font-medium">
                     <button onclick="navigateTo('home')" id="nav-home" class="text-blue-900 border-b-2 border-blue-900 pb-1 font-semibold transition cursor-pointer data-translate" data-key="nav_home">หน้าแรก</button>
