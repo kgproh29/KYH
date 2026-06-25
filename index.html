@@ -1680,7 +1680,7 @@ function closeZoomModal() {
                     }, 50);
                 }
             });
-        }, { threshold: 0.3 }); // ทำงานเมื่อเลื่อนมาถึง 30% ของส่วนรีวิว
+        }, { threshold: 0.05 }); // ทำงานเมื่อเลื่อนมาถึง 5% ของส่วนรีวิว
 
         observer.observe(reviews);
     });
