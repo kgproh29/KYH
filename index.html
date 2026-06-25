@@ -1645,6 +1645,43 @@ function closeZoomModal() {
 
     // รันฟังก์ชัน
     updateCounter();
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+            threshold: 0.3 // ทำงานเมื่อเห็น section นี้ 30% ของหน้าจอ
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const popup = document.getElementById('cta-popup');
+                if (entry.isIntersecting) {
+                    // Apple Style: นุ่มนวลและดูหรูหรา
+                    popup.classList.remove('translate-y-20', 'opacity-0');
+                    popup.classList.add('translate-y-0', 'opacity-100');
+                }
+            });
+        }, observerOptions);
+
+        const target = document.querySelector('#reviews');
+        if (target) observer.observe(target);
+    });
+        
     </script>
+    <!-- Purchase Pop-up -->
+<div id="cta-popup" class="fixed bottom-6 right-6 translate-y-20 opacity-0 transition-all duration-700 ease-out z-50">
+    <div class="bg-white/90 backdrop-blur-xl border border-slate-200 p-6 rounded-3xl shadow-2xl max-w-sm flex items-center gap-4">
+        <div class="text-3xl">🎁</div>
+        <div>
+            <h4 class="font-bold text-blue-950 text-sm">สั่งซื้อครั้งแรก รับส่วนลดพิเศษ!</h4>
+            <p class="text-xs text-slate-500 mt-1">รับส่วนลดทันทีเมื่อสั่งซื้อภายในวันนี้</p>
+            <button class="mt-3 bg-blue-950 text-white text-xs px-4 py-2 rounded-full hover:bg-blue-900 transition-colors">
+                รับโค้ดส่วนลด
+            </button>
+        </div>
+        <button onclick="document.getElementById('cta-popup').remove()" class="absolute top-2 right-2 text-slate-400 hover:text-slate-600">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+</div>
 </body>
 </html>
