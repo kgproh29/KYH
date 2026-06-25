@@ -396,7 +396,7 @@
             </span>
         </div>
         
-        <img src="image/fishingrope_1.png" onclick="openZoomModal(this)" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" cursor-zoom-in alt="สลิงลาก">
+        <img src="image/fishingrope_1.png" onclick="openZoomModal(this) handleImageClick();" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" cursor-zoom-in alt="สลิงลาก">
     </div>
     
     <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
@@ -1645,6 +1645,26 @@ function closeZoomModal() {
 
     // รันฟังก์ชัน
     updateCounter();
+
+        <script>
+    let imageClickCount = 0;
+    const popupShownKey = 'popup_discount_shown';
+
+    function handleImageClick() {
+        // เช็คก่อนว่าโชว์ไปหรือยัง
+        if (localStorage.getItem(popupShownKey)) return;
+
+        imageClickCount++;
+
+        // ถ้ากดครบ 3 ครั้ง ให้แสดงป๊อปอัป
+        if (imageClickCount === 3) {
+            setTimeout(() => {
+                document.getElementById('new-customer-popup').classList.remove('hidden');
+                localStorage.setItem(popupShownKey, 'true'); // บันทึกสถานะว่าโชว์แล้ว
+            }, 500);
+        }
+    }
+</script>
     </script>
 </body>
 </html>
