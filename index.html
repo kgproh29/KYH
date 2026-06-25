@@ -1232,6 +1232,23 @@
         <img id="modal-zoomed-img" src="" alt="Zoomed Product" class="max-w-full max-h-[80vh] object-contain rounded-xl">
     </div>
 </div>
+
+<!-- Pop-up Message -->
+<div id="promo-popup" class="fixed bottom-5 right-5 z-[100] transform translate-y-20 opacity-0 transition-all duration-500 ease-out">
+    <div class="bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 flex items-center gap-4 max-w-sm">
+        <div class="bg-orange-500 text-white p-3 rounded-xl">
+            <i class="fa-solid fa-tag text-xl"></i>
+        </div>
+        <div>
+            <h4 class="font-bold text-blue-950">รับส่วนลดลูกค้าใหม่!</h4>
+            <p class="text-sm text-slate-500">กรอกโค้ด <span class="font-bold text-orange-500">NEWKANG</span> เพื่อรับส่วนลดพิเศษ</p>
+        </div>
+        <button onclick="document.getElementById('promo-popup').classList.add('hidden')" class="ml-auto text-slate-400 hover:text-blue-950">
+            <i class="fa-solid fa-times"></i>
+        </button>
+    </div>
+</div>
+    
     <script>
         // 1. คลังพจนานุกรม 4 ภาษา
         const translations = {
@@ -1645,6 +1662,27 @@ function closeZoomModal() {
 
     // รันฟังก์ชัน
     updateCounter();
+        
+    // ตรวจจับเมื่อเลื่อนถึงส่วนรีวิว
+    const reviewSection = document.getElementById('reviews');
+    const popup = document.getElementById('promo-popup');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // ถ้าเลื่อนมาถึงส่วนรีวิว ให้แสดง Pop-up
+                popup.classList.remove('translate-y-20', 'opacity-0');
+                popup.classList.add('translate-y-0', 'opacity-100');
+            } else {
+                // ถ้าเลื่อนออกไป ให้ซ่อน (เลือกได้ว่าจะให้ซ่อนหรือไม่)
+                popup.classList.add('translate-y-20', 'opacity-0');
+                popup.classList.remove('translate-y-0', 'opacity-100');
+            }
+        });
+    }, { threshold: 0.2 }); // ทำงานเมื่อเห็นส่วนรีวิว 20% ของหน้าจอ
+
+    observer.observe(reviewSection);
+        
     </script>
 </body>
 </html>
