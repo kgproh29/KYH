@@ -1234,7 +1234,7 @@
 </div>
 
 <!-- Pop-up Message -->
-<div id="promo-popup" class="fixed bottom-5 right-5 z-[100] transform translate-y-20 opacity-0 transition-all duration-500 ease-out">
+<div id="promo-popup" class="fixed bottom-5 right-5 z-[100] translate-y-20 opacity-0 transition-all duration-500 ease-out hidden">
     <div class="bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 flex items-center gap-4 max-w-sm">
         <div class="bg-orange-500 text-white p-3 rounded-xl">
             <i class="fa-solid fa-tag text-xl"></i>
@@ -1663,25 +1663,28 @@ function closeZoomModal() {
     // รันฟังก์ชัน
     updateCounter();
         
-    // ตรวจจับเมื่อเลื่อนถึงส่วนรีวิว
-    const reviewSection = document.getElementById('reviews');
-    const popup = document.getElementById('promo-popup');
+    // รอให้หน้าเว็บโหลดเสร็จก่อน
+    window.addEventListener('load', () => {
+        const popup = document.getElementById('promo-popup');
+        const reviews = document.getElementById('reviews');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // ถ้าเลื่อนมาถึงส่วนรีวิว ให้แสดง Pop-up
-                popup.classList.remove('translate-y-20', 'opacity-0');
-                popup.classList.add('translate-y-0', 'opacity-100');
-            } else {
-                // ถ้าเลื่อนออกไป ให้ซ่อน (เลือกได้ว่าจะให้ซ่อนหรือไม่)
-                popup.classList.add('translate-y-20', 'opacity-0');
-                popup.classList.remove('translate-y-0', 'opacity-100');
-            }
-        });
-    }, { threshold: 0.2 }); // ทำงานเมื่อเห็นส่วนรีวิว 20% ของหน้าจอ
+        if (!reviews) return; // ถ้าหา section รีวิวไม่เจอ ให้หยุดทำงาน
 
-    observer.observe(reviewSection);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // เมื่อเลื่อนถึงส่วนรีวิว ให้เอา hidden ออกและแสดงผล
+                    popup.classList.remove('hidden');
+                    setTimeout(() => {
+                        popup.classList.remove('translate-y-20', 'opacity-0');
+                        popup.classList.add('translate-y-0', 'opacity-100');
+                    }, 50);
+                }
+            });
+        }, { threshold: 0.3 }); // ทำงานเมื่อเลื่อนมาถึง 30% ของส่วนรีวิว
+
+        observer.observe(reviews);
+    });
         
     </script>
 </body>
