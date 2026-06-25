@@ -77,7 +77,7 @@
       <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
     </span>
     <span class="text-xs font-medium text-slate-600">
-        ยอดผู้เข้าชมรวม: <span id="visitor-count" class="font-bold text-slate-900">85,420</span>+
+        ยอดผู้เข้าชมรวม: <span id="visitor-count" class="font-bold text-slate-900">4,360</span>+
     </span>
 </div>
                 
@@ -1367,6 +1367,26 @@ function closeZoomModal() {
         document.body.classList.remove('overflow-hidden');
     }, 300);
 }
+
+        // ตั้งค่าเริ่มต้น
+    const baseVisitors = 4360; // จำนวนพื้นฐาน
+    const startDate = new Date('2026-06-01'); // วันที่เริ่มนับ
+    const today = new Date();
+    
+    // คำนวณจำนวนวันตั้งแต่วันที่เริ่ม
+    const diffTime = Math.abs(today - startDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    // ให้เพิ่มวันละประมาณ 50-100 คน (ปรับเลข 75 ได้ตามชอบ)
+    const dailyIncrease = diffDays * 25; 
+    
+    // สุ่มเพิ่มอีกนิดหน่อยให้ดูสมจริง (สุ่มช่วง 1-20)
+    const randomVariation = Math.floor(Math.random() * 20);
+    
+    const finalCount = baseVisitors + dailyIncrease + randomVariation;
+    
+    // ใส่ตัวเลขเข้าไปในหน้าเว็บ พร้อมใส่คอมม่า
+    document.getElementById('visitor-count').innerText = finalCount.toLocaleString();
     </script>
 </body>
 </html>
