@@ -1232,6 +1232,23 @@
         <img id="modal-zoomed-img" src="" alt="Zoomed Product" class="max-w-full max-h-[80vh] object-contain rounded-xl">
     </div>
 </div>
+
+<div id="new-customer-popup" class="fixed inset-0 z-[100] flex items-center justify-center hidden">
+    <div onclick="closePopup()" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    
+    <div class="bg-white p-8 rounded-2xl shadow-2xl z-10 max-w-sm w-full mx-4 text-center">
+        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-gift text-2xl"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-blue-950 mb-2">รับส่วนลดพิเศษ!</h2>
+        <p class="text-slate-600 mb-6">ยินดีต้อนรับลูกค้าใหม่! รับส่วนลด 10% สำหรับการสั่งซื้อครั้งแรกของคุณตอนนี้เลย</p>
+        <div class="flex flex-col gap-3">
+            <button onclick="window.location.href='#contact'; closePopup();" class="bg-blue-950 text-white py-3 rounded-xl font-bold hover:bg-blue-900 transition">รับส่วนลดเลย</button>
+            <button onclick="closePopup()" class="text-slate-400 text-sm hover:text-slate-600">ปิดหน้าต่าง</button>
+        </div>
+    </div>
+</div>
+    
     <script>
         // 1. คลังพจนานุกรม 4 ภาษา
         const translations = {
@@ -1662,6 +1679,11 @@ function closeZoomModal() {
                 localStorage.setItem(popupShownKey, 'true'); // บันทึกสถานะว่าโชว์แล้ว
             }, 500);
         }
+    }
+
+        // ฟังก์ชันปิดป๊อปอัป
+    function closePopup() {
+        document.getElementById('new-customer-popup').classList.add('hidden');
     }
     </script>
 </body>
