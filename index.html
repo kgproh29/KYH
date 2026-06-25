@@ -1368,25 +1368,32 @@ function closeZoomModal() {
     }, 300);
 }
 
-        // ตั้งค่าเริ่มต้น
-    const baseVisitors = 4360; // จำนวนพื้นฐาน
-    const startDate = new Date('2026-06-01'); // วันที่เริ่มนับ
-    const today = new Date();
+       // 1. ตั้งค่าเริ่มต้น
+    const baseVisitors = 85420; 
+    const startDate = '2026-06-01'; // วันที่เริ่มตั้งโครงการ
     
-    // คำนวณจำนวนวันตั้งแต่วันที่เริ่ม
-    const diffTime = Math.abs(today - startDate);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    // ให้เพิ่มวันละประมาณ 50-100 คน (ปรับเลข 75 ได้ตามชอบ)
-    const dailyIncrease = diffDays * 25; 
-    
-    // สุ่มเพิ่มอีกนิดหน่อยให้ดูสมจริง (สุ่มช่วง 1-20)
-    const randomVariation = Math.floor(Math.random() * 20);
-    
-    const finalCount = baseVisitors + dailyIncrease + randomVariation;
-    
-    // ใส่ตัวเลขเข้าไปในหน้าเว็บ พร้อมใส่คอมม่า
-    document.getElementById('visitor-count').innerText = finalCount.toLocaleString();
+    // 2. ฟังก์ชันคำนวณเลข
+    function updateCounter() {
+        const today = new Date().toISOString().split('T')[0]; // เอาวันที่ปัจจุบัน (YYYY-MM-DD)
+        const storedDate = localStorage.getItem('lastVisitDate');
+        let currentCount = parseInt(localStorage.getItem('visitorCount')) || baseVisitors;
+
+        // ถ้าเป็นวันใหม่ ให้เพิ่มยอดขึ้นเล็กน้อย (เช่น 50-100)
+        if (storedDate !== today) {
+            const dailyIncrease = Math.floor(Math.random() * 50) + 50; // สุ่มเพิ่ม 50-100
+            currentCount += dailyIncrease;
+            
+            // บันทึกค่าใหม่ลงเครื่อง
+            localStorage.setItem('visitorCount', currentCount);
+            localStorage.setItem('lastVisitDate', today);
+        }
+
+        // แสดงผล
+        document.getElementById('visitor-count').innerText = currentCount.toLocaleString();
+    }
+
+    // รันฟังก์ชัน
+    updateCounter();
     </script>
 </body>
 </html>
