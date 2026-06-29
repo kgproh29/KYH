@@ -60,7 +60,59 @@
     opacity: 1;
     transform: translateY(0) scale(1);
 }
+
+        /* CSS สำหรับฝังใน HTML */
+.logo-container {
+  position: relative;
+  width: 100px; /* ปรับขนาดตามต้องการ */
+  height: 100px;
+}
+
+/* ส่วนกรอบโลโก้ */
+.logo-frame {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 4px solid #cc3333; /* สีแดงของโลโก้ */
+  animation: frame-glow 3s ease-in-out infinite;
+}
+
+/* ส่วนตัว K ด้านใน */
+.logo-k {
+  position: absolute;
+  top: 10%; left: 10%;
+  width: 80%; height: 80%;
+  background-image: url('logo.png'); /* ใช้รูปโลโก้ต้นฉบับซ้อนด้านใน */
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: k-pulse 3s ease-in-out infinite;
+  opacity: 0; /* เริ่มจากโปร่งใส */
+}
+
+/* --- กำหนด Animation --- */
+
+/* 1. Animation กรอบเรืองแสงวิ่งตามขอบ */
+@keyframes frame-glow {
+  0%, 100% { border-color: #cc3333; }
+  50% { border-color: #ff6666; box-shadow: 0 0 15px rgba(255, 102, 102, 0.7); }
+}
+
+/* 2. Animation ตัว K ค่อยๆ แสดงตัว (Assemble) */
+@keyframes k-pulse {
+  0% { transform: scale(0.8) translateY(10px); opacity: 0; }
+  50% { transform: scale(1.05) translateY(-5px); opacity: 0.8; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+        
     </style>
+    <body> <div class="fixed top-5 left-5 z-50">
+        <div class="logo-container">
+            <div class="logo-frame"></div>
+            <div class="logo-k"></div>
+        </div>
+    </div>
+
+    </body>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-height-screen">
 
