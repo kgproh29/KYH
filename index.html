@@ -108,16 +108,14 @@
    
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-height-screen">
-<div class="fixed top-5 left-5 z-50">
-        <div class="logo-container">
-            <div class="logo-frame"></div>
-            <div class="logo-k"></div>
-        </div>
-    </div>
     <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div onclick="navigateTo('home')" class="flex-shrink-0 flex items-center cursor-pointer group">
+                <div onclick="navigateTo('home')" class="flex items-center cursor-pointer group gap-3">
+                    <div class="logo-container scale-50 origin-left"> 
+                    <div class="logo-frame"></div>
+                    <div class="logo-k"></div>
+                </div>
                     <span class="text-2xl font-black text-blue-950 tracking-wider transition group-hover:text-blue-900 data-translate" data-key="logo">กังย่งเฮง</span>
                 </div>
 
