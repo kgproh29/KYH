@@ -2248,15 +2248,16 @@ function closeZoomModal() {
     const section = document.getElementById('our-products-section');
     const popup = document.getElementById('scroll-popup');
     
-    // ตรวจสอบว่าเคยแสดงแล้วหรือยัง
-    if (localStorage.getItem('popupShown')) return;
+    if (localStorage.getItem('popupShown') || !section) return; // เพิ่ม !section เพื่อกัน Error
 
-    // คำนวณตำแหน่งจากขอบบนของจอ
     const rect = section.getBoundingClientRect();
     
-    // ปรับเงื่อนไขให้เข้าถึงได้ง่ายขึ้นทั้งบนคอมและมือถือ
-    // 0.5 คือค่ากึ่งกลาง section หากต้องการให้ขึ้นเร็วขึ้น ให้เพิ่มเลขนี้เป็น 0.7 หรือ 0.8
-    if (rect.top <= (window.innerHeight * 0.5) && rect.bottom >= (window.innerHeight * 0.5)) {
+    // ปรับ Logic ให้กว้างขึ้น: 
+    // ถ้าขอบบนของ Section อยู่สูงกว่ากึ่งกลางจอ (เลื่อนผ่านไปแล้ว) 
+    // และขอบล่างของ Section ยังอยู่ต่ำกว่ากึ่งกลางจอ (ยังไม่เลื่อนพ้น section)
+    const triggerPoint = window.innerHeight * 0.5;
+    
+    if (rect.top < triggerPoint && rect.bottom > triggerPoint) {
         popup.classList.remove('opacity-0', 'pointer-events-none');
         popup.classList.add('opacity-100');
         localStorage.setItem('popupShown', 'true');
