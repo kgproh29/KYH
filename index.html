@@ -1709,10 +1709,16 @@
                     <h3 class="text-lg font-bold mb-3 flex items-center gap-2">
                         <i class="fa-solid fa-book-open text-orange-400"></i> ดูรายละเอียดสินค้าทั้งหมด
                     </h3>
-                    <div class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.02]">
-                        <div class="group relative cursor-pointer" onclick="openCatalog()">
-    <!-- รูปปกแคตตาล็อกของคุณ -->
-    <img src="image/productcatalog.png" alt="Product Catalog" class="w-full h-full rounded-2xl shadow-xl transition duration-500 group-hover:scale-[1.02]">
+                    <div class="h-[500px] w-full rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-white">
+    <div class="group relative cursor-pointer h-full" onclick="openCatalog()">
+        <img src="image/productcatalog.png" alt="Product Catalog" 
+             class="w-full h-full object-cover transition duration-500 group-hover:scale-[1.02]">
+    
+        <div class="absolute inset-0 bg-blue-950/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+            <span class="bg-white text-blue-950 px-6 py-2 rounded-full font-bold shadow-lg">คลิกดูสินค้าออนไลน์</span>
+        </div>
+    </div>
+</div>
     
     <!-- ปุ่ม Overlay ให้ดูเหมือนกดเล่นได้ -->
     <div class="absolute inset-0 bg-blue-950/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-2xl">
