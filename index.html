@@ -2244,20 +2244,25 @@ function closeZoomModal() {
     updateCounter();
 
 
-    window.addEventListener('scroll', function() {
+ window.addEventListener('scroll', function() {
     const section = document.getElementById('our-products-section');
     const popup = document.getElementById('scroll-popup');
     
-    if (localStorage.getItem('popupShown') || !section) return; // เพิ่ม !section เพื่อกัน Error
+    // กัน Error ถ้าหา section ไม่เจอ หรือโชว์ไปแล้ว
+    if (!section || localStorage.getItem('popupShown')) return;
 
     const rect = section.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
     
-    // ปรับ Logic ให้กว้างขึ้น: 
-    // ถ้าขอบบนของ Section อยู่สูงกว่ากึ่งกลางจอ (เลื่อนผ่านไปแล้ว) 
-    // และขอบล่างของ Section ยังอยู่ต่ำกว่ากึ่งกลางจอ (ยังไม่เลื่อนพ้น section)
-    const triggerPoint = window.innerHeight * 0.5;
-    
-    if (rect.top < triggerPoint && rect.bottom > triggerPoint) {
+    // หาจุดกึ่งกลางของหน้าจอ
+    const viewportCenter = viewportHeight / 2;
+
+    // ตรวจสอบว่า "จุดกึ่งกลางหน้าจอ" อยู่ภายใน "ขอบเขตของ Section" หรือไม่
+    // rect.top คือระยะจากขอบบนจอถึงจุดเริ่ม Section
+    // rect.bottom คือระยะจากขอบบนจอถึงจุดจบ Section
+    const isVisible = (rect.top <= viewportCenter) && (rect.bottom >= viewportCenter);
+
+    if (isVisible) {
         popup.classList.remove('opacity-0', 'pointer-events-none');
         popup.classList.add('opacity-100');
         localStorage.setItem('popupShown', 'true');
