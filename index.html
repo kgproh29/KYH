@@ -1710,7 +1710,15 @@
                         <i class="fa-solid fa-book-open text-orange-400"></i> ดูรายการสินค้าออนไลน์
                     </h3>
                     <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-white">
-                        <iframe src="https://anyflip.com/rnhfx/jmss/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                        <div class="group relative cursor-pointer" onclick="openCatalog()">
+    <!-- รูปปกแคตตาล็อกของคุณ -->
+    <img src="totalproduct_1.png" alt="Product Catalog" class="w-full h-auto rounded-2xl shadow-xl transition duration-500 group-hover:scale-[1.02]">
+    
+    <!-- ปุ่ม Overlay ให้ดูเหมือนกดเล่นได้ -->
+    <div class="absolute inset-0 bg-blue-950/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 rounded-2xl">
+        <span class="bg-white text-blue-950 px-6 py-2 rounded-full font-bold shadow-lg">คลิกดูสินค้าออนไลน์</span>
+    </div>
+</div>
                     </div>
                 </div>
             </div>
@@ -1834,6 +1842,14 @@
         <p class="text-slate-600 text-sm mb-6">ปรึกษาฝ่ายขายเพื่อรับข้อมูลที่ครบถ้วน พร้อมรับส่วนลดพิเศษสำหรับออเดอร์แรกของคุณ สูงสุด 1,000 บาท</p>
         <a href="#contact" onclick="closePopup()" class="block w-full bg-blue-950 text-white py-3 rounded-xl font-bold hover:bg-blue-900 transition">ติดต่อฝ่ายขาย</a>
         <button onclick="closePopup()" class="mt-4 text-slate-400 hover:text-slate-600 text-sm underline">ปิด</button>
+    </div>
+</div>
+
+            <div id="catalog-lightbox" class="fixed inset-0 z-[200] hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="relative w-full max-w-4xl h-[80vh] bg-white rounded-2xl overflow-hidden shadow-2xl">
+        <button onclick="closeCatalog()" class="absolute top-4 right-4 z-10 bg-black/50 text-white w-10 h-10 rounded-full hover:bg-black transition">✕</button>
+        <!-- ตรงนี้ค่อยใส่ iframe ของ AnyFlip ไว้ข้างใน -->
+        <iframe id="catalog-frame" src="" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
     <script>
@@ -2327,6 +2343,16 @@ window.onload = () => {
         btn.disabled = false;
     });
 });
+
+        function openCatalog() {
+    const frame = document.getElementById('catalog-frame');
+    frame.src = "https://anyflip.com/rnhfx/jmss/"; // ใส่ Link ของคุณที่นี่
+    document.getElementById('catalog-lightbox').classList.remove('hidden');
+}
+function closeCatalog() {
+    document.getElementById('catalog-lightbox').classList.add('hidden');
+    document.getElementById('catalog-frame').src = ""; // ปิดเพื่อประหยัด RAM
+}
 
     </script>
 </body>
