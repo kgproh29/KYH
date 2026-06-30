@@ -2245,33 +2245,35 @@ function closeZoomModal() {
 
 
  window.addEventListener('scroll', function() {
-        const section = document.getElementById('our-products-section');
-        const popup = document.getElementById('scroll-popup');
-        
-        // ตรวจสอบว่าเคยแสดงแล้วหรือยัง เพื่อไม่ให้มันเด้งรัวๆ
-        if (localStorage.getItem('popupShown')) return;
-
-        // คำนวณตำแหน่งกลางของ Section
-        const sectionTop = section.getBoundingClientRect().top;
-        const sectionHeight = section.offsetHeight;
-        
-        // ถ้าเลื่อนถึงจุดกึ่งกลางของ section (หรือจุดที่คุณกำหนด)
-        if (sectionTop < (window.innerHeight / 2) && sectionTop > -(sectionHeight / 2)) {
-            popup.classList.remove('opacity-0', 'pointer-events-none');
-            popup.classList.add('opacity-100');
-            localStorage.setItem('popupShown', 'true'); // บันทึกว่าแสดงแล้ว
-
-        // คำนวณตำแหน่งจากขอบบนของจอ
-    const rect = section.getBoundingClientRect();
+    const section = document.getElementById('our-products-section');
+    const popup = document.getElementById('scroll-popup');
     
-    // ปรับเงื่อนไขให้เข้าถึงได้ง่ายขึ้นทั้งบนคอมและมือถือ
-    // 0.5 คือค่ากึ่งกลาง section หากต้องการให้ขึ้นเร็วขึ้น ให้เพิ่มเลขนี้เป็น 0.7 หรือ 0.8
-    if (rect.top <= (window.innerHeight * 0.5) && rect.bottom >= (window.innerHeight * 0.5)) {
+    // 1. ถ้าไม่มี Section หรือโชว์ไปแล้ว ให้หยุดทำงาน
+    if (!section || localStorage.getItem('popupShown')) return;
+
+    const rect = section.getBoundingClientRect();
+    const screenWidth = window.innerWidth;
+
+    // 2. แยกเงื่อนไขตามขนาดหน้าจอ
+    let shouldShow = false;
+
+    if (screenWidth >= 1024) { 
+        // --- สำหรับคอมพิวเตอร์ (Desktop) ---
+        // ปรับให้ trigger ได้ง่ายขึ้นตามความเหมาะสมของจอใหญ่
+        shouldShow = (rect.top <= window.innerHeight * 0.4) && (rect.bottom >= window.innerHeight * 0.4);
+    } else {
+        // --- สำหรับมือถือ (Mobile/Tablet) ---
+        // จอมือถือมักจะแคบและยาว การใช้ 0.5 หรือกึ่งกลางจอจะแม่นยำที่สุด
+        shouldShow = (rect.top <= window.innerHeight * 0.5) && (rect.bottom >= window.innerHeight * 0.5);
+    }
+
+    // 3. สั่งแสดงผล
+    if (shouldShow) {
         popup.classList.remove('opacity-0', 'pointer-events-none');
         popup.classList.add('opacity-100');
         localStorage.setItem('popupShown', 'true');
-        }
-    });
+    }
+});
 
     function closePopup() {
         const popup = document.getElementById('scroll-popup');
