@@ -1731,7 +1731,7 @@
         <i class="fa-regular fa-envelope text-orange-500"></i> <span class="data-translate" data-key="form_heading">ส่งข้อความหาเรา</span>
     </h3>
 
-   <form action="https://formspree.io/f/mlgywgne" method="POST" class="space-y-4">
+   <form id="contact-form" class="space-y-4">
     
     <div>
         <label class="block text-xs font-semibold text-slate-600 mb-1 data-translate" data-key="lbl_name">ชื่อผู้ติดต่อ / ร้านค้า *</label>
@@ -1788,6 +1788,16 @@
         ส่งข้อมูลขอราคา
     </button>
 </form>
+</div>
+                <div id="success-popup" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-sm mx-4">
+        <div class="text-green-500 text-5xl mb-4">✅</div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">ได้รับข้อมูลเรียบร้อยแล้ว</h3>
+        <p class="text-gray-600 mb-6">ทางร้านกังย่งเฮงจะรีบติดต่อกลับโดยเร็วที่สุดครับ</p>
+        <button type="submit" id="submit-btn" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl transition">
+        ส่งข้อมูลขอราคา
+    </button>
+    </div>
 </div>
     </section>
 
@@ -2297,6 +2307,34 @@ function closeZoomModal() {
 window.onload = () => {
     window.scrollTo(0, 0); // บังคับให้หน้าเว็บเลื่อนขึ้นไปที่จุดเริ่มต้นทันทีที่โหลดเสร็จ
 };
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // กันไม่ให้มันเปลี่ยนหน้า
+    
+    const form = e.target;
+    const btn = document.getElementById('submit-btn');
+    btn.innerText = 'กำลังส่ง...';
+    btn.disabled = true;
+
+    fetch("https://formspree.io/f/mlgywgne", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById('success-popup').classList.remove('hidden'); // โชว์ Popup
+            form.reset(); // ล้างค่าในฟอร์ม
+        } else {
+            alert("เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง");
+        }
+    })
+    .catch(() => alert("เชื่อมต่อไม่ได้ กรุณาตรวจสอบอินเทอร์เน็ต"))
+    .finally(() => {
+        btn.innerText = 'ส่งข้อมูลขอราคา';
+        btn.disabled = false;
+    });
+});
 
     </script>
 </body>
