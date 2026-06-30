@@ -1784,9 +1784,17 @@
         <textarea name="message" id="form-message" rows="3" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-950 focus:bg-white transition text-sm"></textarea>
     </div>
 
-    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl transition duration-200 shadow-lg shadow-orange-500/20 cursor-pointer data-translate" data-key="btn_submit_form">
-        ส่งข้อมูลขอราคา
-    </button>
+  <div id="success-popup" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-sm mx-4">
+        <div class="text-green-500 text-5xl mb-4">✅</div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">ได้รับข้อมูลเรียบร้อยแล้ว</h3>
+        <p class="text-gray-600 mb-6">ทางร้านกังย่งเฮงจะรีบติดต่อกลับโดยเร็วที่สุดครับ</p>
+        
+        <button type="button" onclick="document.getElementById('success-popup').classList.add('hidden')" class="w-full bg-blue-950 text-white py-3 rounded-xl font-bold hover:bg-blue-900 transition">
+            ตกลง
+        </button>
+    </div>
+</div>
 </form>
 </div>
                 <div id="success-popup" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/50 backdrop-blur-sm">
