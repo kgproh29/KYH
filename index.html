@@ -2247,41 +2247,47 @@ function closeZoomModal() {
     updateCounter();
 
 
- window.addEventListener('scroll', function() {
-    const section = document.getElementById('our-products-section');
-    const popup = document.getElementById('scroll-popup');
-    
-    // 1. ถ้าไม่มี Section หรือโชว์ไปแล้ว ให้หยุดทำงาน
-    if (!section || localStorage.getItem('popupShown')) return;
+// ใช้ตัวแปรธรรมดาแทน localStorage เพื่อให้แสดงผลใหม่ทุกครั้งที่ Refresh หน้าเว็บ
+    let hasShownInThisSession = false;
 
-    const rect = section.getBoundingClientRect();
-    const screenWidth = window.innerWidth;
+    window.addEventListener('scroll', function() {
+        const section = document.getElementById('our-products-section');
+        const popup = document.getElementById('scroll-popup');
+        
+        // ถ้าหา section หรือ popup ไม่เจอ ให้หยุดทำงาน
+        if (!section || !popup) return;
 
-    // 2. แยกเงื่อนไขตามขนาดหน้าจอ
-    let shouldShow = false;
+        // ถ้าโชว์ไปแล้วในรอบนี้ ให้หยุดทำงาน
+        if (hasShownInThisSession) return;
 
-    if (screenWidth >= 1024) { 
-        // --- สำหรับคอมพิวเตอร์ (Desktop) ---
-        // ปรับให้ trigger ได้ง่ายขึ้นตามความเหมาะสมของจอใหญ่
-        shouldShow = (rect.top <= window.innerHeight * 0.4) && (rect.bottom >= window.innerHeight * 0.4);
-    } else {
-        // --- สำหรับมือถือ (Mobile/Tablet) ---
-        // จอมือถือมักจะแคบและยาว การใช้ 0.5 หรือกึ่งกลางจอจะแม่นยำที่สุด
-        shouldShow = (rect.top <= window.innerHeight * 0.5) && (rect.bottom >= window.innerHeight * 0.5);
-    }
+        const rect = section.getBoundingClientRect();
+        const screenWidth = window.innerWidth;
+        let shouldShow = false;
 
-    // 3. สั่งแสดงผล
-    if (shouldShow) {
-        popup.classList.remove('opacity-0', 'pointer-events-none');
-        popup.classList.add('opacity-100');
-        localStorage.setItem('popupShown', 'true');
-    }
-});
+        // แยกเงื่อนไขตามขนาดหน้าจอ
+        if (screenWidth >= 1024) { 
+            // Desktop
+            shouldShow = (rect.top <= window.innerHeight * 0.4) && (rect.bottom >= window.innerHeight * 0.4);
+        } else {
+            // Mobile
+            shouldShow = (rect.top <= window.innerHeight * 0.5) && (rect.bottom >= window.innerHeight * 0.5);
+        }
 
+        // สั่งแสดงผล
+        if (shouldShow) {
+            popup.classList.remove('opacity-0', 'pointer-events-none');
+            popup.classList.add('opacity-100');
+            hasShownInThisSession = true; // บันทึกว่าโชว์แล้ว (จะรีเซ็ตเมื่อกด Refresh เท่านั้น)
+        }
+    });
+
+    // ฟังก์ชันปิด Pop-up
     function closePopup() {
         const popup = document.getElementById('scroll-popup');
-        popup.classList.add('opacity-0', 'pointer-events-none');
-        popup.classList.remove('opacity-100');
+        if (popup) {
+            popup.classList.add('opacity-0', 'pointer-events-none');
+            popup.classList.remove('opacity-100');
+        }
     }
 
     </script>
