@@ -1820,6 +1820,15 @@
         <img id="modal-zoomed-img" src="" alt="Zoomed Product" class="max-w-full max-h-[80vh] object-contain rounded-xl">
     </div>
 </div>
+            <div id="scroll-popup" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+    <div class="relative bg-white p-6 rounded-2xl shadow-2xl max-w-sm w-full mx-4 text-center">
+        <h3 class="text-lg font-bold text-blue-950 mb-2">สนใจสอบถามราคา?</h3>
+        <p class="text-slate-600 text-sm mb-6">เรามีราคาส่งพิเศษสำหรับยอดสั่งซื้อจำนวนมาก ทักแชทคุยกับฝ่ายขายได้เลยครับ</p>
+        <a href="#contact" onclick="closePopup()" class="block w-full bg-blue-950 text-white py-3 rounded-xl font-bold hover:bg-blue-900 transition">ติดต่อฝ่ายขาย</a>
+        <button onclick="closePopup()" class="mt-4 text-slate-400 hover:text-slate-600 text-sm underline">ปิด</button>
+    </div>
+</div>
     <script>
         // 1. คลังพจนานุกรม 4 ภาษา
         const translations = {
@@ -2233,6 +2242,33 @@ function closeZoomModal() {
 
     // รันฟังก์ชัน
     updateCounter();
+
+
+    window.addEventListener('scroll', function() {
+        const section = document.getElementById('our-products-section');
+        const popup = document.getElementById('scroll-popup');
+        
+        // ตรวจสอบว่าเคยแสดงแล้วหรือยัง เพื่อไม่ให้มันเด้งรัวๆ
+        if (localStorage.getItem('popupShown')) return;
+
+        // คำนวณตำแหน่งกลางของ Section
+        const sectionTop = section.getBoundingClientRect().top;
+        const sectionHeight = section.offsetHeight;
+        
+        // ถ้าเลื่อนถึงจุดกึ่งกลางของ section (หรือจุดที่คุณกำหนด)
+        if (sectionTop < (window.innerHeight / 2) && sectionTop > -(sectionHeight / 2)) {
+            popup.classList.remove('opacity-0', 'pointer-events-none');
+            popup.classList.add('opacity-100');
+            localStorage.setItem('popupShown', 'true'); // บันทึกว่าแสดงแล้ว
+        }
+    });
+
+    function closePopup() {
+        const popup = document.getElementById('scroll-popup');
+        popup.classList.add('opacity-0', 'pointer-events-none');
+        popup.classList.remove('opacity-100');
+    }
+
     </script>
 </body>
 </html>
