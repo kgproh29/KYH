@@ -2267,10 +2267,10 @@ function closeZoomModal() {
         // แยกเงื่อนไขตามขนาดหน้าจอ
         if (screenWidth >= 1024) { 
             // Desktop
-            shouldShow = (rect.top <= window.innerHeight * 0.2) && (rect.bottom >= window.innerHeight * 0.2);
+            shouldShow = (rect.top <= window.innerHeight * 0.9) && (rect.bottom >= window.innerHeight * 0.9);
         } else {
             // Mobile
-            shouldShow = (rect.top <= window.innerHeight * 0.3) && (rect.bottom >= window.innerHeight * 0.3);
+            shouldShow = (rect.top <= window.innerHeight * 0.7) && (rect.bottom >= window.innerHeight * 0.7);
         }
 
         // สั่งแสดงผล
