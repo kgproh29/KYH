@@ -2290,6 +2290,12 @@ function closeZoomModal() {
         }
     }
 
+        window.history.scrollRestoration = 'manual'; // ปิดระบบจำตำแหน่งของ Browser
+
+window.onload = () => {
+    window.scrollTo(0, 0); // บังคับให้หน้าเว็บเลื่อนขึ้นไปที่จุดเริ่มต้นทันทีที่โหลดเสร็จ
+};
+
     </script>
 </body>
 </html>
