@@ -2452,7 +2452,7 @@ function closeCatalog() {
 
 async function loadBlogPosts() {
     try {
-        const response = await fetch('posts/blog-posts.json'); // เปลี่ยนชื่อไฟล์ตามจริง
+        const response = await fetch('/posts/blog-posts.json'); // เปลี่ยนชื่อไฟล์ตามจริง
         const posts = await response.json();
         
         const container = document.getElementById('blog-marquee');
