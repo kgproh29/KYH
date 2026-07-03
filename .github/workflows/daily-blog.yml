@@ -1,0 +1,28 @@
+name: Daily Blog Generator
+on:
+  schedule:
+    - cron: '*/5 * * * *' # รันทุกเที่ยงคืน
+  workflow_dispatch: # ให้คุณกดปุ่มรันเองได้ด้วย
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install openai
+        run: pip install openai
+      - name: Run Generator
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python scripts/generate_blog.py
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add posts/blog-posts.json
+          git commit -m "Auto-update blog content"
+          git push
