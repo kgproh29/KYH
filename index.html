@@ -63,7 +63,22 @@
     opacity: 1;
     transform: translateY(0) scale(1);
 }
+#blog-marquee {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content; /* ทำให้กล่องกว้างพอสำหรับข้อมูล 2 ชุด */
+    animation: marquee 30s linear infinite; /* ปรับเวลาตามความเร็วที่ต้องการ */
+}
 
+@keyframes marquee {
+    0% { 
+        transform: translateX(0); 
+    }
+    100% { 
+        /* เลื่อนไปแค่ 50% ของความกว้างทั้งหมด เพราะเรามีข้อมูลซ้ำกัน 2 ชุด */
+        transform: translateX(-50%); 
+    }
+}
         
     </style>
 </head>
