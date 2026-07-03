@@ -1735,7 +1735,28 @@
         </div>
     </div>
 </section>
-        
+
+<section id="blog" class="scroll-mt-24 py-20 bg-slate-50 overflow-hidden border-b border-slate-100 fade-in-up">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- หัวข้อ -->
+        <div class="mb-12">
+            <span class="text-orange-500 font-bold uppercase tracking-wider text-xs block mb-2">LATEST NEWS</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-blue-950">สาระน่ารู้และเทคนิคการประมง</h2>
+        </div>
+
+        <!-- กล่องครอบแอนิเมชัน -->
+        <div class="w-full overflow-hidden py-4 [mask-image:_linear-gradient(to_right,transparent_0,_black_5%,_black_95%,transparent_100%)]">
+            <div id="blog-marquee" class="flex gap-6 w-max animate-marquee">
+                <!-- เนื้อหาจะถูกโหลดมาใส่ตรงนี้ด้วย JavaScript -->
+                <div class="flex items-center justify-center w-[300px] h-[300px] bg-white border border-slate-200 rounded-2xl animate-pulse">
+                    <p class="text-slate-400">กำลังโหลดบทความ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+                
  </div>
     
 
@@ -2415,6 +2436,35 @@ function closeCatalog() {
     document.getElementById('catalog-lightbox').classList.add('hidden');
     document.getElementById('catalog-frame').src = ""; // ปิดเพื่อประหยัด RAM
 }
+
+async function loadBlogPosts() {
+    try {
+        const response = await fetch('posts/blog-posts.json'); // เปลี่ยนชื่อไฟล์ตามจริง
+        const posts = await response.json();
+        
+        const container = document.getElementById('blog-marquee');
+        container.innerHTML = ''; // ล้างสถานะ Loading
+
+        posts.forEach(post => {
+            const card = document.createElement('div');
+            card.className = "w-[300px] md:w-[350px] shrink-0 bg-white border border-slate-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between";
+            card.innerHTML = `
+                <div>
+                    <span class="text-[10px] font-bold text-orange-500 uppercase tracking-widest">${post.date}</span>
+                    <h3 class="font-bold text-blue-950 mt-2 mb-3 text-lg leading-snug">${post.title}</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">${post.excerpt}</p>
+                </div>
+                <a href="${post.url}" class="inline-block mt-6 text-sm font-bold text-blue-900 hover:text-orange-500 transition-colors">
+                    อ่านเพิ่มเติม →
+                </a>
+            `;
+            container.appendChild(card);
+        });
+    } catch (error) {
+        console.error("Error loading blog:", error);
+    }
+}
+window.onload = loadBlogPosts;
 
     </script>
 </body>
