@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 
 # ตั้งค่า API Key จาก GitHub Secrets
-openai.api_key = os.getenv("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")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def generate_blog_content():
     # prompt สำหรับสั่ง AI
