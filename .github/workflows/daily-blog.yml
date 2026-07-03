@@ -1,8 +1,8 @@
 name: Daily Blog Generator
 on:
   schedule:
-    - cron: '*/5 * * * *' # รันทุกเที่ยงคืน
-  workflow_dispatch: # ให้คุณกดปุ่มรันเองได้ด้วย
+    - cron: '*/5 * * * *' # รันทุกๆ 5 นาที
+  workflow_dispatch: # ปุ่มกดรันเอง
 
 jobs:
   build:
@@ -13,16 +13,16 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-      - name: Install openai
-        run: pip install openai
+      - name: Install dependencies
+        run: pip install google-generativeai
       - name: Run Generator
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python scripts/generate_blog.py
       - name: Commit and Push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add posts/blog-posts.json
-          git commit -m "Auto-update blog content"
+          git commit -m "Auto-update blog content via Gemini"
           git push
