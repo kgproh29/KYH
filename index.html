@@ -63,6 +63,19 @@
     opacity: 1;
     transform: translateY(0) scale(1);
 }
+
+        @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+}
+/* หยุดการเลื่อนเมื่อเอาเมาส์ไปชี้ */
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+        
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-height-screen">
