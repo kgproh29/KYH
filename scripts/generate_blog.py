@@ -3,7 +3,7 @@ import json
 import os
 from datetime import datetime
 
-# ตั้งค่า Client ใหม่ตามมาตรฐานล่าสุด
+# ใช้ Client ตัวใหม่
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 def generate_blog_content():
@@ -13,25 +13,25 @@ def generate_blog_content():
         "ห้ามมีข้อความอื่นนอกจาก JSON"
     )
     
-    # ใช้โมเดลรุ่นล่าสุดผ่าน client ใหม่
+    # เรียกใช้โมเดลผ่าน client ตัวใหม่
     response = client.models.generate_content(
-        model='gemini-2.0-flash', # เปลี่ยนมาใช้รุ่นใหม่ล่าสุดที่รองรับ
+        model='gemini-3.1-flash-lite',
         contents=prompt,
     )
     
-    # ทำความสะอาด JSON
+    # เคลียร์ markdown ออกให้เหลือแต่ JSON
     cleaned_text = response.text.replace('```json', '').replace('```', '').strip()
     return json.loads(cleaned_text)
 
-# โหลดไฟล์ JSON เดิม
+# อ่านไฟล์เดิม
 with open('posts/blog-posts.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-# สร้างบทความใหม่
+# สร้างข้อมูลใหม่
 new_post = generate_blog_content()
 new_post['date'] = datetime.now().strftime("%d %b %Y").upper()
 data.insert(0, new_post)
 
-# บันทึกทับไฟล์เดิม
+# บันทึก
 with open('posts/blog-posts.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=2)
