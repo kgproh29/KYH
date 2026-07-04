@@ -15,7 +15,7 @@ def generate_blog_content():
     
     # เรียกใช้โมเดลผ่าน client ตัวใหม่
     response = client.models.generate_content(
-        model='gemini-3.1-flash-lite',
+        model='gemini-1.5-flash',
         contents=prompt,
     )
     
