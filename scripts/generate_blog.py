@@ -1,14 +1,10 @@
-import google.generativeai as genai
+from google import genai
 import json
 import os
 from datetime import datetime
 
-# ตั้งค่า API Key
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-
-# เปลี่ยนจาก gemini-1.5-flash เป็น gemini-1.5-flash-latest หรือตัวที่ระบุว่ารองรับ
-# หากยังไม่ได้ ให้ลองใช้ gemini-1.5-flash (ไม่ต้องมีคำว่า models/ นำหน้า)
-model = genai.GenerativeModel('gemini-1.5-flash')
+# ตั้งค่า Client ใหม่ตามมาตรฐานล่าสุด
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 def generate_blog_content():
     prompt = (
@@ -17,8 +13,13 @@ def generate_blog_content():
         "ห้ามมีข้อความอื่นนอกจาก JSON"
     )
     
-    response = model.generate_content(prompt)
-    # ทำความสะอาด JSON output
+    # ใช้โมเดลรุ่นล่าสุดผ่าน client ใหม่
+    response = client.models.generate_content(
+        model='gemini-2.0-flash', # เปลี่ยนมาใช้รุ่นใหม่ล่าสุดที่รองรับ
+        contents=prompt,
+    )
+    
+    # ทำความสะอาด JSON
     cleaned_text = response.text.replace('```json', '').replace('```', '').strip()
     return json.loads(cleaned_text)
 
