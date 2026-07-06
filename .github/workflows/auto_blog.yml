@@ -1,9 +1,9 @@
-name: Auto Daily Blog Generator (Gemini)
+name: Auto Daily Blog Generator (Gemini New SDK)
 
 on:
   schedule:
     - cron: '0 18 * * *' # รันทุกวันเวลา ตี 1 (เวลาไทย)
-  workflow_dispatch: # ปุ่มกดรันเทสเองมือ
+  workflow_dispatch: # เปิดให้กดรันเองผ่านหน้าเว็บได้
 
 jobs:
   build-and-deploy:
@@ -20,20 +20,21 @@ jobs:
       with:
         python-version: '3.10'
 
+    # แก้ไขตรงนี้ให้ติดตั้ง SDK ตัวใหม่ล่าสุดของ Google
     - name: Install dependencies
       run: |
-        pip install google-generativeai
+        pip install google-genai
 
+    # ส่งคีย์รันสคริปต์ (SDK ใหม่จะดึงค่า GEMINI_API_KEY ไปใช้โดยตรง)
     - name: Run script
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       run: python generate_article.py
 
-    # แก้ไขคำสั่งตรวจสอบและ Push ไฟล์ JSON กลับขึ้นระบบ
     - name: Commit and Push changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add posts/blog-posts.json
-        git diff-index --quiet HEAD || git commit -m "Automated daily blog updated in JSON - $(date +'%Y-%m-%d')"
+        git diff-index --quiet HEAD || git commit -m "Automated daily blog by Gemini SDK v2 - $(date +'%Y-%m-%d')"
         git push
