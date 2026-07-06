@@ -3,37 +3,37 @@ import json
 import datetime
 from google import genai
 from google.genai import types
+from pydantic import BaseModel
+
+# 1. ย้ายมาประกาศด้านนอกสุด และใช้ BaseModel เพื่อให้ SDK เข้าใจโครงสร้างข้อมูลอย่างถูกต้อง
+class BlogFormat(BaseModel):
+    title: str
+    excerpt: str
+    fullContent: str
 
 def generate_blog():
     json_path = "posts/blog-posts.json"
     
-    # 1. เริ่มต้นระบบด้วย SDK ตัวใหม่ล่าสุด (จะดึง GEMINI_API_KEY จาก Environment เองอัตโนมัติ)
+    # 2. เริ่มต้นระบบด้วย SDK ตัวใหม่ล่าสุด
     client = genai.Client()
     
-    # 2. ตั้งค่าบังคับให้ AI ตอบกลับมาเป็นโครงสร้าง JSON ตามที่ต้องการเป๊ะๆ (Structured Outputs)
-    class BlogFormat:
-        title: str
-        excerpt: str
-        fullContent: str
-
     print("กำลังสั่งให้ Gemini เจนบทความใหม่...")
     
-    # 3. เรียกใช้งานโมเดลยุคใหม่ (เช่น gemini-2.5-flash หรือ gemini-2.0-flash)
+    # 3. เรียกใช้งานโมเดลยุคใหม่ (gemini-2.5-flash)
     response = client.models.generate_content(
         model='gemini-2.5-flash',
         contents='ขอหัวข้อที่น่าสนใจเกี่ยวกับอุปกรณ์อุตสาหกรรม การประมง หรือการเกษตรสำหรับวันนี้ พร้อมเนื้อหาบทความภาษาไทยเชิงลึก',
         config=types.GenerateContentConfig(
             system_instruction="คุณเป็นนักเขียนบทความมืออาชีพ มีความเชี่ยวชาญด้านสินค้าอุตสาหกรรม อุปกรณ์ประมง และงานเกษตรกรรม เขียนภาษาไทยอ่านง่าย มีประโยชน์ ความยาว 300-500 คำ",
-            # บังคับโครงสร้างข้อมูลให้ตรงกับที่เว็บต้องการ
             response_mime_type="application/json",
-            response_schema=BlogFormat,
+            response_schema=BlogFormat, # ส่ง Schema ที่ถูกต้องเข้าไป
         ),
     )
     
-    # 4. แปลงผลลัพธ์จากรูปแบบข้อความ JSON มาเป็น Dictionary ของ Python
+    # 4. แปลงผลลัพธ์ JSON มาเป็น Dictionary ของ Python
     new_post = json.loads(response.text)
     
-    # 5. จัดรูปแบบวันที่ (Format: DD MMM YYYY เช่น 06 JUL 2026) ให้เข้ากับโครงสร้างเดิมของคุณ
+    # 5. จัดรูปแบบวันที่ (Format: DD MMM YYYY เช่น 06 JUL 2026)
     months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
     today = datetime.date.today()
     date_str = f"{today.strftime('%d')} {months[today.month - 1]} {today.year}"
