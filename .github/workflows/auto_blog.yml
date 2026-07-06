@@ -1,0 +1,44 @@
+name: Auto Daily Blog Generator
+
+on:
+  schedule:
+    # ตั้งเวลาให้รันทุกวัน ตอน ตี 1 ตรง (เวลา UTC คือ 18:00 ของวันก่อนหน้า)
+    - cron: '0 18 * * *'
+  workflow_dispatch: # เปิดให้กดรันเองมือได้ด้วยเผื่ออยากทดสอบ
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # อนุญาตให้บอทเขียนโค้ดกลับเข้าคลังได้
+
+    steps:
+    # 1. ดึงโค้ดจากคลังออกมา
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. ติดตั้ง Python
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    # 3. ติดตั้งไลบรารีที่ต้องใช้
+    - name: Install dependencies
+      run: |
+        pip install openai
+
+    # 4. รันสคริปต์สร้างบทความ โดยส่ง API Key เข้าไปด้วย
+    - name: Run script
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: python generate_article.py
+
+    # 5. สั่งให้ Git ตรวจสอบไฟล์ใหม่ อัปโหลด (Push) กลับขึ้นคลัง
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add blogs/*.html
+        git diff-index --quiet HEAD || git commit -m "Automated daily blog upload - $(date +'%Y-%m-%d')"
+        git push
