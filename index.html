@@ -17,6 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="canonical" href="https://kgproh29.github.io/KYH/" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <style>
         body {
@@ -82,6 +84,17 @@
         /* เลื่อนไปแค่ 50% ของความกว้างทั้งหมด เพราะเรามีข้อมูลซ้ำกัน 2 ชุด */
         transform: translateX(-50%); 
     }
+}
+
+        /* ปรับแต่งหน้าตาของจุดและปุ่มกดของ Swiper ให้สวยงามขึ้น */
+.swiper-pagination-bullet-active {
+    background: #047857 !important; /* เปลี่ยนสีจุดเปิดใช้งานเป็นสีเขียว Emerald ให้เข้ากับป้ายขายแล้ว */
+}
+.swiper-button-next, .swiper-button-prev {
+    width: 30px !important;
+    height: 30px !important;
+    background: rgba(15, 23, 42, 0.6); /* พื้นหลังปุ่มลูกศรสีดำโปร่งแสง */
+    border-radius: 50%;
 }
         
     </style>
@@ -520,14 +533,40 @@
         <div id="product-grid-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-4 px-4">
 
 <div class="product-item-card bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" data-category="cat10">
-    <div class="aspect-square bg-slate-100 w-full overflow-hidden relative group">
+    <!-- เปลี่ยนกรอบรูปภาพเดิมให้เป็น Swiper Container -->
+    <div class="swiper mySwiper aspect-square bg-slate-100 w-full overflow-hidden relative group">
         <div class="absolute top-2 left-2 z-10 flex items-center gap-2">
             <span class="bg-emerald-600 text-white text-[10px] md:text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm">
                 ขายแล้ว 2510 ชิ้น
             </span>
         </div>
         
-        <img src="image/birdnet_1.png" onclick="openZoomModal(this)" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" cursor-zoom-in alt="ตาข่ายกันนก">
+        <!-- ส่วนแสดงผลรูปภาพแบบสไลด์ -->
+        <div class="swiper-wrapper h-full">
+            <!-- รูปที่ 1: รูปสินค้าหลัก -->
+            <div class="swiper-slide h-full">
+                <img src="image/birdnet_1.png" class="w-full h-full object-cover" alt="ตาข่ายกันนก">
+            </div>
+            <!-- รูปที่ 2: รูปซูมขนาดคู่กับไม้บรรทัด -->
+            <div class="swiper-slide h-full">
+                <img src="image/birdnet_2.png" class="w-full h-full object-cover" alt="สเปกตาข่ายกันนก">
+            </div>
+            <!-- รูปที่ 3: รูปตัวอย่างการใช้งานจริง 1 -->
+            <div class="swiper-slide h-full">
+                <img src="image/bluenet_1.png" class="w-full h-full object-cover" alt="ตัวอย่างการติดตั้งตาข่าย">
+            </div>
+            <!-- รูปที่ 4: รูปตัวอย่างการใช้งานจริง 2 -->
+            <div class="swiper-slide h-full">
+                <img src="image/bluenet_2.png" class="w-full h-full object-cover" alt="ติดตั้งตาข่ายระเบียง">
+            </div>
+        </div>
+
+        <!-- จุดไข่ปลาบอกจำนวนรูปด้านล่าง (แสดงเมื่อจ้องหรือกดดู) -->
+        <div class="swiper-pagination !bottom-2"></div>
+        
+        <!-- ปุ่มลูกศรซ้าย-ขวาแบบจางๆ (จะแสดงขึ้นมาเมื่อเอาเมาส์มาวางทับการ์ด) -->
+        <div class="swiper-button-next !text-white/80 after:!text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="swiper-button-prev !text-white/80 after:!text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     </div>
     
     <div class="p-3 md:p-4 flex-grow flex flex-col justify-between">
@@ -2688,6 +2727,31 @@ function closeModal() {
 }
 
 window.onload = loadBlogPosts;
+
+        document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.mySwiper', {
+        loop: true,               // ให้เลื่อนวนลูปแบบไร้รอยต่อ
+        grabCursor: true,         // เปลี่ยนสัญลักษณ์เมาส์เป็นรูปมือจับเพื่อให้รู้ว่าลากได้
+        
+        // การตั้งค่าเล่นอัตโนมัติ
+        autoplay: {
+            delay: 3000,          // สลับรูปภาพอัตโนมัติทุกๆ 3 วินาที (3000 มิลลิวินาที)
+            disableOnInteraction: false, // แม้ลูกค้าจะกดปุ่มเลื่อนเองไปแล้ว ก็ยังให้กลับมาเลื่อนออโต้ต่อ
+        },
+        
+        // จุดบอกจำนวนรูปภาพด้านล่าง
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,      // ให้ลูกค้าสามารถจิ้มที่จุดไข่ปลาเพื่อสลับรูปได้
+        },
+        
+        // ปุ่มนำทางซ้าย-ขวา
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+});
 
     </script>
 </body>
