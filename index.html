@@ -2372,9 +2372,10 @@ function navigateTo(page, category = 'all') {
             }, 5000); // ตั้งค่าเลื่อนสไลด์อัตโนมัติทุกๆ 5 วินาที
         }
         // ค่าเริ่มต้นเมื่อเอกสารโครงสร้างเว็บถูกโหลดเสร็จสิ้น
-        window.onload = function() {
-            startHeroAutoPlay(); // เรียกเปิดใช้งานสไลด์หน้าแรกอัตโนมัติ
-        };
+        window.addEventListener('load', function () {
+    showHeroSlide(0);    // ✅ Initialize สไลด์แรกให้ชัวร์
+    startHeroAutoPlay(); // ✅ เริ่ม Auto-play ทันที
+});
 
         function scrollToSection(sectionId) {
     // 1. สลับหน้ากลับมาที่หน้าแรก (Home) ก่อนเสมอ เพื่อให้เซกชันต่างๆ ปรากฏตัวขึ้นมา
