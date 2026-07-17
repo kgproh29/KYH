@@ -75,6 +75,11 @@
     animation: marquee 30s linear infinite; /* ปรับเวลาตามความเร็วที่ต้องการ */
 }
 
+#blog-marquee:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
 @keyframes marquee {
     0% { 
         transform: translateX(0); 
