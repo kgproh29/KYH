@@ -2133,17 +2133,17 @@
                 <nav aria-label="Footer Navigation">
                     <ul class="space-y-2 text-sm">
                         <li>
-                            <button onclick="openModal('privacy-modal')" class="hover:text-white transition-colors flex items-center gap-1.5 text-left w-full cursor-pointer">
+                            <button onclick="openPolicyModal('privacy-modal')" class="hover:text-white transition-colors flex items-center gap-1.5 text-left w-full cursor-pointer">
                                 <span>•</span> นโยบายความเป็นส่วนตัว (Privacy Policy)
                             </button>
                         </li>
                         <li>
-                            <button onclick="openModal('terms-modal')" class="hover:text-white transition-colors flex items-center gap-1.5 text-left w-full cursor-pointer">
+                            <button onclick="openPolicyModal('terms-modal')" class="hover:text-white transition-colors flex items-center gap-1.5 text-left w-full cursor-pointer">
                                 <span>•</span> ข้อกำหนดและเงื่อนไขการใช้บริการ
                             </button>
                         </li>
                         <li>
-                            <button onclick="openModal('shipping-modal')" class="hover:text-white transition-colors flex items-center gap-1.5 text-left w-full cursor-pointer">
+                            <button onclick="openPolicyModal('shipping-modal')" class="hover:text-white transition-colors flex items-center gap-1.5 text-left w-full cursor-pointer">
                                 <span>•</span> นโยบายการจัดส่งและคืนสินค้า
                             </button>
                         </li>
@@ -2283,7 +2283,7 @@
     <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl text-slate-300">
         <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-800">
             <h3 class="text-lg font-bold text-white">นโยบายความเป็นส่วนตัว (Privacy Policy)</h3>
-            <button onclick="closeModal('privacy-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
+            <button onclick="closePolicyModal('privacy-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
         </div>
         <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-sm leading-relaxed">
             <p><strong>ร้านกังย่งเฮง</strong> ให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคลของคุณ นโยบายนี้อธิบายถึงวิธีการเก็บรวบรวม ใช้ และคุ้มครองข้อมูลของท่าน</p>
@@ -2297,7 +2297,7 @@
             <p>เรามีมาตรการรักษาความปลอดภัยทางเทคนิคอย่างเหมาะสม เพื่อป้องกันไม่ให้ข้อมูลส่วนบุคคลของท่านสูญหาย หรือถูกเข้าถึงโดยไม่ได้รับอนุญาต</p>
         </div>
         <div class="p-4 border-t border-slate-800 flex justify-end">
-            <button onclick="closeModal('privacy-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
+            <button onclick="closePolicyModal('privacy-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
                 เข้าใจและยอมรับ
             </button>
         </div>
@@ -2311,7 +2311,7 @@
     <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl text-slate-300">
         <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-800">
             <h3 class="text-lg font-bold text-white">ข้อกำหนดและเงื่อนไขการใช้บริการ</h3>
-            <button onclick="closeModal('terms-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
+            <button onclick="closePolicyModal('terms-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
         </div>
         <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-sm leading-relaxed">
             <p>ยินดีต้อนรับสู่เว็บไซต์ <strong>ร้านกังย่งเฮง</strong> การเข้าชมหรือสั่งซื้อสินค้าผ่านเว็บไซต์นี้ถือว่าท่านยอมรับข้อตกลงและเงื่อนไขดังต่อไปนี้</p>
@@ -2323,7 +2323,7 @@
             <p>ทางร้านขอสงวนสิทธิ์ในการเปลี่ยนแปลงราคา รายละเอียดสินค้า และเงื่อนไขการบริการ โดยไม่ต้องแจ้งให้ทราบล่วงหน้า</p>
         </div>
         <div class="p-4 border-t border-slate-800 flex justify-end">
-            <button onclick="closeModal('terms-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
+            <button onclick="closePolicyModal('terms-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
                 เข้าใจและยอมรับ
             </button>
         </div>
@@ -2337,7 +2337,7 @@
     <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl text-slate-300">
         <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-800">
             <h3 class="text-lg font-bold text-white">นโยบายการจัดส่งและคืนสินค้า</h3>
-            <button onclick="closeModal('shipping-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
+            <button onclick="closePolicyModal('shipping-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
         </div>
         <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-sm leading-relaxed">
             <h4 class="font-semibold text-white">1. รอบและช่องทางการจัดส่ง</h4>
@@ -2353,7 +2353,7 @@
             <p>ทางร้านไม่รับเปลี่ยน/คืน สินค้าสั่งตัดพิเศษ เช่น อวนตัดแบ่งความยาว เชือกสั่งตัด หรือสินค้าที่ผ่านการใช้งานแล้วทุกกรณี เว้นแต่เป็นความผิดพลาดจากการผลิตของทางร้าน</p>
         </div>
         <div class="p-4 border-t border-slate-800 flex justify-end">
-            <button onclick="closeModal('shipping-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
+            <button onclick="closePolicyModal('shipping-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
                 เข้าใจและยอมรับ
             </button>
         </div>
@@ -3018,7 +3018,7 @@ document.getElementById('product-modal').addEventListener('click', (e) => {
 })
 
         // ฟังก์ชันสำหรับเปิด Modal
-function openModal(modalId) {
+function openPolicyModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.remove('hidden');
@@ -3027,7 +3027,7 @@ function openModal(modalId) {
 }
 
 // ฟังก์ชันสำหรับปิด Modal
-function closeModal(modalId) {
+function closePolicyModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
     modal.classList.add('hidden');
