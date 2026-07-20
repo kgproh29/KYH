@@ -2279,57 +2279,90 @@
 <!-- ========================================== -->
 <!-- 1. Modal: นโยบายความเป็นส่วนตัว -->
 <!-- ========================================== -->
-<div id="privacy-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl text-slate-300">
-        <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-800">
-            <h3 class="text-lg font-bold text-white">นโยบายความเป็นส่วนตัว (Privacy Policy)</h3>
-            <button onclick="closePolicyModal('privacy-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
+<!-- Modal Overlay (ปรับฉากหลังหลังโปร่งแสงพร้อมเอฟเฟกต์เบลอ) -->
+<div id="privacy-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+    
+    <!-- กล่องเนื้อหา Modal (ปรับเป็น bg-white, มุมมน rounded-2xl, เพิ่ม fade-in) -->
+    <div class="relative w-full max-w-2xl max-h-[85vh] bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden animate-fade-in">
+        
+        <!-- ส่วนหัว (Header) -->
+        <div class="flex items-center justify-between p-6 border-b border-slate-100">
+            <h3 class="text-xl md:text-2xl font-extrabold text-blue-950 pr-4">นโยบายความเป็นส่วนตัว (Privacy Policy)</h3>
+            <!-- ปุ่มปิด X ปรับเป็นไอคอน SVG สไตล์เดียวกับ Blog -->
+            <button onclick="closePolicyModal('privacy-modal')" class="text-slate-400 hover:text-slate-600 p-2 rounded-lg hover:bg-slate-50 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L12 12M12 12l7 7M12 12l7-7M12 12l-7-7"></path>
+                </svg>
+            </button>
         </div>
-        <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-sm leading-relaxed">
-            <p><strong>ร้านกังย่งเฮง</strong> ให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคลของคุณ นโยบายนี้อธิบายถึงวิธีการเก็บรวบรวม ใช้ และคุ้มครองข้อมูลของท่าน</p>
-            <h4 class="font-semibold text-white">1. ข้อมูลที่เราจัดเก็บ</h4>
+
+        <!-- ส่วนเนื้อหา (Content) โทนสีอ่านง่ายสบายตา -->
+        <div class="p-6 overflow-y-auto space-y-4 text-sm text-slate-600 leading-relaxed">
+            <p><strong class="text-slate-900">ร้านกังย่งเฮง</strong> ให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคลของคุณ นโยบายนี้อธิบายถึงวิธีการเก็บรวบรวม ใช้ และคุ้มครองข้อมูลของท่าน</p>
+            
+            <h4 class="font-bold text-blue-950 text-base mt-2">1. ข้อมูลที่เราจัดเก็บ</h4>
             <p>เราเก็บรวบรวมข้อมูลที่จำเป็นต่อการให้บริการ เช่น ชื่อ-นามสกุล, ที่อยู่จัดส่ง, เบอร์โทรศัพท์, LINE ID และข้อมูลการชำระเงิน (สลิปโอนเงิน)</p>
-            <h4 class="font-semibold text-white">2. วัตถุประสงค์ในการใช้ข้อมูล</h4>
+            
+            <h4 class="font-bold text-blue-950 text-base mt-2">2. วัตถุประสงค์ในการใช้ข้อมูล</h4>
             <p>ใช้เพื่อการดำเนินการจัดส่งสินค้าอุปกรณ์ประมง, ออกเอกสารใบเสร็จ/ใบกำกับภาษี, ติดต่อประสานงานเกี่ยวกับคำสั่งซื้อ และแจ้งข้อมูลข่าวสารโปรโมชัน (กรณีผู้ใช้ยินยอม)</p>
-            <h4 class="font-semibold text-white">3. การเปิดเผยข้อมูลแก่บุคคลที่สาม</h4>
+            
+            <h4 class="font-bold text-blue-950 text-base mt-2">3. การเปิดเผยข้อมูลแก่บุคคลที่สาม</h4>
             <p>ทางร้านไม่มีนโยบายขายหรือเปิดเผยข้อมูลส่วนตัวของท่านแก่บุคคลภายนอก ยกเว้นบริษัทขนส่งเอกชนหรือสายขนส่งประมงเพื่อวัตถุประสงค์ในการจัดส่งสินค้าเท่านั้น</p>
-            <h4 class="font-semibold text-white">4. ความปลอดภัยของข้อมูล</h4>
+            
+            <h4 class="font-bold text-blue-950 text-base mt-2">4. ความปลอดภัยของข้อมูล</h4>
             <p>เรามีมาตรการรักษาความปลอดภัยทางเทคนิคอย่างเหมาะสม เพื่อป้องกันไม่ให้ข้อมูลส่วนบุคคลของท่านสูญหาย หรือถูกเข้าถึงโดยไม่ได้รับอนุญาต</p>
         </div>
-        <div class="p-4 border-t border-slate-800 flex justify-end">
-            <button onclick="closePolicyModal('privacy-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
+
+        <!-- ส่วนท้าย (Footer Button) -->
+        <div class="p-4 border-t border-slate-100 flex justify-end bg-slate-50/50">
+            <button onclick="closePolicyModal('privacy-modal')" class="px-5 py-2.5 bg-blue-950 hover:bg-orange-500 text-white text-sm font-bold rounded-xl transition-colors">
                 เข้าใจและยอมรับ
             </button>
         </div>
+
     </div>
 </div>
 
-<!-- ========================================== -->
-<!-- 2. Modal: ข้อกำหนดและเงื่อนไขการใช้บริการ -->
-<!-- ========================================== -->
-<div id="terms-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl text-slate-300">
-        <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-800">
-            <h3 class="text-lg font-bold text-white">ข้อกำหนดและเงื่อนไขการใช้บริการ</h3>
-            <button onclick="closePolicyModal('terms-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
+<!-- Modal Overlay (เปลี่ยนฉากหลังให้เบลอนุ่มนวลเหมือน Blog) -->
+<div id="terms-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+    
+    <!-- กล่องเนื้อหา Modal (เปลี่ยนเป็นสีขาว bg-white, มุมโค้ง rounded-2xl, เพิ่ม animation) -->
+    <div class="relative w-full max-w-2xl max-h-[85vh] bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden animate-fade-in">
+        
+        <!-- ส่วนหัว (Header) -->
+        <div class="flex items-center justify-between p-6 border-b border-slate-100">
+            <h3 class="text-xl md:text-2xl font-extrabold text-blue-950">ข้อกำหนดและเงื่อนไขการใช้บริการ</h3>
+            <!-- ปุ่มปิด X เปลี่ยนเป็นไอคอน SVG สไตล์เดียวกับ Blog -->
+            <button onclick="closePolicyModal('terms-modal')" class="text-slate-400 hover:text-slate-600 p-2 rounded-lg hover:bg-slate-50 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L12 12M12 12l7 7M12 12l7-7M12 12l-7-7"></path>
+                </svg>
+            </button>
         </div>
-        <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-sm leading-relaxed">
-            <p>ยินดีต้อนรับสู่เว็บไซต์ <strong>ร้านกังย่งเฮง</strong> การเข้าชมหรือสั่งซื้อสินค้าผ่านเว็บไซต์นี้ถือว่าท่านยอมรับข้อตกลงและเงื่อนไขดังต่อไปนี้</p>
-            <h4 class="font-semibold text-white">1. การสั่งซื้อและการยืนยันชำระเงิน</h4>
+
+        <!-- ส่วนเนื้อหา (Content) ปรับสีตัวหนังสือให้เป็นโทนอ่านง่ายบนพื้นขาว -->
+        <div class="p-6 overflow-y-auto space-y-4 text-sm text-slate-600 leading-relaxed">
+            <p>ยินดีต้อนรับสู่เว็บไซต์ <strong class="text-slate-900">ร้านกังย่งเฮง</strong> การเข้าชมหรือสั่งซื้อสินค้าผ่านเว็บไซต์นี้ถือว่าท่านยอมรับข้อตกลงและเงื่อนไขดังต่อไปนี้</p>
+            
+            <h4 class="font-bold text-blue-950 text-base mt-2">1. การสั่งซื้อและการยืนยันชำระเงิน</h4>
             <p>คำสั่งซื้อจะสมบูรณ์เมื่อทางร้านได้รับการยืนยันหลักฐานการชำระเงิน (สลิปโอนเงิน) เรียบร้อยแล้วเท่านั้น กรณีราคาสินค้าหรือข้อมูลมีความผิดพลาดทางเทคนิค ทางร้านขอสงวนสิทธิ์ในการยกเลิกคำสั่งซื้อและคืนเงินให้แก่ลูกค้า</p>
-            <h4 class="font-semibold text-white">2. ทรัพย์สินทางปัญญา</h4>
+            
+            <h4 class="font-bold text-blue-950 text-base mt-2">2. ทรัพย์สินทางปัญญา</h4>
             <p>ข้อความ รูปภาพ โลโก้ และเนื้อหาทั้งหมดบนเว็บไซต์นี้เป็นลิขสิทธิ์ของร้านกังย่งเฮง ห้ามคัดลอก ดัดแปลง หรือนำไปใช้ในเชิงพาณิชย์โดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร</p>
-            <h4 class="font-semibold text-white">3. การเปลี่ยนแปลงเงื่อนไข</h4>
+            
+            <h4 class="font-bold text-blue-950 text-base mt-2">3. การเปลี่ยนแปลงเงื่อนไข</h4>
             <p>ทางร้านขอสงวนสิทธิ์ในการเปลี่ยนแปลงราคา รายละเอียดสินค้า และเงื่อนไขการบริการ โดยไม่ต้องแจ้งให้ทราบล่วงหน้า</p>
         </div>
-        <div class="p-4 border-t border-slate-800 flex justify-end">
-            <button onclick="closePolicyModal('terms-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
+
+        <!-- ส่วนท้าย (Footer Button) ปรับปุ่มยอมรับให้เข้าโทนกับเว็บ -->
+        <div class="p-4 border-t border-slate-100 flex justify-end bg-slate-50/50">
+            <button onclick="closePolicyModal('terms-modal')" class="px-5 py-2.5 bg-blue-950 hover:bg-orange-500 text-white text-sm font-bold rounded-xl transition-colors">
                 เข้าใจและยอมรับ
             </button>
         </div>
+
     </div>
 </div>
-
 <!-- ========================================== -->
 <!-- 3. Modal: นโยบายการจัดส่งและคืนสินค้า -->
 <!-- ========================================== -->
