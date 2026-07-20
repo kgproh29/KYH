@@ -2249,25 +2249,84 @@
 </div>
 
             <!-- Modal: นโยบายความเป็นส่วนตัว -->
+<!-- ========================================== -->
+<!-- 1. Modal: นโยบายความเป็นส่วนตัว -->
+<!-- ========================================== -->
 <div id="privacy-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <!-- กล่องเนื้อหา -->
     <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl text-slate-300">
-        <!-- Header ของ Modal -->
         <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-800">
             <h3 class="text-lg font-bold text-white">นโยบายความเป็นส่วนตัว (Privacy Policy)</h3>
             <button onclick="closeModal('privacy-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
         </div>
-        <!-- Body ของ Modal (ใส่ overflow-y-auto ให้เลื่อนอ่านได้) -->
         <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-sm leading-relaxed">
-            <p><strong>ร้านกังย่งเฮง</strong> ให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคลของคุณ...</p>
+            <p><strong>ร้านกังย่งเฮง</strong> ให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคลของคุณ นโยบายนี้อธิบายถึงวิธีการเก็บรวบรวม ใช้ และคุ้มครองข้อมูลของท่าน</p>
             <h4 class="font-semibold text-white">1. ข้อมูลที่เราจัดเก็บ</h4>
-            <p>เราเก็บรวบรวมข้อมูล เช่น ชื่อ, เบอร์โทรศัพท์, ที่อยู่จัดส่ง เพื่อใช้ในการดำเนินการจัดส่งสินค้าและออกเอกสารสั่งซื้อเท่านั้น</p>
-            <h4 class="font-semibold text-white">2. การเปิดเผยข้อมูล</h4>
-            <p>ทางร้านไม่มีนโยบายนำข้อมูลส่วนตัวของท่านไปเปิดเผยหรือขายแก่บุคคลที่สาม ยกเว้นบริษัทขนส่งเพื่อการจัดส่งสินค้า</p>
+            <p>เราเก็บรวบรวมข้อมูลที่จำเป็นต่อการให้บริการ เช่น ชื่อ-นามสกุล, ที่อยู่จัดส่ง, เบอร์โทรศัพท์, LINE ID และข้อมูลการชำระเงิน (สลิปโอนเงิน)</p>
+            <h4 class="font-semibold text-white">2. วัตถุประสงค์ในการใช้ข้อมูล</h4>
+            <p>ใช้เพื่อการดำเนินการจัดส่งสินค้าอุปกรณ์ประมง, ออกเอกสารใบเสร็จ/ใบกำกับภาษี, ติดต่อประสานงานเกี่ยวกับคำสั่งซื้อ และแจ้งข้อมูลข่าวสารโปรโมชัน (กรณีผู้ใช้ยินยอม)</p>
+            <h4 class="font-semibold text-white">3. การเปิดเผยข้อมูลแก่บุคคลที่สาม</h4>
+            <p>ทางร้านไม่มีนโยบายขายหรือเปิดเผยข้อมูลส่วนตัวของท่านแก่บุคคลภายนอก ยกเว้นบริษัทขนส่งเอกชนหรือสายขนส่งประมงเพื่อวัตถุประสงค์ในการจัดส่งสินค้าเท่านั้น</p>
+            <h4 class="font-semibold text-white">4. ความปลอดภัยของข้อมูล</h4>
+            <p>เรามีมาตรการรักษาความปลอดภัยทางเทคนิคอย่างเหมาะสม เพื่อป้องกันไม่ให้ข้อมูลส่วนบุคคลของท่านสูญหาย หรือถูกเข้าถึงโดยไม่ได้รับอนุญาต</p>
         </div>
-        <!-- Footer ของ Modal -->
         <div class="p-4 border-t border-slate-800 flex justify-end">
             <button onclick="closeModal('privacy-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
+                เข้าใจและยอมรับ
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 2. Modal: ข้อกำหนดและเงื่อนไขการใช้บริการ -->
+<!-- ========================================== -->
+<div id="terms-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl text-slate-300">
+        <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-800">
+            <h3 class="text-lg font-bold text-white">ข้อกำหนดและเงื่อนไขการใช้บริการ</h3>
+            <button onclick="closeModal('terms-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
+        </div>
+        <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-sm leading-relaxed">
+            <p>ยินดีต้อนรับสู่เว็บไซต์ <strong>ร้านกังย่งเฮง</strong> การเข้าชมหรือสั่งซื้อสินค้าผ่านเว็บไซต์นี้ถือว่าท่านยอมรับข้อตกลงและเงื่อนไขดังต่อไปนี้</p>
+            <h4 class="font-semibold text-white">1. การสั่งซื้อและการยืนยันชำระเงิน</h4>
+            <p>คำสั่งซื้อจะสมบูรณ์เมื่อทางร้านได้รับการยืนยันหลักฐานการชำระเงิน (สลิปโอนเงิน) เรียบร้อยแล้วเท่านั้น กรณีราคาสินค้าหรือข้อมูลมีความผิดพลาดทางเทคนิค ทางร้านขอสงวนสิทธิ์ในการยกเลิกคำสั่งซื้อและคืนเงินให้แก่ลูกค้า</p>
+            <h4 class="font-semibold text-white">2. ทรัพย์สินทางปัญญา</h4>
+            <p>ข้อความ รูปภาพ โลโก้ และเนื้อหาทั้งหมดบนเว็บไซต์นี้เป็นลิขสิทธิ์ของร้านกังย่งเฮง ห้ามคัดลอก ดัดแปลง หรือนำไปใช้ในเชิงพาณิชย์โดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร</p>
+            <h4 class="font-semibold text-white">3. การเปลี่ยนแปลงเงื่อนไข</h4>
+            <p>ทางร้านขอสงวนสิทธิ์ในการเปลี่ยนแปลงราคา รายละเอียดสินค้า และเงื่อนไขการบริการ โดยไม่ต้องแจ้งให้ทราบล่วงหน้า</p>
+        </div>
+        <div class="p-4 border-t border-slate-800 flex justify-end">
+            <button onclick="closeModal('terms-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
+                เข้าใจและยอมรับ
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 3. Modal: นโยบายการจัดส่งและคืนสินค้า -->
+<!-- ========================================== -->
+<div id="shipping-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl text-slate-300">
+        <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-800">
+            <h3 class="text-lg font-bold text-white">นโยบายการจัดส่งและคืนสินค้า</h3>
+            <button onclick="closeModal('shipping-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
+        </div>
+        <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-sm leading-relaxed">
+            <h4 class="font-semibold text-white">1. รอบและช่องทางการจัดส่ง</h4>
+            <p>ทางร้านจัดส่งสินค้าวันจันทร์ - เสาร์ (หยุดวันอาทิตย์) โดยใช้บริการขนส่งเอกชน ขนส่งสายประมงเฉพาะพื้นที่ หรือรถจัดส่งของทางร้าน ขึ้นอยู่กับขนาดและน้ำหนักของสินค้า</p>
+            <h4 class="font-semibold text-white">2. ระยะเวลาการจัดส่ง</h4>
+            <ul class="list-disc list-inside space-y-1 pl-2">
+                <li>พื้นที่สมุทรสาครและปริมณฑล: 1 - 2 วันทำการ</li>
+                <li>ต่างจังหวัดและพื้นที่ชายฝั่ง: 2 - 4 วันทำการ</li>
+            </ul>
+            <h4 class="font-semibold text-white">3. เงื่อนไขการเคลมและเปลี่ยนคืนสินค้า</h4>
+            <p>ลูกค้าต้อง **ถ่ายคลิปวิดีโอขณะแกะกล่อง/กระสอบสินค้า** ไว้เป็นหลักฐาน หากพบว่าสินค้าชำรุด เสียหาย หรือได้ไม่ครบ สามารถแจ้งเคลมได้ภายใน 7 วันหลังได้รับสินค้า</p>
+            <h4 class="font-semibold text-white">4. ข้อยกเว้นการรับคืน</h4>
+            <p>ทางร้านไม่รับเปลี่ยน/คืน สินค้าสั่งตัดพิเศษ เช่น อวนตัดแบ่งความยาว เชือกสั่งตัด หรือสินค้าที่ผ่านการใช้งานแล้วทุกกรณี เว้นแต่เป็นความผิดพลาดจากการผลิตของทางร้าน</p>
+        </div>
+        <div class="p-4 border-t border-slate-800 flex justify-end">
+            <button onclick="closeModal('shipping-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
                 เข้าใจและยอมรับ
             </button>
         </div>
