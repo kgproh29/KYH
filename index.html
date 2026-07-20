@@ -2366,30 +2366,48 @@
 <!-- ========================================== -->
 <!-- 3. Modal: นโยบายการจัดส่งและคืนสินค้า -->
 <!-- ========================================== -->
-<div id="shipping-modal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl text-slate-300">
-        <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-800">
-            <h3 class="text-lg font-bold text-white">นโยบายการจัดส่งและคืนสินค้า</h3>
-            <button onclick="closePolicyModal('shipping-modal')" class="text-slate-400 hover:text-white text-xl p-1">&times;</button>
+<!-- Modal Overlay (ปรับฉากหลังโปร่งแสงพร้อมเอฟเฟกต์เบลอ) -->
+<div id="shipping-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+    
+    <!-- กล่องเนื้อหา Modal (ปรับเป็น bg-white, มุมมน rounded-2xl, เพิ่ม fade-in) -->
+    <div class="relative w-full max-w-2xl max-h-[85vh] bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden animate-fade-in">
+        
+        <!-- ส่วนหัว (Header) -->
+        <div class="flex items-center justify-between p-6 border-b border-slate-100">
+            <h3 class="text-xl md:text-2xl font-extrabold text-blue-950 pr-4">นโยบายการจัดส่งและคืนสินค้า</h3>
+            <!-- ปุ่มปิด X ปรับเป็นไอคอน SVG สไตล์เดียวกับ Blog -->
+            <button onclick="closePolicyModal('shipping-modal')" class="text-slate-400 hover:text-slate-600 p-2 rounded-lg hover:bg-slate-50 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L12 12M12 12l7 7M12 12l7-7M12 12l-7-7"></path>
+                </svg>
+            </button>
         </div>
-        <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-sm leading-relaxed">
-            <h4 class="font-semibold text-white">1. รอบและช่องทางการจัดส่ง</h4>
-            <p>ทางร้านจัดส่งสินค้าวันจันทร์ - เสาร์ (หยุดวันอาทิตย์) โดยใช้บริการขนส่งเอกชน ขนส่งสายประมงเฉพาะพื้นที่ หรือรถจัดส่งของทางร้าน ขึ้นอยู่กับขนาดและน้ำหนักของสินค้า</p>
-            <h4 class="font-semibold text-white">2. ระยะเวลาการจัดส่ง</h4>
-            <ul class="list-disc list-inside space-y-1 pl-2">
-                <li>พื้นที่สมุทรสาครและปริมณฑล: 1 - 2 วันทำการ</li>
-                <li>ต่างจังหวัดและพื้นที่ชายฝั่ง: 2 - 4 วันทำการ</li>
+
+        <!-- ส่วนเนื้อหา (Content) โทนสีอ่านง่ายสบายตา บนพื้นหลังขาว -->
+        <div class="p-6 overflow-y-auto space-y-4 text-sm text-slate-600 leading-relaxed">
+            <h4 class="font-bold text-blue-950 text-base mt-2">1. รอบและช่องทางการจัดส่ง</h4>
+            <p>ทางร้านจัดส่งสินค้าวันจันทร์ - เสาร์ (หยุดวันอาทิตย์) โดยใช้บริการขนส่งเอกชน หรือรถจัดส่งของทางร้าน ขึ้นอยู่กับขนาดและน้ำหนักของสินค้า</p>
+            
+            <h4 class="font-bold text-blue-950 text-base mt-2">2. ระยะเวลาการจัดส่ง</h4>
+            <ul class="list-disc list-inside space-y-1 pl-2 text-slate-600">
+                <li>พื้นที่สมุทรสาคร กรุงเทพและปริมณฑล: ขึ้นอยู่กับรอบการส่งของทางร้าน </li>
+                <li>ต่างจังหวัด: ขึ้นอยู่กับบริการขนส่งเอกชน</li>
             </ul>
-            <h4 class="font-semibold text-white">3. เงื่อนไขการเคลมและเปลี่ยนคืนสินค้า</h4>
-            <p>ลูกค้าต้อง **ถ่ายคลิปวิดีโอขณะแกะกล่อง/กระสอบสินค้า** ไว้เป็นหลักฐาน หากพบว่าสินค้าชำรุด เสียหาย หรือได้ไม่ครบ สามารถแจ้งเคลมได้ภายใน 7 วันหลังได้รับสินค้า</p>
-            <h4 class="font-semibold text-white">4. ข้อยกเว้นการรับคืน</h4>
-            <p>ทางร้านไม่รับเปลี่ยน/คืน สินค้าสั่งตัดพิเศษ เช่น อวนตัดแบ่งความยาว เชือกสั่งตัด หรือสินค้าที่ผ่านการใช้งานแล้วทุกกรณี เว้นแต่เป็นความผิดพลาดจากการผลิตของทางร้าน</p>
+            
+            <h4 class="font-bold text-blue-950 text-base mt-2">3. เงื่อนไขการเคลมและเปลี่ยนคืนสินค้า</h4>
+            <p>ลูกค้าต้อง <strong class="text-slate-900">ถ่ายคลิปวิดีโอขณะแกะกล่อง/กระสอบสินค้า</strong> ไว้เป็นหลักฐาน หากพบว่าสินค้าชำรุด เสียหาย หรือได้ไม่ครบ สามารถแจ้งเคลมได้ภายใน 7 วันหลังได้รับสินค้า</p>
+            
+            <h4 class="font-bold text-blue-950 text-base mt-2">4. ข้อยกเว้นการรับคืน</h4>
+            <p>ทางร้านไม่รับเปลี่ยน/คืน สินค้าสั่งตัดพิเศษ เช่น อวนตัดแบ่งความยาว เชือกสั่งตัด หรือสินค้าที่ผ่านการใช้งานแล้วทุกกรณี</p>
         </div>
-        <div class="p-4 border-t border-slate-800 flex justify-end">
-            <button onclick="closePolicyModal('shipping-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">
+
+        <!-- ส่วนท้าย (Footer Button) -->
+        <div class="p-4 border-t border-slate-100 flex justify-end bg-slate-50/50">
+            <button onclick="closePolicyModal('shipping-modal')" class="px-5 py-2.5 bg-blue-950 hover:bg-orange-500 text-white text-sm font-bold rounded-xl transition-colors">
                 เข้าใจและยอมรับ
             </button>
         </div>
+
     </div>
 </div>
             
