@@ -2067,17 +2067,88 @@
 
     </section>
 
-    <footer class="bg-slate-900 text-slate-400 py-10 mt-auto border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-auto border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- ส่วนบน: ข้อมูลร้าน, เมนูนโยบาย, และช่องทางติดต่อ (3 คอลัมน์) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-slate-800">
+            
+            <!-- คอลัมน์ที่ 1: แบรนด์และคำบรรยาย -->
+            <div class="space-y-3">
                 <div class="flex items-center gap-2">
-                    <span class="text-xl font-black text-white data-translate" data-key="logo">กังย่งเฮง</span>
-                    <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded-full">ศูนย์รวมอุปกรณ์ประมงค้าส่งอันดับหนึ่ง</span>
+                    <span class="text-2xl font-black text-white data-translate" data-key="logo">กังย่งเฮง</span>
+                    <span class="text-[10px] bg-slate-800 text-slate-300 px-2.5 py-0.5 rounded-full border border-slate-700">
+                        ศูนย์รวมอุปกรณ์ประมงค้าส่งอันดับหนึ่ง
+                    </span>
                 </div>
-                <p class="text-sm data-translate" data-key="footer_copy">&copy; 2026 ร้านกังย่งเฮง. สงวนลิขสิทธิ์ทุกประการ ห้ามคัดลอกข้อความหรือรูปภาพก่อนได้รับอนุญาต.</p>
+                <p class="text-sm leading-relaxed text-slate-400">
+                    จำหน่ายอุปกรณ์ประมง เครื่องมือจับสัตว์น้ำ ตาข่าย อวน เชือก และอุปกรณ์ทางเรือคุณภาพสูง ราคาขายส่งสำหรับชาวประมงทั่วประเทศ
+                </p>
+            </div>
+
+            <!-- คอลัมน์ที่ 2: ช่องทางติดต่อและที่อยู่ (ส่งเสริม E-E-A-T และ Local SEO) -->
+            <div>
+                <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-3">ติดต่อเรา</h3>
+                <address class="not-italic text-sm space-y-2">
+                    <p class="flex items-start gap-2">
+                        <span>📍</span>
+                        <span>ร้านกังย่งเฮง สมุทรสาคร (เปิดบริการ จันทร์ - เสาร์ 08:00 - 17:00 น.)</span>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <span>📞</span>
+                        <a href="tel:0812345678" class="hover:text-white transition-colors">081-234-5678</a>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <span>💬</span>
+                        <span>LINE: <a href="https://line.me/ti/p/@kangyongheng" target="_blank" rel="noopener" class="text-emerald-400 hover:underline">@kangyongheng</a></span>
+                    </p>
+                </address>
+            </div>
+
+            <!-- คอลัมน์ที่ 3: ลิงก์สำคัญตามหลัก SEO & Accessibility -->
+            <div>
+                <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-3">นโยบายและความช่วยเหลือ</h3>
+                <nav aria-label="Footer Navigation">
+                    <ul class="space-y-2 text-sm">
+                        <li>
+                            <a href="/privacy-policy" class="hover:text-white transition-colors flex items-center gap-1.5">
+                                <span>•</span> นโยบายความเป็นส่วนตัว (Privacy Policy)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/terms" class="hover:text-white transition-colors flex items-center gap-1.5">
+                                <span>•</span> ข้อกำหนดและเงื่อนไขการใช้บริการ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/shipping-policy" class="hover:text-white transition-colors flex items-center gap-1.5">
+                                <span>•</span> นโยบายการจัดส่งและคืนสินค้า
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        <!-- ส่วนล่าง: Copyright & Social Links -->
+        <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+            <p class="data-translate text-center sm:text-left" data-key="footer_copy">
+                &copy; 2026 ร้านกังย่งเฮง. สงวนลิขสิทธิ์ทุกประการ ห้ามคัดลอกข้อความหรือรูปภาพก่อนได้รับอนุญาต.
+            </p>
+            
+            <!-- โซเชียลมีเดีย (ใช้ rel="noopener" เพื่อความปลอดภัยและ SEO) -->
+            <div class="flex items-center space-x-4 text-slate-400">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="Facebook">
+                    Facebook
+                </a>
+                <span>|</span>
+                <a href="https://line.me" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="LINE Official">
+                    LINE Official
+                </a>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
      
 </div> <div id="view-catalog" class="hidden transition-all duration-300">
     <section class="py-20 bg-white">
