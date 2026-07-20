@@ -2083,66 +2083,71 @@
             </div>
 
             <!-- คอลัมน์ที่ 2: แทรกหมวดหมู่สินค้า (Anchor Links สกอร์ลในหน้าเดิม) -->
-            <div>
+           <div class="lg:col-span-2"> <!-- ถ้าอยู่ใน Footer Grid สามารถขยายความกว้างกล่องได้ด้วย class นี้ -->
     <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-3">หมวดหมู่สินค้า</h3>
-    <ul class="space-y-2 text-sm">
+    
+    <!-- ใช้ Grid แบ่งเป็น 2 ฝั่ง (gap-x-6 เว้นระยะห่างระหว่างคอลัมน์) -->
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6 text-sm">
+        <!-- ฝั่งซ้าย (6 รายการแรก) -->
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat10');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat10');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> ตาข่ายกันนก
             </a>
         </li>
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat11');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat11');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> ตาข่ายสนามกีฬา
             </a>
         </li>
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat12');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat12');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> ตาข่ายกันของตกท้ายรถ
             </a>
         </li>
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat1');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat1');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> ลวดสลิง ตราสิงโต
             </a>
         </li>
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat2');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat2');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> อวนลากปลา
             </a>
         </li>
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat3');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat3');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> ด้ายปะ เชือกโปลี เชือกไนล่อน
             </a>
         </li>
+
+        <!-- ฝั่งขวา (6 รายการหลัง) -->
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat4');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat4');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> เชือกใยยักษ์
             </a>
         </li>
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat5');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat5');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> เชือกขี้ม้า เชือกทิ้งซั้ง
             </a>
         </li>
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat6');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat6');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> เชือกสายมาน เชือกลากสาย
             </a>
         </li>
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat7');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat7');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> ลูกลอย ทุ่น ลูกยาง
             </a>
         </li>
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat8');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat8');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> เครื่องเหล็ก โซ่ สเก็น
             </a>
         </li>
         <li>
-            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat9');" class="hover:text-white transition-colors flex items-center gap-1.5">
+            <a href="#our-products-section" onclick="event.preventDefault(); navigateTo('catalog', 'cat9');" class="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer">
                 <span>•</span> ตะกร้า ลังปลา ถังเหลี่ยว
             </a>
         </li>
