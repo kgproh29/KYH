@@ -1,96 +1,92 @@
 <!DOCTYPE html>
 <html lang="th" class="scroll-smooth">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Metadata -->
     <title>ขายส่งอุปกรณ์ประมง สลิงประมง เชือก ตาข่ายทุกชนิด | ร้านกังย่งเฮง</title>
     <meta name="description" content="ร้านกังย่งเฮง ขายส่งอุปกรณ์ประมง เกษตร เชือกและตาข่ายทุกชนิด สินค้าครบครัน คุณภาพโรงงาน ราคาส่งมิตรภาพ พร้อมบริการจัดส่งทั่วประเทศ ติดต่อขอราคาพิเศษได้ที่นี่">
-    <meta name="robots" content="index, follow" />
     <meta name="keywords" content="ขายส่งอุปกรณ์ประมง, อุปกรณ์เกษตร, เชือก, ตาข่าย, กังย่งเฮง" />
     <meta name="author" content="กังย่งเฮง" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://kgproh29.github.io/KYH/" />
+
+    <!-- Fonts & CDNs -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="canonical" href="https://kgproh29.github.io/KYH/" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+        }
+
+        /* Scrollbar Hidden */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Keyframes Animations (แยกชื่อไม่ให้ตีกัน) */
+        @keyframes marquee-reviews {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.3333%); }
+        }
+
+        @keyframes marquee-blog {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Marquee Classes */
+        .animate-marquee {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            animation: marquee-reviews 40s linear infinite;
+        }
+
+        #blog-marquee {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+            animation: marquee-blog 30s linear infinite;
+        }
+
+        #reviews-container:hover,
+        #blog-marquee:hover {
+            animation-play-state: paused;
+            cursor: pointer;
+        }
+
+        /* Apple-style Fade In */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform, opacity;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    </style>
 </head>
     
-<style>
-    body {
-        font-family: 'Prompt', sans-serif;
-    }
-        /* Scrollbar Hidden */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-    .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-    @keyframes marquee {
-        0% {
-            transform: translateX(0);
-    }
-    100% {
-        /* เปลี่ยนจากเปอร์เซ็นต์มาเป็นสไลด์ขยับทีละชุดการ์ดให้สัมพันธ์กับการ Clone 3 ชุด */
-        transform: translateX(-33.3333%);
-        }
-    }
-
-.animate-marquee {
-    display: flex !important;
-    flex-wrap: nowrap !important; /* บังคับให้การ์ดเรียงหน้ากระดานห้ามตกบรรทัด */
-    animation: marquee 40s linear infinite; /* เพิ่มเวลาเป็น 40 วินาที เพื่อให้ความเร็วพอดีนุ่มนวล */
-}
-
-#reviews-container:hover {
-    animation-play-state: paused;
-    cursor: pointer;
-}
-    
-/* 🍏 โค้ดควบคุมแอนิเมชันสไตล์ Apple */
-.fade-in-up {
-    opacity: 0;
-    transform: translateY(30px) scale(0.98);
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-    will-change: transform, opacity;
-}
-
-.fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-    
-#blog-marquee {
-    display: flex;
-    gap: 1.5rem;
-    width: max-content; /* ทำให้กล่องกว้างพอสำหรับข้อมูล 2 ชุด */
-    animation: marquee 30s linear infinite; /* ปรับเวลาตามความเร็วที่ต้องการ */
-}
-
-#blog-marquee:hover {
-    animation-play-state: paused;
-    cursor: pointer;
-}
-
-@keyframes marquee {
-    0% { 
-        transform: translateX(0); 
-    }
-    100% { 
-        /* เลื่อนไปแค่ 50% ของความกว้างทั้งหมด เพราะเรามีข้อมูลซ้ำกัน 2 ชุด */
-        transform: translateX(-50%); 
-    }
-}
-        
-    </style>
-
 <body class="bg-slate-50 text-slate-800 flex flex-col min-height-screen">
 
     <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all">
