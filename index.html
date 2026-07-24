@@ -152,7 +152,7 @@
         </div>
     </nav>
 
-   <!-- SVG Gradients สำหรับเติมสีใต้กราฟเส้น -->
+  !-- SVG Gradients สำหรับสีสเกลใต้กราฟ -->
 <svg style="height: 0; width: 0; position: absolute;">
   <defs>
     <linearGradient id="apple-green-grad" x1="0" y1="0" x2="0" y2="1">
@@ -166,30 +166,44 @@
   </defs>
 </svg>
 
-<!-- Container แถบวิ่งสีขาวสไตล์ Apple -->
+<!-- Container แถบวิ่งสไตล์ Apple -->
 <div class="apple-marquee-card">
-  <div class="marquee-track" id="marquee-track"></div>
+  <div class="marquee-track" id="marquee-track">
+    <div style="padding: 10px 20px; font-size: 12px; color: #86868b;">Loading Live Market Data...</div>
+  </div>
 </div>
 
 <style>
-  /* 1. ปรับกล่องใหญ่ให้เตี้ยลง */
+  /* Root Colors - คุณสามารถเปลี่ยนสีตรงนี้ให้ตรงกับ CI ของคุณได้เลย */
+  :root {
+    --brand-card-bg: #ffffff;
+    --brand-card-border: rgba(0, 0, 0, 0.06);
+    --brand-text-main: #1d1d1f;
+    --brand-text-sub: #86868b;
+    --color-up: #34c759;     /* สีเมื่อราคาขึ้น */
+    --color-down: #ff3b30;   /* สีเมื่อราคาลง */
+    --badge-up-bg: #eafbe8;
+    --badge-down-bg: #fdefef;
+  }
+
+  /* Container หลัก */
   .apple-marquee-card {
-    background: #ffffff;
-    border-radius: 14px; /* ลดความโค้งมนลงให้สมส่วน */
-    padding: 8px 0;      /* ลด Padding บน-ล่าง จาก 16px เหลือ 8px */
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: var(--brand-card-bg);
+    border-radius: 14px;
+    padding: 8px 0;
+    border: 1px solid var(--brand-card-border);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
     position: relative;
     overflow: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
   }
 
-  /* Fade ขอบซ้าย-ขวา ย่อความกว้างลง */
+  /* Fade ขอบซ้าย-ขวา */
   .apple-marquee-card::before, .apple-marquee-card::after {
     content: "";
     position: absolute;
     top: 0;
-    width: 40px; /* ลดระยะ Fade ขอบจาก 70px เหลือ 40px */
+    width: 40px;
     height: 100%;
     z-index: 3;
     pointer-events: none;
@@ -210,17 +224,17 @@
     100% { transform: translateX(-50%); }
   }
 
-  /* 2. ปรับการ์ดแต่ละใบให้แคบลง (Compact Item Card) */
+  /* Compact Item Card */
   .item-card {
     background: #fbfbfd;
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 10px;
-    padding: 8px 12px;   /* ลดระยะขอบขอบการ์ดข้างใน */
-    margin: 0 5px;        /* ลดระยะห่างระหว่างการ์ด */
-    min-width: 165px;     /* <--- จุดสำคัญ: ปรับความกว้างต่ำสุดลงจาก 220px เหลือ 165px */
+    padding: 8px 12px;
+    margin: 0 5px;
+    min-width: 165px;
     display: flex;
     flex-direction: column;
-    gap: 4px;             /* ลดระยะห่างระหว่างบรรทัด */
+    gap: 4px;
     transition: all 0.2s ease;
   }
   .item-card:hover {
@@ -231,72 +245,127 @@
   }
 
   .item-top { display: flex; justify-content: space-between; align-items: center; }
-  .item-name { font-size: 11px; font-weight: 600; color: #1d1d1f; }
+  .item-name { font-size: 11px; font-weight: 600; color: var(--brand-text-main); }
   .badge { font-size: 10px; font-weight: 600; padding: 1px 5px; border-radius: 4px; }
-  .badge-up { background: #eafbe8; color: #1b873f; }
-  .badge-down { background: #fdefef; color: #d70015; }
+  .badge-up { background: var(--badge-up-bg); color: #1b873f; }
+  .badge-down { background: var(--badge-down-bg); color: #d70015; }
 
   .item-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; }
-  .price-val { font-size: 14px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.3px; } /* ปรับขนาดฟอนต์ราคาลง */
-  .price-unit { font-size: 9px; font-weight: 500; color: #86868b; }
+  .price-val { font-size: 14px; font-weight: 700; color: var(--brand-text-main); letter-spacing: -0.3px; }
+  .price-unit { font-size: 9px; font-weight: 500; color: var(--brand-text-sub); }
 
-  /* 3. ย่อขนาดกราฟ SVG */
-  .sparkline { width: 55px; height: 22px; } /* ปรับขนาดกราฟลงจาก 76x28 เหลือ 55x22 */
+  .sparkline { width: 55px; height: 22px; }
   .sparkline path { fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .sparkline.up path { stroke: #34c759; }
-  .sparkline.down path { stroke: #ff3b30; }
+  .sparkline.up path { stroke: var(--color-up); }
+  .sparkline.down path { stroke: var(--color-down); }
   .sparkline.up .fill { fill: url(#apple-green-grad); stroke: none; }
   .sparkline.down .fill { fill: url(#apple-red-grad); stroke: none; }
 </style>
 
 <script>
-  const data = [
-      { name: "HDPE (Yarn Grade)", price: "$1,040", unit: "USD/Ton", change: "+1.8%", isUp: true, history: [1000, 1010, 1005, 1025, 1030, 1040] },
-      { name: "PP (Rope Grade)", price: "$960", unit: "USD/Ton", change: "-0.5%", isUp: false, history: [980, 975, 970, 965, 968, 960] },
-      { name: "Nylon PA6 (Netting)", price: "$2,150", unit: "USD/Ton", change: "+2.4%", isUp: true, history: [2050, 2080, 2100, 2090, 2120, 2150] },
-      { name: "Steel Wire Rod", price: "$590", unit: "USD/Ton", change: "-1.2%", isUp: false, history: [610, 605, 600, 595, 598, 590] },
-      { name: "Zinc LME (Galvanize)", price: "$2,820", unit: "USD/Ton", change: "+0.9%", isUp: true, history: [2750, 2780, 2760, 2800, 2810, 2820] },
-      { name: "Brent Crude Oil", price: "$82.4", unit: "USD/Bbl", change: "+0.4%", isUp: true, history: [80, 81, 80.5, 81.8, 82, 82.4] },
-      { name: "USD / THB", price: "35.85", unit: "THB", change: "-0.1%", isUp: false, history: [36.1, 36.0, 35.95, 35.9, 35.88, 35.85] }
+  // รายการสินค้าและ Ticker Symbol สำหรับดึงราคาจริงจาก Yahoo Finance API
+  const itemsConfig = [
+    { name: "Brent Crude Oil", symbol: "BZ=F", unit: "USD/Bbl", history: [80, 81, 80.5, 81.8, 82, 82.4] },
+    { name: "WTI Crude Oil", symbol: "CL=F", unit: "USD/Bbl", history: [75, 76, 75.8, 76.2, 77.1] },
+    { name: "USD / THB", symbol: "THB=X", unit: "THB", history: [36.1, 36.0, 35.95, 35.9, 35.85] },
+    { name: "Zinc (LME)", symbol: "ZNC=F", unit: "USD/Ton", history: [2750, 2780, 2760, 2810, 2820] },
+    { name: "Copper (COMEX)", symbol: "HG=F", unit: "USD/Lbs", history: [4.1, 4.15, 4.12, 4.2, 4.25] }
   ];
 
+  // ฟังก์ชันสร้าง Sparkline SVG
   function createSparkline(hist, isUp) {
-      const min = Math.min(...hist), max = Math.max(...hist), range = max - min || 1;
-      const w = 76, h = 28;
-      const pts = hist.map((v, i) => {
-          const x = (i / (hist.length - 1)) * w;
-          const y = h - ((v - min) / range) * (h - 6) - 3;
-          return `${x},${y}`;
-      });
-      const line = `M ${pts.join(' L ')}`;
-      const fill = `${line} L ${w},${h} L 0,${h} Z`;
+    const min = Math.min(...hist), max = Math.max(...hist), range = max - min || 1;
+    const w = 76, h = 28;
+    const pts = hist.map((v, i) => {
+      const x = (i / (hist.length - 1)) * w;
+      const y = h - ((v - min) / range) * (h - 6) - 3;
+      return `${x},${y}`;
+    });
+    const line = `M ${pts.join(' L ')}`;
+    const fill = `${line} L ${w},${h} L 0,${h} Z`;
 
-      return `
-          <svg class="sparkline ${isUp ? 'up' : 'down'}" viewBox="0 0 ${w} ${h}">
-              <path class="fill" d="${fill}" />
-              <path d="${line}" />
-          </svg>
-      `;
+    return `
+      <svg class="sparkline ${isUp ? 'up' : 'down'}" viewBox="0 0 ${w} ${h}">
+        <path class="fill" d="${fill}" />
+        <path d="${line}" />
+      </svg>
+    `;
   }
 
-  const track = document.getElementById('marquee-track');
-  const fullList = [...data, ...data];
+  // ฟังก์ชันดึงราคาตลาดจริง
+  async function fetchLiveMarketData() {
+    const symbols = itemsConfig.map(i => i.symbol).join(',');
+    const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols}`;
+    
+    try {
+      // ใช้ CORS Proxy เพื่อดึงข้อมูล API ใน Client-side
+      const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`);
+      const rawData = await response.json();
+      const parsed = JSON.parse(rawData.contents);
+      const quotes = parsed.quoteResponse.result;
 
-  track.innerHTML = fullList.map(item => `
+      const liveData = itemsConfig.map(item => {
+        const quote = quotes.find(q => q.symbol === item.symbol);
+        if (quote) {
+          const price = quote.regularMarketPrice;
+          const changePercent = quote.regularMarketChangePercent;
+          const isUp = changePercent >= 0;
+          
+          // อัปเดตกราฟจำลองด้วยราคาล่าสุด
+          const newHistory = [...item.history.slice(1), price];
+
+          return {
+            name: item.name,
+            price: price > 100 ? price.toLocaleString('en-US', {maximumFractionDigits: 2}) : price.toFixed(2),
+            unit: item.unit,
+            change: `${isUp ? '+' : ''}${changePercent.toFixed(2)}%`,
+            isUp: isUp,
+            history: newHistory
+          };
+        }
+        return null;
+      }).filter(Boolean);
+
+      renderMarquee(liveData);
+    } catch (error) {
+      console.warn("Using fallback data due to network/CORS restrictions:", error);
+      // หากดึง API ไม่ผ่าน จะใช้ค่าสำรองเพื่อไม่ให้ Widget พัง
+      renderFallback();
+    }
+  }
+
+  function renderMarquee(dataList) {
+    const track = document.getElementById('marquee-track');
+    const fullList = [...dataList, ...dataList]; // ทำซ้ำเพื่อให้อนิเมชันวิ่งแบบ Infinite
+
+    track.innerHTML = fullList.map(item => `
       <div class="item-card">
-          <div class="item-top">
-              <span class="item-name">${item.name}</span>
-              <span class="badge ${item.isUp ? 'badge-up' : 'badge-down'}">${item.change}</span>
+        <div class="item-top">
+          <span class="item-name">${item.name}</span>
+          <span class="badge ${item.isUp ? 'badge-up' : 'badge-down'}">${item.change}</span>
+        </div>
+        <div class="item-bottom">
+          <div>
+            <div class="price-val">${item.price}</div>
+            <div class="price-unit">${item.unit}</div>
           </div>
-          <div class="item-bottom">
-              <div>
-                  <div class="price-val">${item.price}</div>
-                  <div class="price-unit">${item.unit}</div>
-              </div>
-              ${createSparkline(item.history, item.isUp)}
-          </div>
+          ${createSparkline(item.history, item.isUp)}
+        </div>
       </div>
-  `).join('');
+    `).join('');
+  }
+
+  function renderFallback() {
+    const fallbackData = [
+      { name: "Brent Crude Oil", price: "82.40", unit: "USD/Bbl", change: "+0.40%", isUp: true, history: [80, 81, 80.5, 81.8, 82, 82.4] },
+      { name: "USD / THB", price: "35.85", unit: "THB", change: "-0.10%", isUp: false, history: [36.1, 36.0, 35.95, 35.9, 35.88, 35.85] },
+      { name: "Zinc (LME)", price: "2,820", unit: "USD/Ton", change: "+0.90%", isUp: true, history: [2750, 2780, 2760, 2800, 2810, 2820] }
+    ];
+    renderMarquee(fallbackData);
+  }
+
+  // เรียกทำงานเมื่อโหลดหน้าเว็บ
+  fetchLiveMarketData();
 </script>
 
     <div id="view-home" class="transition-all duration-300">
