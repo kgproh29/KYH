@@ -152,42 +152,63 @@
         </div>
     </nav>
 
-    <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {
-  "symbols": [
+    <!-- Apple Style Marquee Container -->
+<div class="apple-marquee-wrapper">
+  <div class="apple-marquee-title">RAW MATERIAL MARKET INDEX</div>
+  
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
     {
-      "proName": "TVC:UKOIL",
-      "title": "น้ำมันดิบ Brent"
-    },
-    {
-      "proName": "TVC:USOIL",
-      "title": "น้ำมันดิบ WTI"
-    },
-    {
-      "description": "เหล็กแผ่น (US Steel)",
-      "proName": "COMEX:HRC1!"
-    },
-    {
-      "description": "สังกะสี (LME Zinc)",
-      "proName": "LME:ZS1!"
-    },
-    {
-      "description": "ค่าเงิน USD/THB",
-      "proName": "FX_IDC:USDTHB"
+      "symbols": [
+        { "proName": "TVC:UKOIL", "title": "BRENT CRUDE" },
+        { "proName": "TVC:USOIL", "title": "WTI CRUDE" },
+        { "description": "STEEL REBAR", "proName": "COMEX:HRC1!" },
+        { "description": "LME ZINC", "proName": "LME:ZS1!" },
+        { "description": "USD / THB", "proName": "FX_IDC:USDTHB" }
+      ],
+      "showSymbolLogo": false,
+      "isTransparent": true,
+      "displayMode": "adaptive",
+      "colorTheme": "light",
+      "locale": "en"
     }
-  ],
-  "showSymbolLogo": true,
-  "isTransparent": false,
-  "displayMode": "adaptive",
-  "colorTheme": "dark",
-  "locale": "th_TH"
-}
-  </script>
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
 </div>
-<!-- TradingView Widget END -->
+
+<!-- CSS แต่งสไตล์แบบ Apple -->
+<style>
+  .apple-marquee-wrapper {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px); /* เอฟเฟกต์กระจกฝ้าแบบ iOS/macOS */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 12px 16px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04); /* เงาฟุ้งนุ่มนวล */
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .apple-marquee-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    color: #86868b; /* สีเทาซิกเนเจอร์ของ Apple */
+    margin-bottom: 6px;
+    padding-left: 8px;
+    text-transform: uppercase;
+  }
+
+  /* ปรับแต่งส่วนของ TradingView ให้กลมกลืน */
+  .apple-marquee-wrapper .tradingview-widget-container {
+    background: transparent !important;
+  }
+</style>
 
     <div id="view-home" class="transition-all duration-300">
         <section class="relative h-[550px] md:h-[650px] w-full overflow-hidden bg-slate-900 text-white">
