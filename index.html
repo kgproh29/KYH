@@ -152,63 +152,151 @@
         </div>
     </nav>
 
-    <!-- Apple Style Marquee Container -->
-<div class="apple-marquee-wrapper">
-  <div class="apple-marquee-title">RAW MATERIAL MARKET INDEX</div>
-  
-  <!-- TradingView Widget BEGIN -->
-  <div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-      "symbols": [
-        { "proName": "TVC:UKOIL", "title": "BRENT CRUDE" },
-        { "proName": "TVC:USOIL", "title": "WTI CRUDE" },
-        { "description": "STEEL REBAR", "proName": "COMEX:HRC1!" },
-        { "description": "LME ZINC", "proName": "LME:ZS1!" },
-        { "description": "USD / THB", "proName": "FX_IDC:USDTHB" }
-      ],
-      "showSymbolLogo": false,
-      "isTransparent": true,
-      "displayMode": "adaptive",
-      "colorTheme": "light",
-      "locale": "en"
-    }
-    </script>
-  </div>
-  <!-- TradingView Widget END -->
+   <!-- SVG Gradients สำหรับเติมสีใต้กราฟเส้น -->
+<svg style="height: 0; width: 0; position: absolute;">
+  <defs>
+    <linearGradient id="apple-green-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34c759" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#34c759" stop-opacity="0.0"/>
+    </linearGradient>
+    <linearGradient id="apple-red-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff3b30" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ff3b30" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- Container แถบวิ่งสีขาวสไตล์ Apple -->
+<div class="apple-marquee-card">
+  <div class="marquee-track" id="marquee-track"></div>
 </div>
 
-<!-- CSS แต่งสไตล์แบบ Apple -->
 <style>
-  .apple-marquee-wrapper {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px); /* เอฟเฟกต์กระจกฝ้าแบบ iOS/macOS */
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 16px;
-    padding: 12px 16px;
-    margin: 20px auto;
-    max-width: 1200px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04); /* เงาฟุ้งนุ่มนวล */
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  /* Apple Clean White Marquee Style */
+  .apple-marquee-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 16px 0;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
   }
 
-  .apple-marquee-title {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.8px;
-    color: #86868b; /* สีเทาซิกเนเจอร์ของ Apple */
-    margin-bottom: 6px;
-    padding-left: 8px;
-    text-transform: uppercase;
+  /* Fade ขอบซ้าย-ขวา */
+  .apple-marquee-card::before, .apple-marquee-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 70px;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .apple-marquee-card::before { left: 0; background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0)); }
+  .apple-marquee-card::after { right: 0; background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0)); }
+
+  /* Track เคลื่อนที่ */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+  }
+  .apple-marquee-card:hover .marquee-track { animation-play-state: paused; }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 
-  /* ปรับแต่งส่วนของ TradingView ให้กลมกลืน */
-  .apple-marquee-wrapper .tradingview-widget-container {
-    background: transparent !important;
+  /* การ์ดแต่ละชิ้น */
+  .item-card {
+    background: #fbfbfd;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    padding: 12px 18px;
+    margin: 0 8px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
+  .item-card:hover {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .item-top { display: flex; justify-content: space-between; align-items: center; }
+  .item-name { font-size: 12px; font-weight: 600; color: #1d1d1f; }
+  .badge { font-size: 11px; font-weight: 600; padding: 2px 6px; border-radius: 6px; }
+  .badge-up { background: #eafbe8; color: #1b873f; }
+  .badge-down { background: #fdefef; color: #d70015; }
+
+  .item-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+  .price-val { font-size: 18px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.3px; }
+  .price-unit { font-size: 10px; font-weight: 500; color: #86868b; }
+
+  .sparkline { width: 76px; height: 28px; }
+  .sparkline path { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .sparkline.up path { stroke: #34c759; }
+  .sparkline.down path { stroke: #ff3b30; }
+  .sparkline.up .fill { fill: url(#apple-green-grad); stroke: none; }
+  .sparkline.down .fill { fill: url(#apple-red-grad); stroke: none; }
 </style>
+
+<script>
+  const data = [
+      { name: "HDPE (Yarn Grade)", price: "$1,040", unit: "USD/Ton", change: "+1.8%", isUp: true, history: [1000, 1010, 1005, 1025, 1030, 1040] },
+      { name: "PP (Rope Grade)", price: "$960", unit: "USD/Ton", change: "-0.5%", isUp: false, history: [980, 975, 970, 965, 968, 960] },
+      { name: "Nylon PA6 (Netting)", price: "$2,150", unit: "USD/Ton", change: "+2.4%", isUp: true, history: [2050, 2080, 2100, 2090, 2120, 2150] },
+      { name: "Steel Wire Rod", price: "$590", unit: "USD/Ton", change: "-1.2%", isUp: false, history: [610, 605, 600, 595, 598, 590] },
+      { name: "Zinc LME (Galvanize)", price: "$2,820", unit: "USD/Ton", change: "+0.9%", isUp: true, history: [2750, 2780, 2760, 2800, 2810, 2820] },
+      { name: "Brent Crude Oil", price: "$82.4", unit: "USD/Bbl", change: "+0.4%", isUp: true, history: [80, 81, 80.5, 81.8, 82, 82.4] },
+      { name: "USD / THB", price: "35.85", unit: "THB", change: "-0.1%", isUp: false, history: [36.1, 36.0, 35.95, 35.9, 35.88, 35.85] }
+  ];
+
+  function createSparkline(hist, isUp) {
+      const min = Math.min(...hist), max = Math.max(...hist), range = max - min || 1;
+      const w = 76, h = 28;
+      const pts = hist.map((v, i) => {
+          const x = (i / (hist.length - 1)) * w;
+          const y = h - ((v - min) / range) * (h - 6) - 3;
+          return `${x},${y}`;
+      });
+      const line = `M ${pts.join(' L ')}`;
+      const fill = `${line} L ${w},${h} L 0,${h} Z`;
+
+      return `
+          <svg class="sparkline ${isUp ? 'up' : 'down'}" viewBox="0 0 ${w} ${h}">
+              <path class="fill" d="${fill}" />
+              <path d="${line}" />
+          </svg>
+      `;
+  }
+
+  const track = document.getElementById('marquee-track');
+  const fullList = [...data, ...data];
+
+  track.innerHTML = fullList.map(item => `
+      <div class="item-card">
+          <div class="item-top">
+              <span class="item-name">${item.name}</span>
+              <span class="badge ${item.isUp ? 'badge-up' : 'badge-down'}">${item.change}</span>
+          </div>
+          <div class="item-bottom">
+              <div>
+                  <div class="price-val">${item.price}</div>
+                  <div class="price-unit">${item.unit}</div>
+              </div>
+              ${createSparkline(item.history, item.isUp)}
+          </div>
+      </div>
+  `).join('');
+</script>
 
     <div id="view-home" class="transition-all duration-300">
         <section class="relative h-[550px] md:h-[650px] w-full overflow-hidden bg-slate-900 text-white">
