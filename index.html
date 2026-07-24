@@ -172,24 +172,24 @@
 </div>
 
 <style>
-  /* Apple Clean White Marquee Style */
+  /* 1. ปรับกล่องใหญ่ให้เตี้ยลง */
   .apple-marquee-card {
     background: #ffffff;
-    border-radius: 18px;
-    padding: 16px 0;
+    border-radius: 14px; /* ลดความโค้งมนลงให้สมส่วน */
+    padding: 8px 0;      /* ลด Padding บน-ล่าง จาก 16px เหลือ 8px */
     border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
     position: relative;
     overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
   }
 
-  /* Fade ขอบซ้าย-ขวา */
+  /* Fade ขอบซ้าย-ขวา ย่อความกว้างลง */
   .apple-marquee-card::before, .apple-marquee-card::after {
     content: "";
     position: absolute;
     top: 0;
-    width: 70px;
+    width: 40px; /* ลดระยะ Fade ขอบจาก 70px เหลือ 40px */
     height: 100%;
     z-index: 3;
     pointer-events: none;
@@ -201,7 +201,7 @@
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee 32s linear infinite;
+    animation: marquee 30s linear infinite;
   }
   .apple-marquee-card:hover .marquee-track { animation-play-state: paused; }
 
@@ -210,38 +210,39 @@
     100% { transform: translateX(-50%); }
   }
 
-  /* การ์ดแต่ละชิ้น */
+  /* 2. ปรับการ์ดแต่ละใบให้แคบลง (Compact Item Card) */
   .item-card {
     background: #fbfbfd;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 12px;
-    padding: 12px 18px;
-    margin: 0 8px;
-    min-width: 220px;
+    border-radius: 10px;
+    padding: 8px 12px;   /* ลดระยะขอบขอบการ์ดข้างใน */
+    margin: 0 5px;        /* ลดระยะห่างระหว่างการ์ด */
+    min-width: 165px;     /* <--- จุดสำคัญ: ปรับความกว้างต่ำสุดลงจาก 220px เหลือ 165px */
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: 4px;             /* ลดระยะห่างระหว่างบรรทัด */
+    transition: all 0.2s ease;
   }
   .item-card:hover {
     background: #ffffff;
     border-color: rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
 
   .item-top { display: flex; justify-content: space-between; align-items: center; }
-  .item-name { font-size: 12px; font-weight: 600; color: #1d1d1f; }
-  .badge { font-size: 11px; font-weight: 600; padding: 2px 6px; border-radius: 6px; }
+  .item-name { font-size: 11px; font-weight: 600; color: #1d1d1f; }
+  .badge { font-size: 10px; font-weight: 600; padding: 1px 5px; border-radius: 4px; }
   .badge-up { background: #eafbe8; color: #1b873f; }
   .badge-down { background: #fdefef; color: #d70015; }
 
-  .item-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
-  .price-val { font-size: 18px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.3px; }
-  .price-unit { font-size: 10px; font-weight: 500; color: #86868b; }
+  .item-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; }
+  .price-val { font-size: 14px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.3px; } /* ปรับขนาดฟอนต์ราคาลง */
+  .price-unit { font-size: 9px; font-weight: 500; color: #86868b; }
 
-  .sparkline { width: 76px; height: 28px; }
-  .sparkline path { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  /* 3. ย่อขนาดกราฟ SVG */
+  .sparkline { width: 55px; height: 22px; } /* ปรับขนาดกราฟลงจาก 76x28 เหลือ 55x22 */
+  .sparkline path { fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   .sparkline.up path { stroke: #34c759; }
   .sparkline.down path { stroke: #ff3b30; }
   .sparkline.up .fill { fill: url(#apple-green-grad); stroke: none; }
