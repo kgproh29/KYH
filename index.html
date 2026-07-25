@@ -152,59 +152,72 @@
         </div>
     </nav>
 
-    <style>
-  /* ครอบ Container นอกด้วยดีไซน์ของเว็บเรา */
+   <style>
+  /* กรอบนอกแบบแนวยาวบรรทัดเดียว */
   .tv-widget-wrapper {
+    width: 100%;
+    overflow-x: auto;         /* รองรับการเลื่อนซ้าย-ขวาบนมือถือ */
+    overflow-y: hidden;
+    white-space: nowrap;       /* บังคับไม่ให้ขึ้นบรรทัดใหม่เด็ดขาด */
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 14px; /* ขอบมนสไตล์ Apple */
+    border-radius: 14px;      /* ขอบมนคลีนๆ สไตล์ Apple */
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
     padding: 4px 0;
-    overflow: hidden;
+  }
+
+  /* ปรับแต่ง Scrollbar ให้ดูมินิมอล (สำหรับเบราว์เซอร์ PC) */
+  .tv-widget-wrapper::-webkit-scrollbar {
+    height: 4px;
+  }
+  .tv-widget-wrapper::-webkit-scrollbar-thumb {
+    background: #e5e5ea;
+    border-radius: 4px;
   }
 </style>
 
 <div class="tv-widget-wrapper">
   <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {
-    "symbols": [
-      {
-        "proName": "FX_IDC:USDTHB",
-        "title": "USD / THB"
-      },
-      {
-        "proName": "CAPITALCOM:ZINC",
-        "title": "Zinc (LME)"
-      },
-      {
-        "proName": "COMEX:HRC1!",
-        "title": "Steel (HRC)"
-      },
-      {
-        "proName": "DCE:L1!",
-        "title": "HDPE / LLDPE"
-      },
-      {
-        "proName": "DCE:PP1!",
-        "title": "PP (Polypropylene)"
-      },
-      {
-        "proName": "NYMEX:CPA1!",
-        "title": "Nylon / Caprolactam"
-      }
-    ],
-    "showSymbolLogo": true,
-    "isTransparent": true,
-    "displayMode": "adaptive",
-    "colorTheme": "light",
-    "locale": "en"
-  }
-  </script>
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        {
+          "proName": "FX_IDC:USDTHB",
+          "title": "USD / THB"
+        },
+        {
+          "proName": "CAPITALCOM:ZINC",
+          "title": "Zinc (LME)"
+        },
+        {
+          "proName": "COMEX:HRC1!",
+          "title": "Steel (HRC)"
+        },
+        {
+          "proName": "DCE:L1!",
+          "title": "HDPE / LLDPE"
+        },
+        {
+          "proName": "DCE:PP1!",
+          "title": "PP (Polypropylene)"
+        },
+        {
+          "proName": "NYMEX:CPA1!",
+          "title": "Nylon / Caprolactam"
+        }
+      ],
+      "showSymbolLogo": true,
+      "isTransparent": true,
+      "displayMode": "regular",   /* <--- แก้ตรงนี้จาก adaptive เป็น regular */
+      "colorTheme": "light",
+      "locale": "en"
+    }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
 </div>
-<!-- TradingView Widget END -->
 </div>
 
     <div id="view-home" class="transition-all duration-300">
